@@ -82,9 +82,7 @@ std::string	PhoneBook::resizeEntry(std::string entryToResize)
 		{
 			resizedEntry = entryToResize;
 			resizedEntry.resize(9);
-			std::cout << resizedEntry << std::endl;
 			resizedEntry = resizedEntry + ".";
-			std::cout << resizedEntry << std::endl;
 		}
 	else
 		resizedEntry = entryToResize;
@@ -97,19 +95,19 @@ void	PhoneBook::displayAllContacts(void)
 	std::cout << "|     INDEX|FIRST NAME| LAST NAME|  NICKNAME|" << std::endl;
 	std::cout << "|__________|__________|__________|__________|" << std::endl;
 	
-	//faire une copie du tableau si length > 10
-	//str.resize(9) + "." sur la copie
 	for (int i = 0; (i < _nbEntries && i < 8); i++)
 	{
 		std::string tmp;
 		std::cout <<"|         " << i << "|";
 		std::cout << std::setw(10);
 		tmp = PhoneBook::resizeEntry(_contact[i].getFirstName());
-		std::cout << tmp /*_contact[i].getFirstName()*/ << "|";
+		std::cout << tmp << "|";
 		std::cout << std::setw(10);
-		std::cout << _contact[i].getLastName() << "|";
+		tmp = PhoneBook::resizeEntry(_contact[i].getLastName());
+		std::cout << tmp << "|";
 		std::cout << std::setw(10);
-		std::cout << _contact[i].getNickname() << "|";
+		tmp = PhoneBook::resizeEntry(_contact[i].getNickname());
+		std::cout << tmp << "|";
 		std::cout << std::endl;
 	}
 	std::cout << "|__________|__________|__________|__________|" << std::endl;
@@ -122,13 +120,17 @@ void	PhoneBook::searchEntry(void)
 	PhoneBook::displayAllContacts();
 	std::cout << std::endl;
 	std::cout << "Enter the INDEX of the contact to display: ";
-	std::getline(std::cin, search_index); //parsing sur search_index 0-7
+	std::getline(std::cin, search_index);
 	if ((search_index.length() < 1 || search_index.length() > 1))
 	{
 		std::cout << "Enter only one digit between 0 and " << (_nbEntries - 1) << std::endl;
 		searchEntry();
 	}
-	//if ()//only digits
+	if (!isdigit(search_index[0]))//only digits
+	{
+		std::cout << "Enter only one digit between 0 and " << (_nbEntries - 1) << std::endl;
+		searchEntry();
+	}
 	if (atoi(search_index.c_str()) < 0
 		|| (atoi(search_index.c_str()) > (_nbEntries - 1)))
 	{
