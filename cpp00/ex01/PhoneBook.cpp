@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:08:47 by subrandt          #+#    #+#             */
-/*   Updated: 2023/01/10 09:12:16 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/01/10 10:59:54 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,23 +123,35 @@ void	PhoneBook::searchEntry(void)
 	std::getline(std::cin, search_index);
 	if ((search_index.length() < 1 || search_index.length() > 1))
 	{
+		if (_nbEntries > 8)
+		{
+			std::cout << "Enter a digit between 0 and 7" << std::endl;
+			return ;
+		}
 		std::cout << "Enter only one digit between 0 and " << (_nbEntries - 1) << std::endl;
 		return ;
-		//std::getline(std::cin, search_index);
+	}
+	if (atoi(search_index.c_str()) < 0
+		|| (((atoi(search_index.c_str()) > (_nbEntries - 1))
+		|| (atoi(search_index.c_str()) > 7))))
+	{
+		if (_nbEntries > 8)
+		{
+			std::cout << "Enter a digit between 0 and 7" << std::endl;
+			return ;
+		}
+		std::cout << "Enter a digit between 0 and " << (_nbEntries - 1) << std::endl;
+		return ;
 	}
 	if (!isdigit(search_index[0]))//only digits
 	{
+		if (_nbEntries > 8)
+		{
+			std::cout << "Enter a digit between 0 and 7" << std::endl;
+			return ;
+		}
 		std::cout << "Enter only one digit between 0 and " << (_nbEntries - 1) << std::endl;
 		return ;
-		//std::getline(std::cin, search_index);
-	}
-	if (atoi(search_index.c_str()) < 0
-		|| ((atoi(search_index.c_str()) > (_nbEntries - 1))
-		&& (atoi(search_index.c_str()) > 7)))
-	{
-		std::cout << "Enter a digit between 0 and " << (_nbEntries - 1) << std::endl;
-		return ;
-		//std::getline(std::cin, search_index);
 	}
 	else
 		PhoneBook::displayOneContact(atoi(search_index.c_str()));
