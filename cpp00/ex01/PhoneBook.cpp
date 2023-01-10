@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:08:47 by subrandt          #+#    #+#             */
-/*   Updated: 2023/01/09 18:12:27 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/01/10 09:12:16 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,18 +124,22 @@ void	PhoneBook::searchEntry(void)
 	if ((search_index.length() < 1 || search_index.length() > 1))
 	{
 		std::cout << "Enter only one digit between 0 and " << (_nbEntries - 1) << std::endl;
-		searchEntry();
+		return ;
+		//std::getline(std::cin, search_index);
 	}
 	if (!isdigit(search_index[0]))//only digits
 	{
 		std::cout << "Enter only one digit between 0 and " << (_nbEntries - 1) << std::endl;
-		searchEntry();
+		return ;
+		//std::getline(std::cin, search_index);
 	}
 	if (atoi(search_index.c_str()) < 0
-		|| (atoi(search_index.c_str()) > (_nbEntries - 1)))
+		|| ((atoi(search_index.c_str()) > (_nbEntries - 1))
+		&& (atoi(search_index.c_str()) > 7)))
 	{
 		std::cout << "Enter a digit between 0 and " << (_nbEntries - 1) << std::endl;
-		searchEntry();
+		return ;
+		//std::getline(std::cin, search_index);
 	}
 	else
 		PhoneBook::displayOneContact(atoi(search_index.c_str()));
