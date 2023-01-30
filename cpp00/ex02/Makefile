@@ -6,13 +6,13 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/03 15:05:57 by subrandt          #+#    #+#              #
-#    Updated: 2023/01/26 18:04:18 by subrandt         ###   ########.fr        #
+#    Updated: 2023/01/30 11:56:31 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		account
 
-SRC =		main.cpp 		\
+SRC =		tests.cpp 		\
 			Account.cpp
 
 OBJ =		$(SRC:.cpp=.o)

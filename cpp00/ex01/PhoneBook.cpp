@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/03 15:08:47 by subrandt          #+#    #+#             */
-/*   Updated: 2023/01/10 10:59:54 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/01/30 10:54:33 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,11 @@ void	PhoneBook::searchEntry(void)
 	
 	PhoneBook::displayAllContacts();
 	std::cout << std::endl;
+	if (_nbEntries == 0)
+	{
+			std::cout << "There are no entries yet." << std::endl;
+			return ;
+	}
 	std::cout << "Enter the INDEX of the contact to display: ";
 	std::getline(std::cin, search_index);
 	if ((search_index.length() < 1 || search_index.length() > 1))

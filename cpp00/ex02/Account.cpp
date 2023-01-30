@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 17:50:05 by subrandt          #+#    #+#             */
-/*   Updated: 2023/01/27 19:09:57 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/01/30 11:53:28 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void	Account::_displayTimestamp( void )
 	std::cout << ltm->tm_hour << ltm->tm_min;
 	std::cout << std::setfill ('0') << std::setw (2) << ltm->tm_sec;
 	std::cout << "] ";
+	//pour les tests : ./account > toto puis diff toto output
+	//std::cout << "[19920104_091532] ";
 }
 
 void	Account::makeDeposit( int deposit ) 
@@ -92,9 +94,10 @@ void	Account::makeDeposit( int deposit )
 	_nbDeposits += 1;
 	_amount += deposit;
 	_totalNbDeposits += _nbDeposits;
+	_totalAmount += deposit;
 	std::cout << ";deposit:" << deposit;
 	std::cout << ";amount:" << this->_amount;
-	std::cout << ";deposits:" << this->_nbDeposits << std::endl;
+	std::cout << ";nb_deposits:" << this->_nbDeposits << std::endl;
 }
 
 bool	Account::makeWithdrawal( int withdrawal ) 
@@ -106,13 +109,18 @@ bool	Account::makeWithdrawal( int withdrawal )
 	if (_amount - withdrawal <= 0)
 	{
 		_amount = _amount;
-		std::cout << ";withdrawals:" << this->_nbWithdrawals;
+		_nbWithdrawals = 0;
+		std::cout << ";withdrawal:" ;
 		std::cout << "refused" << std::endl;
 		return (false);
 	}
-	_totalNbWithdrawals += _nbWithdrawals;
-	_amount -= withdrawal;
-	std::cout << ";withdrawals:" << this->_nbWithdrawals;
+	else
+	{
+		_totalNbWithdrawals += _nbWithdrawals;
+		_amount -= withdrawal;
+		_totalAmount -= withdrawal;
+	}
+	std::cout << ";withdrawal:" << withdrawal;
 	std::cout << ";amount:" << this->_amount;
 	std::cout << ";nb_withdrawals:" << this->_nbWithdrawals << std::endl;
 	return (true);
@@ -129,5 +137,4 @@ void	Account::displayStatus( void ) const
 	std::cout << ";amount:" << this->_amount;
 	std::cout << ";deposits:" << this->_nbDeposits;
 	std::cout << ";withdrawals:" << this->_nbWithdrawals << std::endl;
-
 }
