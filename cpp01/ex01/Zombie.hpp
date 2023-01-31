@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:00:51 by subrandt          #+#    #+#             */
-/*   Updated: 2023/01/31 16:07:21 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:09:43 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ class	Zombie
 	private:
 		std::string	name;
 };
-//create, name and return and return a zombie
-Zombie* newZombie(std::string name);
 
-//create and name a zombie and the zombie announces itself.
-void randomChump(std::string name);
+Zombie* zombieHorde(int N, std::string name);
 
 #endif

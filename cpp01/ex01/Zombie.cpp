@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 18:00:51 by subrandt          #+#    #+#             */
-/*   Updated: 2023/01/31 16:07:21 by subrandt         ###   ########.fr       */
+/*   Created: 2023/01/30 18:01:38 by subrandt          #+#    #+#             */
+/*   Updated: 2023/01/31 17:11:44 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Zombie.hpp"
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
-
-class	Zombie
+Zombie::Zombie(std::string name)
 {
-	public:
-		Zombie(std::string name);
-		~Zombie(void);
-		void	announce(void);
+	std::cout << std::endl;
+	std::cout << "Constructor Zombie called" << std::endl;
+	this->name = name;
+	return ;
+}
 
-	private:
-		std::string	name;
-};
-//create, name and return and return a zombie
-Zombie* newZombie(std::string name);
+Zombie::~Zombie(void)
+{
+	std::cout << "Destructor Zombie called" << std::endl;
+	std::cout << std::endl;	
+	return ;
+}
 
-//create and name a zombie and the zombie announces itself.
-void randomChump(std::string name);
-
-#endif
+void	Zombie::announce(void)
+{
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	return ;
+}
