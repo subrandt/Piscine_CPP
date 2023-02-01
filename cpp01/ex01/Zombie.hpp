@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:00:51 by subrandt          #+#    #+#             */
-/*   Updated: 2023/01/31 16:09:43 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/01 11:51:59 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 class	Zombie
 {
 	public:
+		Zombie(void);//constructeur par default
 		Zombie(std::string name);
 		~Zombie(void);
+		void	setName(std::string name);
 		void	announce(void);
 
 	private:
-		std::string	name;
+		std::string	_name;
 };
 
 Zombie* zombieHorde(int N, std::string name);

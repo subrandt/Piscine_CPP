@@ -6,12 +6,12 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 17:57:57 by subrandt          #+#    #+#              #
-#    Updated: 2023/01/31 17:18:36 by subrandt         ###   ########.fr        #
+#    Updated: 2023/02/01 11:51:10 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
-NAME =		zombie
+NAME =		zombie_horde
 
 SRC =		main.cpp		\
 			Zombie.cpp		\

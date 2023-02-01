@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:02:16 by subrandt          #+#    #+#             */
-/*   Updated: 2023/01/31 17:19:27 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/01 11:49:17 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 Zombie*	zombieHorde(int N, std::string name)
 {
-	Zombie* horde = new Zombie(3, name);
+	Zombie* horde = new Zombie[N];
+	std::cout << N << " zombies allocated" << std::endl;
 
+	for(int i = 0; i < N; i++)
+	{
+		horde[i].setName(name);
+	}
 	return (horde);
 }
