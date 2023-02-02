@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:33:01 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/02 12:59:57 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/02 13:14:24 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 # include <iostream>
+# include "Weapon.hpp"
 
-class	Weapon
+
+class	HumanB
 {
 	public:
-		Weapon(void);//constructeur par default
-		Weapon(std::string type);//constructeur Weapon_type
-		~Weapon(void);
-		std::string	getType() const;//retourne une référence constante sur type
-		void	setType(std::string type);//attribue à type la nouvelle valeur passée en paramètre
+		HumanB(std::string name);
+		~HumanB(void);
+		void	attack(void);
+		void	setWeapon(Weapon &weapon);
 
 	private:
-		std::string	_type;
+		HumanB(void);
+		std::string	_name;
+		Weapon *_weapon;
 };
 
 #endif

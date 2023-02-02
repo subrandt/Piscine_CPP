@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:33:01 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/02 12:59:57 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/02 11:36:02 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 # include <iostream>
+# include "Weapon.hpp"
 
-class	Weapon
+
+class	HumanA
 {
 	public:
-		Weapon(void);//constructeur par default
-		Weapon(std::string type);//constructeur Weapon_type
-		~Weapon(void);
-		std::string	getType() const;//retourne une référence constante sur type
-		void	setType(std::string type);//attribue à type la nouvelle valeur passée en paramètre
+		HumanA(std::string name, Weapon &weapon);
+		~HumanA(void);
+		void	attack(void);
 
 	private:
-		std::string	_type;
+		HumanA(void);
+		std::string	_name;
+		Weapon &_weapon;
 };
 
 #endif

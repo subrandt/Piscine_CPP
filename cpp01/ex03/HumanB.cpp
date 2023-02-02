@@ -1,42 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:32:45 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/02 12:04:14 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/02 14:06:18 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "HumanB.hpp"
 #include "Weapon.hpp"
 
-Weapon::Weapon(void)
+HumanB::HumanB(void)
 {
-	std::cout << "Default constructor Weapon called" << std::endl;
+	std::cout << "Default constructor HumanB called" << std::endl;
 	return ;
 }
 
-Weapon::Weapon(std::string type)
+HumanB::HumanB(std::string name)
 {
-	std::cout << "Constructor Weapon called" << std::endl;
-	this->_type = type;
+	std::cout << "Constructor HumanB called" << std::endl;
+	this->_name = name;
+	this->_weapon = NULL;
 	return ;
 }
 
-Weapon::~Weapon(void)
+HumanB::~HumanB(void)
 {
-	std::cout << "Destructor Weapon called" << std::endl;
+	std::cout << "Destructor HumanB called" << std::endl;
 	return ;
 }
 
-std::string	Weapon::getType() const
+void	HumanB::attack(void)
 {
-	return (_type);
+	if (this->_weapon == NULL)
+		return ;
+	std::cout << this->_name << " attacks with their " << this->_weapon->getType();
+	std::cout << std::endl;
+	return ;
 }
 
-void	Weapon::setType(std::string type)
+void	HumanB::setWeapon(Weapon &weapon)
 {
-	_type = type;
+	_weapon = &weapon;
 }
+

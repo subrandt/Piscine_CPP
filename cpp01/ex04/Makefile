@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/01 17:01:45 by subrandt          #+#    #+#              #
-#    Updated: 2023/02/02 08:33:35 by subrandt         ###   ########.fr        #
+#    Created: 2023/02/02 12:54:37 by subrandt          #+#    #+#              #
+#    Updated: 2023/02/02 12:54:42 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		brain
+NAME =		replace
 
 SRC =		main.cpp
 

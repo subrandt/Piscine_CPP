@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:32:45 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/02 12:04:14 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/02 11:36:03 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "HumanA.hpp"
 #include "Weapon.hpp"
 
-Weapon::Weapon(void)
+/*HumanA::HumanA(void)
 {
-	std::cout << "Default constructor Weapon called" << std::endl;
+	std::cout << "Default constructor HumanA called" << std::endl;
+	return ;
+}*/
+
+HumanA::HumanA(std::string name, Weapon &weapon)
+	: _weapon(weapon) //initialiser 
+{
+	std::cout << "Constructor HumanA called" << std::endl;
+	this->_name = name;
+	//this->_weapon = weapon;
 	return ;
 }
 
-Weapon::Weapon(std::string type)
+HumanA::~HumanA(void)
 {
-	std::cout << "Constructor Weapon called" << std::endl;
-	this->_type = type;
+	std::cout << "Destructor HumanA called" << std::endl;
 	return ;
 }
 
-Weapon::~Weapon(void)
+void	HumanA::attack(void)
 {
-	std::cout << "Destructor Weapon called" << std::endl;
+	std::cout << this->_name << " attacks with their " << this->_weapon.getType();
+	std::cout << std::endl;
 	return ;
-}
-
-std::string	Weapon::getType() const
-{
-	return (_type);
-}
-
-void	Weapon::setType(std::string type)
-{
-	_type = type;
 }

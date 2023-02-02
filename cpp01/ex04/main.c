@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 08:33:01 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/02 12:59:57 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/02 12:55:07 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/02 13:00:15 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "replace.h"
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
-# include <iostream>
-
-class	Weapon
+int main(int argc, char **argv)
 {
-	public:
-		Weapon(void);//constructeur par default
-		Weapon(std::string type);//constructeur Weapon_type
-		~Weapon(void);
-		std::string	getType() const;//retourne une référence constante sur type
-		void	setType(std::string type);//attribue à type la nouvelle valeur passée en paramètre
+	if (argc != 2)
+	{
+		//message d'erreur sur la sortie d'erreur
+		return(1);
+	}
 
-	private:
-		std::string	_type;
-};
-
-#endif
+	return (0);
+}
