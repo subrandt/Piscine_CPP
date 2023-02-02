@@ -6,13 +6,14 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 12:54:37 by subrandt          #+#    #+#              #
-#    Updated: 2023/02/02 12:54:42 by subrandt         ###   ########.fr        #
+#    Updated: 2023/02/02 15:03:17 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		replace
 
-SRC =		main.cpp
+SRC =		main.cpp	\
+			Replace.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 

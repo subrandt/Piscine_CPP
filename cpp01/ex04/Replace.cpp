@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   Replace.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 12:55:07 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/02 16:41:54 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/02 14:41:09 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/02 15:23:14 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Replace.hpp"
 
-int main(int argc, char **argv)
+Replace::Replace(void)
 {
-	if (argc != 4)
-	{
-		//message d'erreur sur la sortie d'erreur
-		std::cerr << "Wrong number of arguments" << std::endl;
-		return(1);
-	}
-	//recuperer les args
-	//ouvrir le fichier, lire ligne/ligne
-	//puis remplacer s1 par s2
-		//remplacer la fonction replace par :
-		//erase
-		//append
-	return (0);
+	std::cout << "Default constructor Replace called" << std::endl;
+	return ;
+}
+
+Replace::~Replace(void)
+{
+	std::cout << "Destructor Replace called" << std::endl;
+	return ;
 }
