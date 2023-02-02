@@ -10,19 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
-
 #ifndef REPLACE_HPP
 # define REPLACE_HPP
+
+# include <iostream>
+# include <fstream>
+# include <string>
 
 class	Replace
 {
 	public:
 		Replace(void);
 		~Replace(void);
+		std::string	filename;
 		std::string	s1;
 		std::string s2;
+		
 	private:
 };
 

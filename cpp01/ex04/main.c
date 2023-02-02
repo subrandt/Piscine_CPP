@@ -20,6 +20,17 @@ int main(int argc, char **argv)
 		std::cerr << "Wrong number of arguments" << std::endl;
 		return(1);
 	}
+	std::fstream file;
+	file.open("filename"); //open a file to perform read operation using file object
+	if (file.is_open()) //checking whether the file is open
+	{
+    	std::string tp;
+    	while(getline(file, tp)){ //read data from file object and put it into string.
+        	std::cout << tp << "\n"; //print the data of the string
+		}
+    }
+    file.close(); //close the file object.
+	
 	//recuperer les args
 	//ouvrir le fichier, lire ligne/ligne
 	//puis remplacer s1 par s2
