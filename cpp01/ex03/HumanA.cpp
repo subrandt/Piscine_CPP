@@ -6,25 +6,18 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 08:32:45 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/02 11:36:03 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/03 16:07:02 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "Weapon.hpp"
 
-/*HumanA::HumanA(void)
-{
-	std::cout << "Default constructor HumanA called" << std::endl;
-	return ;
-}*/
-
 HumanA::HumanA(std::string name, Weapon &weapon)
-	: _weapon(weapon) //initialiser 
+	: _weapon(weapon) //initialisation
 {
 	std::cout << "Constructor HumanA called" << std::endl;
 	this->_name = name;
-	//this->_weapon = weapon;
 	return ;
 }
 

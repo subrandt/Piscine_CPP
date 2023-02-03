@@ -1,9 +1,9 @@
-Concevez un programme prenant trois paramètres dans l’ordre suivant : un nom de
-fichier et deux strings, s1 et s2.
-Le fichier <filename> sera ouvert et son contenu copié dans un nouveau fichier
-<filename>.replace, où chaque occurrence de s1 sera remplacée par s2.
-Avoir recours aux fonctions C de manipulation de fichiers est interdit et sera considéré
-comme de la triche. Toutes les fonctions membres de la classe std::string sont autori-
-sées sauf replace. Utilisez-les intelligemment !
-Bien entendu, vous devez gérer les entrées inattendues et les erreurs possibles. Créez
-et rendez vos propres tests afin de prouver que votre programme fonctionne.
+Create a program that takes three parameters in the following order: a filename and
+two strings, s1 and s2.
+It will open the file <filename> and copies its content into a new file
+<filename>.replace, replacing every occurrence of s1 with s2.
+Using C file manipulation functions is forbidden and will be considered cheating. All
+the member functions of the class std::string are allowed, except replace. Use them
+wisely!
+Of course, handle unexpected inputs and errors. You have to create and turn in your
+own tests to ensure your program works as expected.
