@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/02 08:33:01 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/06 13:49:47 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/06 16:55:29 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/06 17:02:31 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Harl.hpp"
 
-#ifndef WEAPON_HPP
-# define WEAPON_HPP
-# include <iostream>
-
-class	Weapon
+int main(int argc, char **argv)
 {
-	public:
-		Weapon(void);
-		Weapon(std::string type);
-		~Weapon(void);
-		std::string	getType() const;//retourne une référence constante sur type
-		void	setType(std::string type);//attribue à type la nouvelle valeur passée en paramètre
-
-	private:
-		std::string	_type;
-};
-
-#endif
+	if (argc != 2)
+	{
+		std::cout << "Wrong number of arguments" << std::endl;
+		return(1);
+	}
+	Harl Harl;
+	Harl.complain(argv[1]);
+    return (0);
+}

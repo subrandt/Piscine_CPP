@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 16:11:10 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/03 16:56:45 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:23:55 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class	Harl
 		void complain(std::string level);
 
 	private:
+		void  (Harl::*_complain_level[4])(void);
 		void debug(void);
 		void info(void);
 		void warning(void);
