@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 18:02:16 by subrandt          #+#    #+#             */
-/*   Updated: 2023/01/31 15:55:33 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/07 10:56:12 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@
 Zombie* newZombie(std::string name)
 {
 	Zombie* jerks = new Zombie(name);
-	std::cout << jerks << " created (new)" << std::endl;
+	std::cout << name << " created (with new)" << std::endl;
 	return (jerks);
 }
