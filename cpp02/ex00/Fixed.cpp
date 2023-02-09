@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 18:02:16 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/09 11:06:17 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/09 14:04:13 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/09 17:06:23 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.hpp"
 
-//allocate zombies on the heap - return, announce and delete in main
-Zombie* newZombie(std::string name)
+Fixed::Fixed(void)
 {
-	Zombie* jerks = new Zombie(name);
-	return (jerks);
+	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::~Fixed(void)
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
+int	Fixed::getRawBits(void) const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return(_raw);
+}
+
+void Fixed::setRawBits(int const raw)
+{
+	_raw = raw;
 }

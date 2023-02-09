@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 18:02:16 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/09 11:06:17 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/02 08:33:01 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/02 13:14:24 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
 
-//allocate zombies on the heap - return, announce and delete in main
-Zombie* newZombie(std::string name)
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
+# include <iostream>
+# include "Weapon.hpp"
+
+
+class	HumanB
 {
-	Zombie* jerks = new Zombie(name);
-	return (jerks);
-}
+	public:
+		HumanB(std::string name);
+		~HumanB(void);
+		void	attack(void);
+		void	setWeapon(Weapon &weapon);
+
+	private:
+		HumanB(void);
+		std::string	_name;
+		Weapon *_weapon;
+};
+
+#endif

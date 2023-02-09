@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 18:01:38 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/09 11:07:33 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/02 08:32:45 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/03 16:07:02 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "Weapon.hpp"
 
-Zombie::Zombie(std::string name)
+HumanA::HumanA(std::string name, Weapon &weapon)
+	: _weapon(weapon) //initialisation
 {
-	this->name = name;
-	std::cout << "Constructor Zombie " << name;
-	std::cout << " called" << std::endl;
+	std::cout << "Constructor HumanA called" << std::endl;
+	this->_name = name;
 	return ;
 }
 
-Zombie::~Zombie(void)
+HumanA::~HumanA(void)
 {
-	std::cout << "Destructor Zombie " << name;
-	std::cout << " called" << std::endl;
-	std::cout << std::endl;	
+	std::cout << "Destructor HumanA called" << std::endl;
 	return ;
 }
 
-void	Zombie::announce(void)
+void	HumanA::attack(void)
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << this->_name << " attacks with their " << this->_weapon.getType();
+	std::cout << std::endl;
 	return ;
 }

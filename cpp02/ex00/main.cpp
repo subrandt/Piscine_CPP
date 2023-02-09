@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 18:02:16 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/09 11:06:17 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/09 13:55:32 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/09 17:05:41 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.hpp"
 
-//allocate zombies on the heap - return, announce and delete in main
-Zombie* newZombie(std::string name)
+int main(void)
 {
-	Zombie* jerks = new Zombie(name);
-	return (jerks);
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+
+	c = b;
+	
+	// std::cout << a.getRawBits() << std::endl;
+	// std::cout << b.getRawBits() << std::endl;
+	// std::cout << c.getRawBits() << std::endl;
+
+	return (0);
 }

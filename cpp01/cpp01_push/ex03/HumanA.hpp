@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 18:02:16 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/09 11:06:17 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/02 08:33:01 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/02 11:36:02 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
 
-//allocate zombies on the heap - return, announce and delete in main
-Zombie* newZombie(std::string name)
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
+# include <iostream>
+# include "Weapon.hpp"
+
+
+class	HumanA
 {
-	Zombie* jerks = new Zombie(name);
-	return (jerks);
-}
+	public:
+		HumanA(std::string name, Weapon &weapon);
+		~HumanA(void);
+		void	attack(void);
+
+	private:
+		HumanA(void);
+		std::string	_name;
+		Weapon &_weapon;
+};
+
+#endif

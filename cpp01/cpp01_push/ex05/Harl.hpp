@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 18:02:16 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/09 11:06:17 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/03 16:11:10 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/06 16:23:55 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
+# include <iostream>
 
-//allocate zombies on the heap - return, announce and delete in main
-Zombie* newZombie(std::string name)
+class	Harl
 {
-	Zombie* jerks = new Zombie(name);
-	return (jerks);
-}
+	public:
+		Harl(void);
+		~Harl(void);
+		void complain(std::string level);
+
+	private:
+		void  (Harl::*_complain_level[4])(void);
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+};
+
+#endif

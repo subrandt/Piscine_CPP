@@ -1,35 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 18:01:38 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/09 11:07:33 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/02 08:32:45 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/02 12:04:14 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-Zombie::Zombie(std::string name)
+Weapon::Weapon(void)
 {
-	this->name = name;
-	std::cout << "Constructor Zombie " << name;
-	std::cout << " called" << std::endl;
+	std::cout << "Default constructor Weapon called" << std::endl;
 	return ;
 }
 
-Zombie::~Zombie(void)
+Weapon::Weapon(std::string type)
 {
-	std::cout << "Destructor Zombie " << name;
-	std::cout << " called" << std::endl;
-	std::cout << std::endl;	
+	std::cout << "Constructor Weapon called" << std::endl;
+	this->_type = type;
 	return ;
 }
 
-void	Zombie::announce(void)
+Weapon::~Weapon(void)
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << "Destructor Weapon called" << std::endl;
 	return ;
+}
+
+std::string	Weapon::getType() const
+{
+	return (_type);
+}
+
+void	Weapon::setType(std::string type)
+{
+	_type = type;
 }
