@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 14:04:13 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/10 16:44:02 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/10 16:25:31 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/10 17:44:07 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 Fixed::Fixed(void) : _raw (0)
 {
 	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(int const)
+{
+
+	std::cout << "Int constructor called" << std::endl;
+}
+
+Fixed::Fixed(float const)
+{
+	std::cout << "Float constructor called" << std::endl;
+
 }
 
 Fixed::Fixed(Fixed const & raw)
@@ -40,11 +52,28 @@ Fixed::~Fixed(void)
 
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	//std::cout << "getRawBits member function called" << std::endl;
 	return(_raw);
 }
 
 void Fixed::setRawBits(int const raw)
 {
 	_raw = raw;
+}
+
+float	Fixed::toFloat( void ) const
+{
+	return 0;
+}
+
+int		Fixed::toInt( void ) const
+{
+	return 0;
+
+}
+
+std::ostream & operator<<(std::ostream & o, Fixed const & i)
+{
+	o << "The value of _raw is: " << i.getRawBits();
+	return (o);
 }

@@ -5,11 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/09 13:57:48 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/10 14:54:25 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/10 16:24:16 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/10 17:41:18 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cmath>
 #include <iostream>
 
 #ifndef FIXED_HPP
@@ -19,11 +20,15 @@ class	Fixed						//Canonical
 {
 	public:
 		Fixed(void);				//Default constructor
+		Fixed(int const value);
+		Fixed(float const f_value);
 		Fixed(Fixed const & raw);	//Copy constructor
 		~Fixed(void);				//Destructor
 		
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+		float	toFloat( void ) const;
+		int		toInt( void ) const;
 
 		Fixed & operator=(Fixed const & rhs); //Assignement operator
 
@@ -31,5 +36,7 @@ class	Fixed						//Canonical
 		int _raw;
 		static const int _bit = 8;
 };
+
+std::ostream & operator<<(std::ostream & o, Fixed const & i);
 
 #endif
