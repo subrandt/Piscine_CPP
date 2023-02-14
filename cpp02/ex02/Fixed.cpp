@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:38:45 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/13 21:52:12 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/14 12:11:26 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,22 +92,22 @@ bool Fixed::operator!=(Fixed const & rhs)
 
 Fixed Fixed::operator+(Fixed const &rhs)
 {
-	return (this->getRawBits() + rhs.getRawBits());
+	return (Fixed(this->toFloat() + rhs.toFloat()));
 }
 
 Fixed Fixed::operator-(Fixed const &rhs)
 {
-	return (this->getRawBits() - rhs.getRawBits());
+	return (Fixed(this->toFloat() - rhs.toFloat()));
 }
 
 Fixed Fixed::operator*(Fixed const &rhs)
 {
-	return (this->getRawBits() * rhs.getRawBits());
+	return (Fixed(this->toFloat() * rhs.toFloat()));
 }
 
 Fixed Fixed::operator/(Fixed const &rhs)
 {
-	return (this->getRawBits() / rhs.getRawBits());
+	return (Fixed(this->toFloat() / rhs.toFloat()));
 }
 
 Fixed & Fixed::operator++(void)
@@ -119,7 +119,7 @@ Fixed & Fixed::operator++(void)
 Fixed Fixed::operator++(int)
 {
 	Fixed tmp = *this;
-	tmp.setRawBits(tmp.getRawBits() + 1);
+	this->setRawBits(this->getRawBits() + 1);
 	return (tmp);
 }
 

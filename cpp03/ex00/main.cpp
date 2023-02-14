@@ -5,33 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 15:39:05 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/14 12:27:44 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/14 09:03:19 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/14 09:05:23 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "ClapTrap.hpp"
 
 int main(void)
 {
-	std::cout << "subject's tests: " << std::endl;
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	ClapTrap a;
 	
-	std::cout << "        a = " << a << std::endl;
-	std::cout << "      ++a = " << ++a << std::endl;
-	std::cout << "        a = " << a << std::endl;
-	std::cout << "      a++ = " << a++ << std::endl;
-	std::cout << "        a = " << a << std::endl;
-	std::cout << "        b = " << b << std::endl;
-	std::cout << "max(a, b) = " << Fixed::max( a, b ) << std::endl;
-	std::cout << std::endl;
-
-	std::cout << "additional tests: " << std::endl;
-	//int c(8);
-	//int d(-10);
-
-
-
 	return (0);
 }
