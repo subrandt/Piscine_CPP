@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:38:54 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/14 08:02:33 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:25:06 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ class	Fixed								//Canonical
 		Fixed operator*(Fixed const &rhs);
 		Fixed operator/(Fixed const &rhs);
 		// Increment/decrement operators:
-		Fixed & operator++(void); 		//prefix increment
-		Fixed operator++(int);	//postfix increment
+		Fixed & operator++(void); 	//prefix increment
+		Fixed operator++(int);		//postfix increment
 		Fixed & operator--(void);
 		Fixed operator--(int);
 
 		// Overloaded static member functions:
-		static Fixed & min(Fixed &lhs, Fixed &rhs);
+		static Fixed min(Fixed &lhs, Fixed &rhs);
 		static Fixed min(Fixed const &lhs, Fixed const &rhs);
 		static Fixed max(Fixed &lhs, Fixed &rhs);
 		static Fixed max(Fixed const &lhs, Fixed const &rhs);

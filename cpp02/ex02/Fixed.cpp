@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:38:45 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/14 12:11:26 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:25:45 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,22 +68,6 @@ bool Fixed::operator>=(Fixed const & rhs)
 
 bool Fixed::operator<=(Fixed const & rhs)
 {
-	if (this->getRawBits() <= rhs.getRawBits())
-		return (true);
-	else
-		return (false);
-}
-
-bool Fixed::operator==(Fixed const & rhs)
-{
-	if (this->getRawBits() == rhs.getRawBits())
-		return (true);
-	else
-		return (false);
-}
-
-bool Fixed::operator!=(Fixed const & rhs)
-{
 	if (this->getRawBits() != rhs.getRawBits())
 		return (true);
 	else
@@ -110,13 +94,13 @@ Fixed Fixed::operator/(Fixed const &rhs)
 	return (Fixed(this->toFloat() / rhs.toFloat()));
 }
 
-Fixed & Fixed::operator++(void)
+Fixed & Fixed::operator++(void) //prefix increment
 {
 	this->setRawBits(this->getRawBits() + 1);
 	return (*this);
 }
 
-Fixed Fixed::operator++(int)
+Fixed Fixed::operator++(int) 	//postfix increment
 {
 	Fixed tmp = *this;
 	this->setRawBits(this->getRawBits() + 1);
@@ -136,9 +120,9 @@ Fixed Fixed::operator--(int)
 	return (tmp);
 }
 
-Fixed & Fixed::min(Fixed &lhs, Fixed &rhs)
+Fixed Fixed::min(Fixed &lhs, Fixed &rhs)
 {
-	if (lhs < rhs)
+	if (lhs.getRawBits() < rhs.getRawBits())
 		return (lhs);
 	else
 		return (rhs);
@@ -146,7 +130,7 @@ Fixed & Fixed::min(Fixed &lhs, Fixed &rhs)
 
 Fixed  Fixed::min(Fixed const &lhs, Fixed const &rhs)
 {
-	if ((Fixed)lhs < (Fixed)rhs)
+	if (lhs.getRawBits() < rhs.getRawBits())
 		return (lhs);
 	else
 		return (rhs);
@@ -154,7 +138,7 @@ Fixed  Fixed::min(Fixed const &lhs, Fixed const &rhs)
 
 Fixed Fixed::max(Fixed &lhs, Fixed &rhs)
 {
-	if (lhs.getRawBits() < rhs.getRawBits())
+	if (lhs.getRawBits() > rhs.getRawBits())
 		return (lhs);
 	else
 		return (rhs);

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:39:05 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/14 12:27:44 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:18:24 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,27 @@ int main(void)
 	std::cout << std::endl;
 
 	std::cout << "additional tests: " << std::endl;
-	//int c(8);
-	//int d(-10);
-
-
-
+	Fixed c(8.00f);
+	Fixed d(-10.00f);
+	std::cout << "        c = " << c << std::endl;
+	std::cout << "        d = " << d << std::endl;
+	std::cout << "      d-- = " << d-- << std::endl;
+	std::cout << "      d++ = " << d++ << std::endl;
+	std::cout << "    c + d = " << c + d << std::endl;
+	std::cout << "    c - d = " << c - d << std::endl;
+	std::cout << "    c * d = " << Fixed(c * d) << std::endl;
+	std::cout << "    c / d = " << Fixed(c / d) << std::endl;
+	std::cout << "min(c, d) = " << Fixed::max(c, d) << std::endl;
+	std::cout << "    c > d = ";
+	if (Fixed(c) > Fixed(d))
+		std::cout << "true" << std::endl;
+	else
+		std::cout << "false" << std::endl;
+	std::cout << "    c < d = ";
+	if (Fixed(c) < Fixed(d))
+		std::cout << "true" << std::endl;
+	else
+		std::cout << "false" << std::endl;
+	
 	return (0);
 }
