@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/10 16:25:31 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/15 12:35:22 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/09 14:04:13 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/10 16:44:02 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,6 @@
 Fixed::Fixed(void) : _raw (0)
 {
 	std::cout << "Default constructor called" << std::endl;
-	std::cout << "Initialisation of _raw-value : _raw = " << _raw << std::endl;
-}
-
-Fixed::Fixed(int const int_value) : _raw (int_value << _bit) 
-{
-	std::cout << "Int constructor called" << std::endl;
-}
-
-Fixed::Fixed(float const float_value) : _raw(roundf(float_value * (1 << _bit)))
-{
-	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(Fixed const & raw)
@@ -51,30 +40,11 @@ Fixed::~Fixed(void)
 
 int	Fixed::getRawBits(void) const
 {
-	//std::cout << "getRawBits member function called" << std::endl;
+	std::cout << "getRawBits member function called" << std::endl;
 	return(_raw);
 }
 
 void Fixed::setRawBits(int const raw)
 {
 	_raw = raw;
-}
-
-float	Fixed::toFloat( void ) const
-{
-	float float_value = (float) _raw / (1 << _bit);
-	return float_value;
-}
-
-int		Fixed::toInt( void ) const
-{
-	int int_value = _raw / (1 << _bit);
-	return int_value;
-
-}
-
-std::ostream & operator<<(std::ostream & o, Fixed const & i)
-{
-	o << i.toFloat();
-	return (o);
 }

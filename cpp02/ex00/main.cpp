@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:55:32 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/10 16:42:00 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:30:59 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int main(void)
 	Fixed b( a );
 	Fixed c;
 
-	//b.setRawBits(6);
+	b.setRawBits(6);
 
 	c = b;
 	
-	//c.setRawBits(4);
+	c.setRawBits(4);
 
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;

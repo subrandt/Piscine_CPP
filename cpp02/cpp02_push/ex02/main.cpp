@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:39:05 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/16 16:00:03 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/15 17:09:57 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,4 @@ int main(void)
 		std::cout << "false" << std::endl;
 	
 	return (0);
-}
-ClapTrap::ClapTrap(void)
-{
-	std::cout << "Default constructor called" << std::endl;
 }

@@ -5,18 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 09:03:19 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/16 18:03:49 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/09 13:55:32 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/16 08:27:42 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "Fixed.hpp"
 
 int main(void)
 {
-	ClapTrap a("Scooby-Doo");
-	a.attack("the bone");
-	a.takeDamage(1);
+	Fixed a;
+	Fixed b( a );
+	Fixed c;
+
+	//b.setRawBits(6);
+
+	c = b;
 	
+	//c.setRawBits(4);
+
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+
 	return (0);
 }
