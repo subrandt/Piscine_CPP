@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:38:45 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/16 08:46:46 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/17 11:16:16 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ Fixed Fixed::operator/(Fixed const &rhs)
 
 Fixed & Fixed::operator++(void) //prefix increment
 {
-	roundf(this->setRawBits(this->getRawBits() + 1));
+	this->setRawBits(this->getRawBits() + 1);
 	return (*this);
 }
 
