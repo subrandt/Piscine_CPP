@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:57:48 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/17 12:36:09 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/17 14:35:12 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,7 @@ class	ClapTrap
 		unsigned int _energy_points;
 		unsigned int _attack_damage;
 };
+
+std::ostream & operator<<(std::ostream & o, ClapTrap const & i);
 
 #endif

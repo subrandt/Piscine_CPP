@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:06:18 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/17 13:43:48 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:25:53 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 ClapTrap::ClapTrap(void)
 {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default ClapTrap constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name)
 {
 	this->_name = name;
-	std::cout << "Constructor " << name << " called." << std::endl;
+	std::cout << "ClapTrap Constructor " << name << " called" << std::endl;
 	this->_hit_points = 10;
 	this->_energy_points = 10;
 	this->_attack_damage = 0;
@@ -29,12 +29,8 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(ClapTrap const & copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
-	// this->_hit_points = copy._hit_points;
-	// this->_energy_points = copy._energy_points;
-	// this->_attack_damage = copy._attack_damage;
-
-	*this = copy; //same effect : copies all attributes with assignement operator
+	std::cout << "ClapTrap Copy constructor called" << std::endl;
+	*this = copy;
 }
 
 void ClapTrap::print_scores(void)
@@ -79,7 +75,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	this->_hit_points += amount;
 	this->_energy_points -= 1;
-	std::cout << this->_name << "loses 1 energy point and repaired himself";
+	std::cout << this->_name << " loses 1 energy point and repaired himself";
 	std::cout << " and gained " << amount << " Hit Points." << std::endl;
 }
 
@@ -110,7 +106,7 @@ int  ClapTrap::getEnergyPoints(void) const
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & rhs) //Copie tous les attributs
 {
-	std::cout << "Assignement operator called" << std::endl;
+	std::cout << "ClapTrap assignement operator called" << std::endl;
 	if (this != &rhs)
 	{
 		this->_attack_damage = rhs.getAttackDamage();
@@ -122,7 +118,7 @@ ClapTrap & ClapTrap::operator=(ClapTrap const & rhs) //Copie tous les attributs
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Destructor " << this->_name << " called" << std::endl;
+	std::cout << "ClapTrap Destructor " << this->_name << " called" << std::endl;
 }
 
 std::ostream & operator<<(std::ostream & o, ClapTrap const & i)

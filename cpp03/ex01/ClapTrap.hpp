@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:57:48 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/17 12:36:09 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:46:59 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,13 @@ class	ClapTrap
 
 		ClapTrap & operator=(ClapTrap const & rhs); //Assignement operator
 
-	private:
+	protected:
 		std::string _name;
 		unsigned int _hit_points;
 		unsigned int _energy_points;
 		unsigned int _attack_damage;
 };
+
+std::ostream & operator<<(std::ostream & o, ClapTrap const & i);
 
 #endif
