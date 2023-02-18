@@ -5,16 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/17 14:17:56 by subrandt          #+#    #+#              #
-#    Updated: 2023/02/18 11:49:32 by subrandt         ###   ########.fr        #
+#    Created: 2023/02/18 11:50:51 by subrandt          #+#    #+#              #
+#    Updated: 2023/02/18 11:50:55 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		scavtrap
+NAME =		fragtrap
 
 SRC =		main.cpp		\
 			ClapTrap.cpp	\
-			ScavTrap.cpp
+			ScavTrap.cpp	\
+			FragTrap.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 

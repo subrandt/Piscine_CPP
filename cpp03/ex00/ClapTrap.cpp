@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:06:18 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/17 16:01:37 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:55:21 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ ClapTrap::ClapTrap(std::string name)
 	this->_hit_points = 10;
 	this->_energy_points = 10;
 	this->_attack_damage = 0;
-	print_scores();
 }
 
 ClapTrap::ClapTrap(ClapTrap const & copy)
@@ -60,7 +59,6 @@ void ClapTrap::attack(const std::string & target)
 	this->_energy_points -= 1;
 	std::cout << "ClapTrap " << this->_name << " attacks " << target;
 	std::cout << ", causing " << _attack_damage << " points of damage." << std::endl;
-	print_scores();
 }
 
 
@@ -127,6 +125,9 @@ ClapTrap::~ClapTrap(void)
 
 std::ostream & operator<<(std::ostream & o, ClapTrap const & i)
 {
-	o << i.getAttackDamage();
+	o << i.getName() << "'s scores: " << std::endl;
+	o << "  Hit Points: " << i.getHitPoints() << std::endl;
+	o << "  Energy Points: " << i.getEnergyPoints() << std::endl;
+	o << "  Attack Damage: " << i.getAttackDamage() ;
 	return (o);
 }

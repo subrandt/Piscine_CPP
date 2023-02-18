@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:57:48 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/17 15:46:59 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:28:26 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 class	ClapTrap
 {
 	public:
-		ClapTrap(void);					//Default constructor
+		ClapTrap(void);						//Default constructor
 		ClapTrap(std::string name);
-		ClapTrap(ClapTrap const & copy);//Copy constructor
-		~ClapTrap(void);				//Destructor
+		ClapTrap(ClapTrap const & copy);	//Copy constructor
+		~ClapTrap(void);					//Destructor
 		
 		void attack(const std::string & target);
 		void takeDamage(unsigned int amount);

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:06:03 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/17 16:28:07 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:51:22 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,38 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "Constructor ScavTrap " << name << " called." << std::endl;
+	std::cout << "Constructor ScavTrap " << name << " called" << std::endl;
 	this->_attack_damage = 20;
 	this->_energy_points = 50;
 	this->_hit_points = 100;
-	print_scores();
 }
 
 ScavTrap::ScavTrap(ScavTrap const & copy) : ClapTrap(copy)
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
 	*this = copy;
+}
+
+void ScavTrap::attack(const std::string & target)
+{
+	if (_hit_points <= 0)
+	{
+		std::cout << this->_name << " has no more Hit Points and already died." << std::endl;
+		return ;
+	}
+	if (_energy_points <= 0)
+	{
+		std::cout << this->_name << " has no more Energy Points and can no longer attack." << std::endl;
+		return ;
+	}
+	this->_energy_points -= 1;
+	std::cout << "ScavTrap " << this->_name << " attacks " << target;
+	std::cout << ", causing " << _attack_damage << " points of damage." << std::endl;
+}
+
+void ScavTrap::guardGate(void)
+{
+	std::cout << this->getName() << " is now in Gate keeper mode" << std::endl;
 }
 
 ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
@@ -49,13 +70,11 @@ ScavTrap::~ScavTrap(void)
 	std::cout << "ScavTrap Destructor " << this->_name << " called" << std::endl;
 }
 
-void ScavTrap::guardGate(void)
-{
-	std::cout << this->getName() << " is now in Gate keeper mode" << std::endl;
-}
-
 std::ostream & operator<<(std::ostream & o, ScavTrap const & i)
 {
-	o << i.getAttackDamage();
+	o << i.getName() << "'s scores: " << std::endl;
+	o << "  Hit Points: " << i.getHitPoints() << std::endl;
+	o << "  Energy Points: " << i.getEnergyPoints() << std::endl;
+	o << "  Attack Damage: " << i.getAttackDamage() ;
 	return (o);
 }

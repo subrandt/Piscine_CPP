@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:06:18 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/17 16:25:53 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/18 14:51:50 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ ClapTrap::ClapTrap(std::string name)
 	this->_hit_points = 10;
 	this->_energy_points = 10;
 	this->_attack_damage = 0;
-	print_scores();
 }
 
 ClapTrap::ClapTrap(ClapTrap const & copy)
@@ -45,7 +44,7 @@ void ClapTrap::attack(const std::string & target)
 {
 	if (_hit_points <= 0)
 	{
-		std::cout << this->_name << " has no more Hit Points and died." << std::endl;
+		std::cout << this->_name << " has no more Hit Points and already died." << std::endl;
 		return ;
 	}
 	if (_energy_points <= 0)
@@ -53,19 +52,21 @@ void ClapTrap::attack(const std::string & target)
 		std::cout << this->_name << " has no more Energy Points and can no longer attack." << std::endl;
 		return ;
 	}
+	
 	this->_energy_points -= 1;
 	std::cout << "ClapTrap " << this->_name << " attacks " << target;
 	std::cout << ", causing " << _attack_damage << " points of damage." << std::endl;
-	print_scores();
 }
 
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (amount > _hit_points)
-		std::cout << this->_name << " has not enough Hit Points." << std::endl;
-	if (amount > _energy_points)
-		std::cout << this->_name << " has not enough Energy Points." << std::endl;
+	{
+		std::cout << this->_name << " is dead" << std::endl;
+		this->_hit_points = 0;
+		return ;
+	}
 	this->_hit_points -= amount;
 	std::cout << this->_name << " was attacked and loses " << amount << " Hit Points." << std::endl;
 
@@ -73,8 +74,18 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	this->_hit_points += amount;
+	if (_hit_points <= 0)
+	{
+		std::cout << this->_name << " has no more Hit Points and already died." << std::endl;
+		return ;
+	}
+	if (_energy_points <= 0)
+	{	
+		std::cout << this->_name << " has not enough Energy Points." << std::endl;
+		return ;
+	}
 	this->_energy_points -= 1;
+	this->_hit_points += amount;
 	std::cout << this->_name << " loses 1 energy point and repaired himself";
 	std::cout << " and gained " << amount << " Hit Points." << std::endl;
 }
@@ -104,7 +115,7 @@ int  ClapTrap::getEnergyPoints(void) const
 	return (_energy_points);
 }
 
-ClapTrap & ClapTrap::operator=(ClapTrap const & rhs) //Copie tous les attributs
+ClapTrap & ClapTrap::operator=(ClapTrap const & rhs)
 {
 	std::cout << "ClapTrap assignement operator called" << std::endl;
 	if (this != &rhs)
@@ -123,6 +134,9 @@ ClapTrap::~ClapTrap(void)
 
 std::ostream & operator<<(std::ostream & o, ClapTrap const & i)
 {
-	o << i.getAttackDamage();
+	o << i.getName() << "'s scores: " << std::endl;
+	o << "  Hit Points: " << i.getHitPoints() << std::endl;
+	o << "  Energy Points: " << i.getEnergyPoints() << std::endl;
+	o << "  Attack Damage: " << i.getAttackDamage() ;
 	return (o);
 }
