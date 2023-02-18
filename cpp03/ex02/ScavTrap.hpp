@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/18 11:53:00 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/18 15:48:45 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/17 13:49:59 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/18 11:09:34 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-class	FragTrap : public ClapTrap
+class	ScavTrap : public ClapTrap
 {
 	public:
-		FragTrap(void);
-		FragTrap(std::string name);
-		FragTrap(FragTrap const & copy);
-		~FragTrap(void);
+		ScavTrap(void);					//Default constructor
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap const & copy);//Copy constructor
+		~ScavTrap(void);				//Destructor
+		
+		void attack(const std::string & target);
+		void guardGate(void);
 
-		void highFivesGuys(void);
-		FragTrap & operator=(FragTrap const & rhs);
+		ScavTrap & operator=(ScavTrap const & rhs); //Assignement operator
 
 	private:
+	
 };
 
-std::ostream & operator<<(std::ostream & o, FragTrap const & i);
+std::ostream & operator<<(std::ostream & o, ClapTrap const & i);
 
 #endif
