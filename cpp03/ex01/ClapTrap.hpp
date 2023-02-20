@@ -6,14 +6,14 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:57:48 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/18 14:28:26 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:24:46 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
+
+# include <iostream>
 
 class	ClapTrap
 {
@@ -32,7 +32,6 @@ class	ClapTrap
 		int  getAttackDamage(void) const;
 		int	 getHitPoints(void) const;
 		int  getEnergyPoints(void) const;
-		void print_scores(void);
 
 		ClapTrap & operator=(ClapTrap const & rhs); //Assignement operator
 

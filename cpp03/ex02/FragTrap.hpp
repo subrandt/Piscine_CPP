@@ -6,16 +6,15 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:53:00 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/18 15:48:45 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:31:41 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
+
+# include <iostream>
+# include "ClapTrap.hpp"
 
 class	FragTrap : public ClapTrap
 {
@@ -30,7 +29,5 @@ class	FragTrap : public ClapTrap
 
 	private:
 };
-
-std::ostream & operator<<(std::ostream & o, FragTrap const & i);
 
 #endif

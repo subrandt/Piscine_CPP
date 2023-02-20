@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:03:19 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/18 14:54:03 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:08:04 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,17 @@ int main(void)
 	ClapTrap a("Scooby-Doo");
 	ClapTrap b("the target");
 	ClapTrap c(b); 				//calls copy constructor
-	c.setName("Fred");
 	ScavTrap d("Sammy");
+	ScavTrap e("Toto");
+	e = d;
+	c.setName("Fred");
+
 	//print scores:
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
 	std::cout << c << std::endl;
 	std::cout << d << std::endl;
+	std::cout << e << std::endl;
 
 	//Scooby-Doo attacks the target
 	std::cout << "\nfirst attack: " << std::endl;

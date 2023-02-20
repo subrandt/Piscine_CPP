@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 11:51:32 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/18 15:50:53 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:21:14 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->_attack_damage = 30;
 	this->_energy_points = 100;
 	this->_hit_points = 100;
-	print_scores();
 }
 FragTrap::FragTrap(FragTrap const & copy) : ClapTrap(copy)
 {
@@ -46,6 +45,7 @@ FragTrap & FragTrap::operator=(FragTrap const & rhs)
 	std::cout << "FragTrap assignement operator called" << std::endl;
 	if (this != &rhs)
 	{
+		this->_name = rhs.getName();
 		this->_attack_damage = rhs.getAttackDamage();
 		this->_energy_points = rhs.getEnergyPoints();
 		this->_hit_points = rhs.getHitPoints();

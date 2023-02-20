@@ -6,7 +6,7 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/17 14:17:56 by subrandt          #+#    #+#              #
-#    Updated: 2023/02/18 11:49:32 by subrandt         ###   ########.fr        #
+#    Updated: 2023/02/20 12:23:18 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ =		$(SRC:.cpp=.o)
 
 CC =		c++
 
-CFLAGS =	-Wall -Werror -Wextra -std=c++98 -g
+CFLAGS =	-Wall -Werror -Wextra -std=c++98 -g -Wno-shadow
 
 all:		$(NAME)
 

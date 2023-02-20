@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:06:18 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/18 14:55:21 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:11:16 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,6 @@ ClapTrap::ClapTrap(ClapTrap const & copy)
 	*this = copy; //same effect : copies all attributes with assignement operator
 }
 
-void ClapTrap::print_scores(void)
-{
-	std::cout << this->_name << "'s scores: " << std::endl;
-	std::cout << "  Hit Points: " << this->_hit_points << std::endl;
-	std::cout << "  Energy Points: " << this->_energy_points << std::endl;
-	std::cout << "  Attack Damage: " << this->_attack_damage << std::endl;
-}
-
 void ClapTrap::attack(const std::string & target)
 {
 	if (_hit_points <= 0)
@@ -64,17 +56,33 @@ void ClapTrap::attack(const std::string & target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (amount > _hit_points)
-		std::cout << this->_name << " has not enough Hit Points." << std::endl;
-	if (amount > _energy_points)
+	if (_energy_points <= 0)
+	{
 		std::cout << this->_name << " has not enough Energy Points." << std::endl;
+		return ;
+	}
+	if (amount > _hit_points)
+	{
+		std::cout << this->_name << " has not enough Hit Points, he died." << std::endl;
+		this->_hit_points = 0;
+		return ;
+	}
 	this->_hit_points -= amount;
 	std::cout << this->_name << " was attacked and loses " << amount << " Hit Points." << std::endl;
-
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (_hit_points <= 0)
+	{
+		std::cout << this->_name << " is already dead." << std::endl;
+		return ;
+	}
+	if (_energy_points <= 0)
+	{
+		std::cout << this->_name << " has not enough Energy Points." << std::endl;
+		return ;
+	}
 	this->_hit_points += amount;
 	this->_energy_points -= 1;
 	std::cout << this->_name << " loses 1 energy point and repaired himself";
@@ -111,6 +119,7 @@ ClapTrap & ClapTrap::operator=(ClapTrap const & rhs) //Copie tous les attributs
 	std::cout << "Assignement operator called" << std::endl;
 	if (this != &rhs)
 	{
+		this->_name = rhs.getName();
 		this->_attack_damage = rhs.getAttackDamage();
 		this->_energy_points = rhs.getEnergyPoints();
 		this->_hit_points = rhs.getHitPoints();

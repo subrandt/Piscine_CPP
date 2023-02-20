@@ -6,15 +6,15 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:49:59 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/18 11:09:34 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:13:39 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "ClapTrap.hpp"
-
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
+
+# include <iostream>
+# include "ClapTrap.hpp"
 
 class	ScavTrap : public ClapTrap
 {
@@ -32,7 +32,5 @@ class	ScavTrap : public ClapTrap
 	private:
 	
 };
-
-std::ostream & operator<<(std::ostream & o, ClapTrap const & i);
 
 #endif

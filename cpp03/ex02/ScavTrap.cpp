@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:06:03 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/18 15:50:56 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/20 14:15:34 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & rhs)
 	std::cout << "ScavTrap assignement operator called" << std::endl;
 	if (this != &rhs)
 	{
+		this->_name = rhs.getName();
 		this->_attack_damage = rhs.getAttackDamage();
 		this->_energy_points = rhs.getEnergyPoints();
 		this->_hit_points = rhs.getHitPoints();
