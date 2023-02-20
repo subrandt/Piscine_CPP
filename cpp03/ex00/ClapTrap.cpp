@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 09:06:18 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/20 14:11:16 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:18:44 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,6 @@ std::ostream & operator<<(std::ostream & o, ClapTrap const & i)
 	o << i.getName() << "'s scores: " << std::endl;
 	o << "  Hit Points: " << i.getHitPoints() << std::endl;
 	o << "  Energy Points: " << i.getEnergyPoints() << std::endl;
-	o << "  Attack Damage: " << i.getAttackDamage() ;
+	o << "  Attack Damage: " << i.getAttackDamage();
 	return (o);
 }
