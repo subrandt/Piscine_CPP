@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/20 15:31:05 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/22 16:24:09 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/22 11:41:50 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/22 16:24:24 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef DOG_HPP
+# define DOG_HPP
 
 # include <iostream>
+# include "Animal.hpp"
 
-class	Animal
+class	Dog : public Animal
 {
 	public:
-		Animal(void);
-		Animal(Animal const & copy) ;
-		virtual ~Animal(void);
+		Dog(void);
+		Dog(Dog const & copy);
+		~Dog(void);
 
-		std::string getType(void) const;
-		void	setType(std::string const type);
-		virtual void	makeSound(void) const;
+		void	makeSound(void) const;
 
-		Animal & operator=(Animal const & rhs);
-
+		Dog & operator=(Dog const & rhs);
 
 	protected:
-		std::string	_type;
 
 	private:
+
 };
 
-std::ostream &operator<<(std::ostream & o, Animal const & i);
+std::ostream &operator<<(std::ostream &o, Dog const & i);
 
 #endif
