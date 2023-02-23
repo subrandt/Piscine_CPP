@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:52:25 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/22 17:15:15 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/23 09:12:28 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Dog::Dog(Dog const & copy) : Animal(copy)
 
 Dog::~Dog(void)
 {
-	std::cout << getType() << " destructor called" << std::endl; //this->_type??
+	std::cout << "Dog destructor called" << std::endl;
 }
 
 void Dog::makeSound(void) const

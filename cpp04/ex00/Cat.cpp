@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:05:59 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/22 17:13:19 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/23 09:13:26 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Cat::Cat(Cat const & copy) : Animal(copy)
 
 Cat::~Cat(void)
 {
-	std::cout << this->_type << " destructor called" << std::endl;
+	std::cout << "Cat destructor called" << std::endl;
 }
 
 void Cat::makeSound(void) const
