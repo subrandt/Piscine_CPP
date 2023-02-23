@@ -15,7 +15,7 @@
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
-#include "Brain.hpp"
+// #include "Brain.hpp"
 
 int main()
 {
@@ -51,6 +51,20 @@ int main()
 	// delete(kiki);
 	// delete(toto);
 
-
+	std::cout << "\nfifty-fifty: " << std::endl; //il faut creer les BRAINS!!!
+	const Animal* animals[100];
+	for (int i = 0; i < 50; i++)
+	{
+		animals[i] = new Dog();
+		std::cout << *animals[i] << i << " : ";
+	//	std::cout << animals[i]->makeSound();
+	}
+	for (int i = 50; i < 100; i++)
+	{
+		animals[i] = new Cat();
+		std::cout << *animals[i] << i << " : ";
+	}
+	for (int i = 0; i < 100; i++)
+		delete animals[i];
 	return (0);
 }

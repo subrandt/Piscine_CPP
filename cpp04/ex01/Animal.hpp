@@ -14,8 +14,9 @@
 # define ANIMAL_HPP
 
 # include <iostream>
+# include "Brain.hpp"
 
-class	Animal
+class Animal
 {
 	public:
 		Animal(void);
@@ -23,7 +24,6 @@ class	Animal
 		virtual ~Animal(void);
 
 		std::string getType(void) const;
-		void	setType(std::string const type);
 		virtual void	makeSound(void) const;
 
 		Animal & operator=(Animal const & rhs);

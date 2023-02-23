@@ -24,7 +24,7 @@ OBJ =		$(SRC:.cpp=.o)
 
 CC =		c++
 
-CFLAGS =	-Wall -Werror -Wextra -std=c++98 -g -Wno-shadow
+CFLAGS =	-Wall -Werror -Wextra -std=c++98 -g
 
 all:		$(NAME)
 

@@ -17,12 +17,6 @@ Brain::Brain(void)
 	std::cout << "Brain default constructor called" << std::endl;
 }
 
-Brain::Brain(std::string ideas)
-{
-	this->_ideas = ideas;
-	//init tableau?
-}
-
 Brain::Brain(Brain const & copy)
 {
 	std::cout << "Brain copy constructor called" << std::endl;
@@ -34,28 +28,15 @@ Brain::~Brain(void)
 	std::cout << "Brain destructor called" << std::endl;
 }
 
-std::string Brain::getIdeas(void) const
-{
-	return (_ideas);
-}
-
-void Brain::setIdeas(std::string const ideas)
-{
-	_ideas = ideas;
-}
-
 Brain & Brain::operator=(Brain const & rhs)
 {
 	std::cout << "Brain assignement operator called" << std::endl;
 	if (this != &rhs)
 	{
-		this->_ideas = rhs.getIdeas();
+		for (int i = 0; i < 100; i++)
+		{
+			this->_ideas[i] = rhs._ideas[i];
+		}
 	}
 	return (*this);
-}
-
-std::ostream &operator<<(std::ostream & o, Brain const & i)
-{
-	o << i.getIdeas();
-	return (o);
 }

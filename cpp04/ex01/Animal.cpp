@@ -31,12 +31,7 @@ Animal::~Animal(void)
 
 std::string Animal::getType(void) const
 {
-	return (_type);
-}
-
-void	Animal::setType(std::string const type)
-{
-	_type = type;
+	return (this->_type);
 }
 
 void	Animal::makeSound(void) const
@@ -49,7 +44,7 @@ Animal & Animal::operator=(Animal const & rhs)
 	std::cout << "Assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-		this->_type = rhs.getType();
+		this->_type = rhs._type;
 	}
 	return (*this);
 }

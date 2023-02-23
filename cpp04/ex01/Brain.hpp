@@ -22,9 +22,6 @@ class Brain
 		Brain(Brain const & copy);
 		~Brain(void);
 
-		std::string	getIdeas(void) const;
-		void setIdeas(std::string const ideas);
-		
 		Brain & operator=(Brain const & rhs);
 
 	protected:
@@ -33,7 +30,5 @@ class Brain
 		std::string _ideas[100];
 
 };
-
-std::ostream &operator<<(std::ostream &o, Brain const & i)
 
 #endif
