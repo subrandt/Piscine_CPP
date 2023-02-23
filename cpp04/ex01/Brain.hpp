@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:55:03 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 11:42:34 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/23 12:52:26 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define BRAIN_HPP
 
 # include <iostream>
-# include "Animal.hpp"
-# include "Dog.hpp"
-# include "Cat.hpp"
 
 class Brain
 {
@@ -25,12 +22,15 @@ class Brain
 		Brain(Brain const & copy);
 		~Brain(void);
 
+		std::string	getIdeas(void) const;
+		void setIdeas(std::string const ideas);
+		
 		Brain & operator=(Brain const & rhs);
 
 	protected:
 
 	private:
-		_ideas //tableau de 100 std::string
+		std::string _ideas[100];
 
 };
 

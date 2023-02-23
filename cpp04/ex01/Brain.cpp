@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:54:48 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 11:57:26 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:08:21 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 Brain::Brain(void)
 {
 	std::cout << "Brain default constructor called" << std::endl;
+}
+
+Brain::Brain(std::string ideas)
+{
+	this->_ideas = ideas;
+	//init tableau?
 }
 
 Brain::Brain(Brain const & copy)

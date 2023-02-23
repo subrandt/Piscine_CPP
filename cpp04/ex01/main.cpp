@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:35:36 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:41:53 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:02:42 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 #include "Cat.hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
+#include "Brain.hpp"
 
 int main()
 {
 	std::cout << "\nAnimal sound check: " << std::endl;
 
 	//Animal makes animal sound
-	Animal* meta = new Animal();
+	const Animal* meta = new Animal();
 	meta->makeSound();
 	
 	//Dog makes wouaf
-	Animal* j = new Dog();
+	const Animal* j = new Dog();
 	std::cout << *j << " : ";
 	j->makeSound();
 
@@ -39,16 +40,16 @@ int main()
 	delete(meta);
 
 
-	std::cout << "\nWrong Animal sound check: " << std::endl;
+	// std::cout << "\nWrong Animal sound check: " << std::endl;
 
 	//Wrong animals make wrong sounds
-	WrongAnimal* toto = new WrongAnimal();
-	toto->makeSound();
-	const WrongAnimal* kiki = new WrongCat();
-	std::cout << *kiki << " : ";
-	kiki->makeSound();
-	delete(kiki);
-	delete(toto);
+	// WrongAnimal* toto = new WrongAnimal();
+	// toto->makeSound();
+	// const WrongAnimal* kiki = new WrongCat();
+	// std::cout << *kiki << " : ";
+	// kiki->makeSound();
+	// delete(kiki);
+	// delete(toto);
 
 
 	return (0);

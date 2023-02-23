@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:35:36 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:41:53 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/23 12:59:29 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int main()
 	std::cout << "\nAnimal sound check: " << std::endl;
 
 	//Animal makes animal sound
-	Animal* meta = new Animal();
+	const Animal* meta = new Animal();
 	meta->makeSound();
 	
 	//Dog makes wouaf
-	Animal* j = new Dog();
+	const Animal* j = new Dog();
 	std::cout << *j << " : ";
 	j->makeSound();
 

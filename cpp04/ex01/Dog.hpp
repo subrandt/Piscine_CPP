@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:41:50 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:14:00 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/23 12:53:18 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class	Dog : public Animal
 {
@@ -30,7 +31,8 @@ class	Dog : public Animal
 	protected:
 
 	private:
-
+		Brain *_brain;
+	
 };
 
 std::ostream &operator<<(std::ostream &o, Dog const & i);
