@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:36:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:13:18 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/24 10:22:09 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Animal & Animal::operator=(Animal const & rhs)
 	std::cout << "Assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-		this->_type = rhs._type;
+		this->_type = rhs.getType();
 	}
 	return (*this);
 }

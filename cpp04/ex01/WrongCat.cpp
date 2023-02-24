@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:26:44 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:42:06 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/24 10:20:28 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,7 @@ WrongCat & WrongCat::operator=(WrongCat const & rhs)
 	std::cout << "WrongCat assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-		this->_type = rhs.getType();
+		this->_type = rhs._type;
 	}
 	return (*this);
-}
-
-std::ostream &operator<<(std::ostream & o, WrongCat const & i)
-{
-	o << i.getType();
-	return (o);
 }

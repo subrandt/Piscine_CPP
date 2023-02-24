@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:35:36 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 13:02:42 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:47:44 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,25 @@ int main()
 	// delete(kiki);
 	// delete(toto);
 
-	std::cout << "\nfifty-fifty: " << std::endl; //il faut creer les BRAINS!!!
-	const Animal* animals[100];
-	for (int i = 0; i < 50; i++)
+	std::cout << "\nfifty-fifty: " << std::endl;
+	const Animal* animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
+	for (int i = 0; i < 4; i++)
 	{
-		animals[i] = new Dog();
-		std::cout << *animals[i] << i << " : ";
-	//	std::cout << animals[i]->makeSound();
+		std::cout << i << " : "  << *animals[i] << " : ";
+		animals[i]->makeSound();
 	}
-	for (int i = 50; i < 100; i++)
+	
+	//copie profonde : 
+	const Animal animal_cpy = *animals[1];
+	std::cout << *animals[1] << " : ";
+	animals[1]->makeSound();
+	//justifier copie profonde avec impression de random std::string
+
+
+	//delete ne free pas la copie profonde !!!
+	for (int i = 0; i < 4; i++)
 	{
-		animals[i] = new Cat();
-		std::cout << *animals[i] << i << " : ";
-	}
-	for (int i = 0; i < 100; i++)
 		delete animals[i];
+	}
 	return (0);
 }

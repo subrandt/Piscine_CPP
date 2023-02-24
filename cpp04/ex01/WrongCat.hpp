@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:02:02 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:38:24 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/24 10:17:10 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,5 @@ class WrongCat : public WrongAnimal
 	private:
 
 };
-
-std::ostream &operator<<(std::ostream &o, WrongCat const & i);
 
 #endif

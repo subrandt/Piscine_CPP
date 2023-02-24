@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:20:55 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:36:51 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/24 10:23:09 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ std::string WrongAnimal::getType(void) const
 	return (_type);
 }
 
-void	WrongAnimal::setType(std::string const type)
-{
-	_type = type;
-}
+// void	WrongAnimal::setType(std::string const type)
+// {
+// 	_type = type;
+// }
 
 void	WrongAnimal::makeSound(void) const
 {

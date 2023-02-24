@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:52:25 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:12:28 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:11:10 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ Dog::Dog(void) : Animal()
 {
 	this->_type = "Dog";
 	std::cout << "Default Dog constructor called" << std::endl;
+	this->_brain = new Brain();
 }
 
 Dog::Dog(Dog const & copy) : Animal(copy)
@@ -27,6 +28,7 @@ Dog::Dog(Dog const & copy) : Animal(copy)
 Dog::~Dog(void)
 {
 	std::cout << "Dog destructor called" << std::endl;
+	delete _brain;
 }
 
 void Dog::makeSound(void) const
@@ -42,10 +44,4 @@ Dog & Dog::operator=(Dog const & rhs)
 		this->_type = rhs.getType();
 	}
 	return (*this);
-}
-
-std::ostream &operator<<(std::ostream & o, Dog const & i)
-{
-	o << i.getType();
-	return (o);
 }

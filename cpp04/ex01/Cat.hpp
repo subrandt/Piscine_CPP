@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:02:02 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 12:59:08 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/24 10:16:06 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,5 @@ class Cat : public Animal
 		Brain *_brain;
 
 };
-
-std::ostream &operator<<(std::ostream &o, Cat const & i);
 
 #endif
