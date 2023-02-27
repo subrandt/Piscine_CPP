@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:55:03 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/24 12:10:26 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:31:23 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ class Brain
 		Brain(void);
 		Brain(Brain const & copy);
 		~Brain(void);
-
-		std::string getIdeas(void) const;
+		
+		
+		std::string *getIdeas(void);
 		Brain & operator=(Brain const & rhs);
 
 	protected:

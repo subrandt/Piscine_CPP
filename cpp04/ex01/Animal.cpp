@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:36:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/24 10:22:09 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:19:08 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ Animal::Animal(void)
 	std::cout << "Default Animal constructor called" << std::endl;
 }
 
-Animal::Animal(Animal const & copy)
+Animal::Animal(Animal const & src)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
+	*this = src;
 }
 
 Animal::~Animal(void)
@@ -37,6 +37,12 @@ std::string Animal::getType(void) const
 void	Animal::makeSound(void) const
 {
 	std::cout << this->_type << " makes an animal sound" << std::endl;
+}
+
+Brain	*Animal::getBrain(void) const
+{
+	std::cout << "Animal gets a brain" << std::endl;
+	return (NULL);
 }
 
 Animal & Animal::operator=(Animal const & rhs)

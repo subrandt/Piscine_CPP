@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:02:02 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/24 10:16:06 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:35:36 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Cat : public Animal
 		~Cat(void);
 
 		void	makeSound(void) const;
+		Brain	*getBrain(void) const; 
 
 		Cat & operator=(Cat const & rhs);
 

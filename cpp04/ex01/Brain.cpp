@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:54:48 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/24 14:06:08 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:28:52 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ Brain::Brain(void)
 {
 	std::cout << "Brain default constructor called" << std::endl;
 	for (int i = 0; i < 100; i++)
-		{
-			this->_ideas[i] = i; //init ideas
-		}
+	{
+		this->_ideas[i] = std::string(i , 'a'); //init ideas
+		if (i == 99)
+		std::cout << i + 1 << " ideas in this brain" << std::endl;
+	}
 }
 
 Brain::Brain(Brain const & copy)
@@ -32,9 +34,9 @@ Brain::~Brain(void)
 	std::cout << "Brain destructor called" << std::endl;
 }
 
-std::string Brain::getIdeas(void) const
+std::string *Brain::getIdeas(void)
 {
-	return (*this->_ideas);
+	return (_ideas);
 }
 
 Brain & Brain::operator=(Brain const & rhs)

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:05:59 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/24 14:10:27 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/27 13:25:18 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ Cat::~Cat(void)
 void Cat::makeSound(void) const
 {
 	std::cout << "Miaou" << std::endl;
+}
+
+Brain	*Cat::getBrain(void) const
+{
+	return(_brain);
 }
 
 Cat & Cat::operator=(Cat const & rhs)

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:31:05 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/24 09:59:01 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:18:42 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ class Animal
 {
 	public:
 		Animal(void);
-		Animal(Animal const & copy) ;
+		Animal(Animal const & src) ;
 		virtual ~Animal(void);
 
 		std::string getType(void) const;
 		virtual void	makeSound(void) const;
+		virtual Brain	*getBrain(void) const;
 
 		Animal & operator=(Animal const & rhs);
 

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:35:36 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/24 14:47:44 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:54:28 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,25 @@
 
 int main()
 {
-	std::cout << "\nAnimal sound check: " << std::endl;
+	// std::cout << "\nAnimal sound check: " << std::endl;
 
-	//Animal makes animal sound
-	const Animal* meta = new Animal();
-	meta->makeSound();
+	// //Animal makes animal sound
+	// const Animal* meta = new Animal();
+	// meta->makeSound();
 	
-	//Dog makes wouaf
-	const Animal* j = new Dog();
-	std::cout << *j << " : ";
-	j->makeSound();
+	// //Dog makes wouaf
+	// const Animal* j = new Dog();
+	// std::cout << *j << " : ";
+	// j->makeSound();
 
-	//Cat makes miaou
-	const Animal* i = new Cat();
-	std::cout << *i << " : ";
-	i->makeSound();
+	// //Cat makes miaou
+	// const Animal* i = new Cat();
+	// std::cout << *i << " : ";
+	// i->makeSound();
 	
-	delete(i);
-	delete(j);
-	delete(meta);
+	// delete(i);
+	// delete(j);
+	// delete(meta);
 
 
 	// std::cout << "\nWrong Animal sound check: " << std::endl;
@@ -57,13 +57,23 @@ int main()
 	{
 		std::cout << i << " : "  << *animals[i] << " : ";
 		animals[i]->makeSound();
+		std::cout << animals[i]->getBrain()->getIdeas()[1] << std::endl;
 	}
 	
-	//copie profonde : 
-	const Animal animal_cpy = *animals[1];
+	//deep copy : 
+	Animal animal_cpy(*animals[1]);
+
+	std::cout << "\ninitial dog:" << std::endl;
 	std::cout << *animals[1] << " : ";
 	animals[1]->makeSound();
-	//justifier copie profonde avec impression de random std::string
+	std::cout << animals[1]->getBrain()->getIdeas()[1] << std::endl;
+	
+	std::cout << "\ncopy of dog:" << std::endl;
+	std::cout << animal_cpy << " : " ;
+	animal_cpy.makeSound();
+	// std::cout << animal_cpy.getBrain()->getIdeas()[1] << std::endl;
+	std::cout << std::endl;
+	//justifier copie profonde
 
 
 	//delete ne free pas la copie profonde !!!
