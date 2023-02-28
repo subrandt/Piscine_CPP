@@ -6,23 +6,23 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:05:59 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/28 17:04:19 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:11:30 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void) : Animal()
+Cat::Cat(void) : AAnimal()
 {
 	this->_type = "Cat";
 	std::cout << "Default Cat constructor called" << std::endl;
 	this->_brain = new Brain();
 }
 
-Cat::Cat(Cat const & src) : Animal(src)
+Cat::Cat(Cat const & src) : AAnimal(src)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	_brain = new Brain();
+	*_brain = *rhs.getBrain();
 	*this = src;
 }
 
@@ -47,8 +47,8 @@ Cat & Cat::operator=(Cat const & rhs)
 	std::cout << "Cat assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-		*_brain = *rhs.getBrain();
-		_type = rhs.getType();
+		this->_brain = new Brain();
+		this->_type = rhs.getType();
 	}
 	return (*this);
 }

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:52:25 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/27 16:25:43 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:45:56 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 Dog::Dog(void) : Animal()
 {
-	this->_type = "Dog";
+	_type = "Dog";
 	std::cout << "Default Dog constructor called" << std::endl;
-	this->_brain = new Brain();
+	_brain = new Brain();
 }
 
 Dog::Dog(Dog const & src) : Animal(src)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
-	Dog *copy = new Dog();
-	copy->_type = src.getType();
-
-	*this = *copy;
+	_brain = new Brain();
+	
+	*this = src;
 
 }
 
@@ -51,7 +50,8 @@ Dog & Dog::operator=(Dog const & rhs)
 	std::cout << "Dog assignment operator called" << std::endl;
 	if (this != &rhs)
 	{
-		this->_type = rhs.getType();
+		_type = rhs.getType();
+		*_brain = *rhs._brain;
 	}
 	return (*this);
 }

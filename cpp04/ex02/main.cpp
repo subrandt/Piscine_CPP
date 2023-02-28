@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:35:36 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/28 17:10:45 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:03:54 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 
 int main()
 {
-
+	
 	std::cout << "\nfifty-fifty Dogs and Cats: " << std::endl;
-	const Animal* animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
+	const AAnimal* animals[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
 	for (int i = 0; i < 4; i++)
 	{
 		std::cout << i << " : "  << *animals[i] << " : ";
@@ -55,13 +55,5 @@ int main()
 	dog_copy.makeSound();
 	std::cout << std::endl;
 
-
-	// Dog *dog1 = new Dog();
-	// Dog *dog2 = new Dog();
-
-	// *dog2 = *dog1;
-	
-	// delete dog2;
-	// delete dog1;
 	return (0);
 }

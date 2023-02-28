@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:20:55 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:36:51 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:10:17 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ WrongAnimal::WrongAnimal(void)
 	std::cout << "Default WrongAnimal constructor called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(WrongAnimal const & copy)
+WrongAnimal::WrongAnimal(WrongAnimal const & src)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
+	*this = src;
 }
 
 WrongAnimal::~WrongAnimal(void)

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:52:25 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:12:28 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:41:49 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ Dog::Dog(void) : Animal()
 	std::cout << "Default Dog constructor called" << std::endl;
 }
 
-Dog::Dog(Dog const & copy) : Animal(copy)
+Dog::Dog(Dog const & src) : Animal(src)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
-	*this = copy;
+	*this = src;
 }
 
 Dog::~Dog(void)

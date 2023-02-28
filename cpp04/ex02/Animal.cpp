@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,40 +12,40 @@
 
 #include "Animal.hpp"
 
-Animal::Animal(void)
+AAnimal::AAnimal(void)
 {
-	this->_type = "Animal";
-	std::cout << "Default Animal constructor called" << std::endl;
+	this->_type = "AAnimal";
+	std::cout << "Default AAnimal constructor called" << std::endl;
 }
 
-Animal::Animal(Animal const & src)
+AAnimal::AAnimal(AAnimal const & src)
 {
-	std::cout << "Animal copy constructor called" << std::endl;
+	std::cout << "AAnimal copy constructor called" << std::endl;
 	*this = src;
 }
 
-Animal::~Animal(void)
+AAnimal::~AAnimal(void)
 {
-	std::cout << "Animal destructor called" << std::endl;
+	std::cout << "AAnimal destructor called" << std::endl;
 }
 
-std::string Animal::getType(void) const
+std::string AAnimal::getType(void) const
 {
 	return (this->_type);
 }
 
-void	Animal::makeSound(void) const
+void	AAnimal::makeSound(void) const
 {
 	std::cout << this->_type << " makes an animal sound" << std::endl;
 }
 
-Brain	*Animal::getBrain(void) const
+Brain	*AAnimal::getBrain(void) const
 {
-	std::cout << "Animal gets a brain" << std::endl;
+	std::cout << "AAnimal gets a brain" << std::endl;
 	return (NULL);
 }
 
-Animal & Animal::operator=(Animal const & rhs)
+AAnimal & AAnimal::operator=(AAnimal const & rhs)
 {
 	std::cout << "Assignment operator called" << std::endl;
 	if (this != &rhs)
@@ -55,7 +55,7 @@ Animal & Animal::operator=(Animal const & rhs)
 	return (*this);
 }
 
-std::ostream &operator<<(std::ostream & o, Animal const & i)
+std::ostream &operator<<(std::ostream & o, AAnimal const & i)
 {
 	o << i.getType();
 	return (o);

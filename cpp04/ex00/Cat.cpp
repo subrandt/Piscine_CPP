@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:05:59 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:13:26 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:42:07 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ Cat::Cat(void) : Animal()
 	std::cout << "Default Cat constructor called" << std::endl;
 }
 
-Cat::Cat(Cat const & copy) : Animal(copy)
+Cat::Cat(Cat const & src) : Animal(src)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	*this = copy;
+	*this = src;
 }
 
 Cat::~Cat(void)

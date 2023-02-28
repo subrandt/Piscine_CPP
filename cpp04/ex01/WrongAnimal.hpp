@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 09:19:31 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/24 10:22:28 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:20:43 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ class	WrongAnimal
 {
 	public:
 		WrongAnimal(void);
-		WrongAnimal(WrongAnimal const & copy) ;
+		WrongAnimal(WrongAnimal const & src) ;
 		virtual ~WrongAnimal(void);
 
 		std::string getType(void) const;
-		// void	setType(std::string const type);
+		void	setType(std::string const type);
 		virtual void	makeSound(void) const;
 
 		WrongAnimal & operator=(WrongAnimal const & rhs);

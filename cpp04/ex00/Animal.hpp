@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:31:05 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:19:45 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:16:33 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class	Animal
 {
 	public:
 		Animal(void);
-		Animal(Animal const & copy) ;
+		Animal(Animal const & src) ;
 		virtual ~Animal(void);
 
 		std::string getType(void) const;

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:02:02 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/24 10:17:10 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:21:47 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class WrongCat : public WrongAnimal
 {
 	public:
 		WrongCat(void);
-		WrongCat(WrongCat const & copy);
+		WrongCat(WrongCat const & src);
 		~WrongCat(void);
 
 		void	makeSound(void) const;
@@ -32,5 +32,7 @@ class WrongCat : public WrongAnimal
 	private:
 
 };
+
+std::ostream &operator<<(std::ostream &o, WrongCat const & i);
 
 #endif

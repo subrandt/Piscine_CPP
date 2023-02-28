@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 09:19:31 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/28 11:20:43 by subrandt         ###   ########.fr       */
+/*   Created: 2023/02/23 09:55:03 by subrandt          #+#    #+#             */
+/*   Updated: 2023/02/27 15:31:23 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <iostream>
 
-class	WrongAnimal
+class Brain
 {
 	public:
-		WrongAnimal(void);
-		WrongAnimal(WrongAnimal const & src) ;
-		virtual ~WrongAnimal(void);
-
-		std::string getType(void) const;
-		void	setType(std::string const type);
-		virtual void	makeSound(void) const;
-
-		WrongAnimal & operator=(WrongAnimal const & rhs);
-
+		Brain(void);
+		Brain(Brain const & copy);
+		~Brain(void);
+		
+		
+		std::string *getIdeas(void);
+		Brain & operator=(Brain const & rhs);
 
 	protected:
-		std::string	_type;
 
 	private:
-};
+		std::string _ideas[100];
 
-std::ostream &operator<<(std::ostream & o, WrongAnimal const & i);
+};
 
 #endif

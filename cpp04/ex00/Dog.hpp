@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:41:50 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/23 09:14:00 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/02/28 11:19:23 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	Dog : public Animal
 {
 	public:
 		Dog(void);
-		Dog(Dog const & copy);
+		Dog(Dog const & src);
 		~Dog(void);
 
 		void	makeSound(void) const;
