@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:52:25 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/28 17:12:08 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:50:32 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ Brain	*Dog::getBrain(void) const
 {
 	return(_brain);
 }
-
 
 Dog & Dog::operator=(Dog const & rhs)
 {
