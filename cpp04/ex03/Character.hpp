@@ -13,20 +13,21 @@
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
-# include <iostream>
 # include "ICharacter.hpp"
 
 class Character : public ICharacter
 {
 	public:
-		virtual Character();
-		virtual Character(Character const & src);
-		virtual operator=(Character const & rhs);
+		Character(void);
+		Character(std::string &name);
+		Character(Character const & src);
+		Character &operator=(Character const & rhs);
 		virtual ~Character() {}
-		virtual std::string const & getName() const; //ecrire getName
-		virtual void equip(ICharacter* m); //manque
-		virtual void unequip(int idx);		//manque
-		virtual void use(int idx, Character& target); //manque
+
+		virtual std::string const & getName() const;
+		// virtual void equip(ICharacter* m);
+		// virtual void unequip(int idx);
+		// virtual void use(int idx, Character& target);
 	
 	protected:
 		std::string _name;

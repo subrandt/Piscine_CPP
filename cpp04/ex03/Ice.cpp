@@ -10,17 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Ice.cpp"
+#include "Ice.hpp"
 
-Ice::Ice(void) : AMateria (void)
+Ice::Ice(void) : AMateria ("ice")
 {
-	_type = "ice";
+	// _type = "ice";
 	std::cout << "Default Ice constructor called" << std::endl;
-}
-
-Ice::Ice(std::string const & type)
-{
-	_type = type;
 }
 
 Ice::Ice(Ice const & src) : AMateria(src)
@@ -34,28 +29,23 @@ Ice::~Ice(void)
 	std::cout << "Default Ice destructor called" << std::endl;
 }
 
-std::string const & Ice::getType() const //Returns the materia type
+AMateria	*Ice::clone(void) const
 {
-	return (_type);
+	return (new Ice(*this));
 }
 
-virtual void use(ICharacter& target)
+void Ice::use(ICharacter& target)
 {
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 
 }
 
 Ice & Ice::operator=(Ice const & rhs)
 {
-	std::cout << "Assignement operator called" << std::endl;
+	std::cout << "Ice assignement operator called" << std::endl;
 	if (this != &rhs)
 	{
-		_type = rhs.getType();
+		_type = rhs._type;
 	}
 	return (*this);
-}
-
-std::ostream &operator<<(std::ostream & o, Ice const & i)
-{
-	o << i.getType();
-	return (o);
 }

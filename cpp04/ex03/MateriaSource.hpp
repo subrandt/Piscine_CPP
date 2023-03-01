@@ -15,16 +15,18 @@
 
 # include <iostream>
 # include "IMateriaSource.hpp"
+# include "AMateria.hpp"
 
 class MateriaSource : public IMateriaSource
 {
 	public:
-		virtual MateriaSource();
-		virtual MateriaSource(MateriaSource const & src);
-		virtual operator=(MateriaSource const & rhs);
-		virtual ~MateriaSource() {}
-		virtual void learnMateria(AMateria*);
-		virtual AMateria* createMateria(std::string const & type);
+		MateriaSource(void);
+		MateriaSource(MateriaSource const & src);
+		MateriaSource &operator=(MateriaSource const & rhs);
+		~MateriaSource(void) {}
+		
+		// virtual void learnMateria(AMateria*);
+		// virtual AMateria* createMateria(std::string const & type);
 };
 
 #endif

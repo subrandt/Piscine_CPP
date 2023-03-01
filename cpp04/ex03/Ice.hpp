@@ -13,29 +13,23 @@
 #ifndef ICE_HPP
 # define ICE_HPP
 
-# include <iostream>
 # include "AMateria.hpp"
 
 class Ice : public AMateria
 {
 	public:
 		Ice	(void);
-		Ice(std::string const & type);
 		Ice(Ice const & src);
 		~Ice(void);
 
-		std::string const & getType() const; //Returns the materia type
-		virtual Ice* clone() const;//virtual???
-		virtual void use(ICharacter& target); //manque la fonction dans le .cpp
+		virtual AMateria *clone() const;
+		virtual void use(ICharacter& target);
 
-		Ice & operator=(Ice const & rhs)
+		Ice & operator=(Ice const & rhs);
 
 	protected:
-		std::string _type;
 
 	private:
 };
-
-std::ostream &operator<<(std::ostream & o Ice const & i);
 
 #endif

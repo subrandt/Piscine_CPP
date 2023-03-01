@@ -13,29 +13,23 @@
 #ifndef CURE_HPP
 # define CURE_HPP
 
-# include <iostream>
 # include "AMateria.hpp"
 
 class Cure : public AMateria
 {
 	public:
 		Cure	(void);
-		Cure(std::string const & type);
 		Cure(Cure const & src);
 		~Cure(void);
 
-		std::string const & getType() const; //Returns the materia type
-		virtual Cure* clone() const;//virtual???
-		virtual void use(ICharacter& target); //manque la fonction dans le .cpp
+		virtual AMateria *clone(void) const;
+		virtual void use(ICharacter& target);
 
-		Cure & operator=(Cure const & rhs)
+		Cure & operator=(Cure const & rhs);
 
 	protected:
-		std::string _type;
 
 	private:
 };
-
-std::ostream &operator<<(std::ostream & o Cure const & i);
 
 #endif

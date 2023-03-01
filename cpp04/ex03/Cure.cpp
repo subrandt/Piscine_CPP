@@ -10,20 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cure.cpp"
+#include "Cure.hpp"
 
-Cure::Cure(void) : AMateria (void)
+Cure::Cure(void) : AMateria ("cure")
 {
-	_type = "cure";
+	// _type = "cure";
 	std::cout << "Default Cure constructor called" << std::endl;
 }
 
-Cure::Cure(std::string const & type)
-{
-	_type = type;
-}
-
-Cure::Cure(Cure const & src) : AMateria(src)
+Cure::Cure(Cure const & src) : AMateria("cure")
 {
 	std::cout << "Cure copy constructor called" << std::endl;
 	*this = src;
@@ -34,28 +29,22 @@ Cure::~Cure(void)
 	std::cout << "Default Cure destructor called" << std::endl;
 }
 
-std::string const & Cure::getType() const //Returns the materia type
+void Cure::use(ICharacter& target)
 {
-	return (_type);
+	std::cout << "* heals " << target.getName() << " wounds *" << std::endl;
 }
 
-virtual void use(ICharacter& target)
+AMateria *Cure::clone(void) const
 {
-
+	return (new Cure(*this));
 }
 
 Cure & Cure::operator=(Cure const & rhs)
 {
-	std::cout << "Assignement operator called" << std::endl;
+	std::cout << "Cure assignement operator called" << std::endl;
 	if (this != &rhs)
 	{
-		_type = rhs.getType();
+		_type = rhs._type;
 	}
 	return (*this);
-}
-
-std::ostream &operator<<(std::ostream & o, Cure const & i)
-{
-	o << i.getType();
-	return (o);
 }

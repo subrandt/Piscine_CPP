@@ -14,27 +14,22 @@
 # define AMATERIA_HPP
 
 # include <iostream>
+# include "ICharacter.hpp"
 
 class AMateria
 {
 	public:
-		AMateria(void);
 		AMateria(std::string const & type);
-		AMateria(AMateria const & src);
-		~AMateria(void);
+		~AMateria(void){}
 
-		std::string const & getType() const; //Returns the materia type
+		std::string const & getType() const;
 		virtual AMateria* clone() const = 0;
-		virtual void use(ICharacter& target); //manque la fonction dans le .cpp
-
-		AMateria & operator=(AMateria const & rhs)
+		virtual void use(ICharacter& target) = 0;
 
 	protected:
 		std::string _type;
 
 	private:
 };
-
-std::ostream &operator<<(std::ostream & o AMateria const & i);
 
 #endif

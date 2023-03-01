@@ -10,13 +10,14 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		brain
+NAME =		material_world
 
-SRC =		main.cpp		\
-			AMateria.cpp	\
-			Cure.cpp		\
-			Ice.cpp			\
-			Character.cpp	\
+SRC =		main.cpp			\
+			AMateria.cpp		\
+			Cure.cpp			\
+			Ice.cpp				\
+			Character.cpp		\
+			MateriaSource.cpp
 			
 
 OBJ =		$(SRC:.cpp=.o)
