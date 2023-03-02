@@ -25,7 +25,8 @@ class Bureaucrat
 
 		Bureaucrat & operator=(Bureaucrat const & rhs);
 
-		std::string const & getName(void) const
+		const std::string	getName(void) const;
+		int 				getGrade(void) const;
 
 
 	private:
