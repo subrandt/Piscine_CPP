@@ -6,15 +6,16 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 17:52:24 by subrandt          #+#    #+#              #
-#    Updated: 2023/03/03 17:58:04 by subrandt         ###   ########.fr        #
+#    Updated: 2023/03/03 17:57:54 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		bureaucrat
+NAME =		bureaucrat_form
 
 SRC =		main.cpp			\
-			Bureaucrat.cpp
-
+			Bureaucrat.cpp		\
+			Form.cpp
+			
 OBJ =		$(SRC:.cpp=.o)
 
 CC =		c++
