@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:18:05 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/02 17:57:59 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/03 08:56:01 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class Bureaucrat
 	private:
 		const std::string _name;
 		int	_grade;
-
 };
 
 #endif
