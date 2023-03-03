@@ -25,12 +25,15 @@ class Bureaucrat
 
 		Bureaucrat & operator=(Bureaucrat const & rhs);
 
-		std::string const & getName(void) const
+		const std::string	getName(void) const;
+		int 				getGrade(void) const;
 
 
 	private:
 		const std::string _name;
 		int	_grade;
 };
+
+std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs);
 
 #endif

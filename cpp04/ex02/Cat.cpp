@@ -22,7 +22,7 @@ Cat::Cat(void) : AAnimal()
 Cat::Cat(Cat const & src) : AAnimal(src)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
-	*_brain = *rhs.getBrain();
+	*_brain = *src.getBrain();
 	*this = src;
 }
 

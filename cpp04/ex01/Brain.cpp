@@ -17,9 +17,9 @@ Brain::Brain(void)
 	std::cout << "Brain default constructor called" << std::endl;
 	for (int i = 0; i < 100; i++)
 	{
-		this->_ideas[i] = std::string(i , 'a'); //init ideas
+		this->_ideas[i] = "idea"; //init ideas
 		if (i == 99)
-		std::cout << i + 1 << " ideas in this brain" << std::endl;
+			std::cout << i + 1 << " ideas in this brain" << std::endl;
 	}
 }
 

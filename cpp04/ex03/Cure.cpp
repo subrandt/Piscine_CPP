@@ -31,12 +31,13 @@ Cure::~Cure(void)
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "* heals " << target.getName() << " wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << "\' wounds *" << std::endl;
 }
 
 AMateria *Cure::clone(void) const
 {
-	return (new Cure(*this));
+	Cure *new_clone = new Cure;
+	return (new_clone);
 }
 
 Cure & Cure::operator=(Cure const & rhs)

@@ -25,7 +25,9 @@ int main()
 	{
 		std::cout << i << " : "  << *animals[i] << " : ";
 		animals[i]->makeSound();
-		std::cout << animals[i]->getBrain()->getIdeas()[1] << std::endl;
+		for (int j = 0; j < 100; j++)
+			std::cout << animals[i]->getBrain()->getIdeas()[j] ;
+		std::cout << std::endl;
 	}
 	
 	for (int i = 0; i < 4; i++)
