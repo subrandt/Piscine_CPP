@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:18:15 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/03 16:40:38 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/06 17:19:41 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,21 @@ int Bureaucrat::downGrade(void)
 		std::cout << _name << " was downgraded to grade " << _grade <<std::endl;
 	}
 	return (_grade);
+}
+
+void	Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		std::cout << _name << " couldn't sign " << form.getName();
+		std::cout << " because his sign grade doesn't allow it" << std::endl;
+	}
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw()
