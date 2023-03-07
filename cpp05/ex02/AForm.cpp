@@ -1,51 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 18:15:29 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/07 11:33:54 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/07 08:58:34 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-// Form::Form(void)
+// AForm::AForm(void)
 // {
-// 	std::cout << "Default Form constructor called" << std::endl;
+// 	std::cout << "Default AForm constructor called" << std::endl;
 // }
 
-Form::Form(const std::string name, int sign_grade, int exec_grade) : _name(name), _sign_grade(sign_grade), _exec_grade(exec_grade)
+AForm::AForm(const std::string name, int _sign_grade, int exec_grade, const std::string target) : _name(name), _sign_grade(sign_grade), _exec_grade(exec_grade), _target(target)
 {
 	_signed_form = false;
 	std::cout << _name << "'s constructor called" << std::endl;
 }
 
-Form::Form(Form const & src) : _name(src._name), _sign_grade(src._sign_grade), _exec_grade(src._exec_grade)
+AForm::AForm(AForm const & src) : _name(src._name), _sign_grade(src._sign_grade), _exec_grade(src._exec_grade)
 {
 	std::cout << _name << "'s copy constructor called" << std::endl;
 	*this = src;
 }
 
-Form::~Form(void)
+AForm::~AForm(void)
 {
 	std::cout << _name << "'s destructor called" << std::endl;
 }
 
-Form & Form::operator=(Form const & rhs)
+AForm & AForm::operator=(AForm const & rhs)
 {
-	std::cout << "Form assignment operator called" << std::endl;
+	std::cout << "AForm assignment operator called" << std::endl;
 	(void)rhs;
 	return (*this);
 }
 
-void	Form::beSigned(Bureaucrat &bureaucrat)
+void	AForm::beSigned(Bureaucrat &bureaucrat)
 {
 	if (getSignGrade() <= bureaucrat.getGrade())
 	{
-		throw (Form::GradeTooLowException());
+		throw (AForm::GradeTooLowException());
 	}
 	if (_signed_form == true)
 	{
@@ -56,24 +56,29 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 	std::cout << "-> form successfully signed" << std::endl;
 }
 
-const std::string  Form::getName(void) const
+const std::string  AForm::getName(void) const
 {
 	return (_name);
 }
 
-int Form::getSignGrade(void) const
+int AForm::getSignGrade(void) const
 {
 	return (_sign_grade);
 }
 
-int Form::getExecGrade(void) const
+int AForm::getExecGrade(void) const
 {
 	return (_exec_grade);
 }
 
-bool Form::getSignedForm(void) const
+bool AForm::getSignedForm(void) const
 {
 	return (_signed_form);
+}
+
+const std::string AForm::getTarget(void) const
+{
+	return (_target);
 }
 
 const char*	Form::GradeTooHighException::what() const throw()
@@ -86,13 +91,13 @@ const char* Form::GradeTooLowException::what() const throw()
 	return ("<ERROR> Grade too low");
 }
 
-std::ostream & operator<<(std::ostream & o, Form const & rhs)
+std::ostream & operator<<(std::ostream & o, AForm const & rhs)
 {
-	o << "Form " << rhs.getName() << " has a sign grade of " << rhs.getSignGrade() << std::endl;
-	o << "Form " << rhs.getName() << " has an exec grade of " << rhs.getExecGrade() << std::endl;
+	o << "AForm " << rhs.getName() << " has a sign grade of " << rhs.getSignGrade() << std::endl;
+	o << "AForm " << rhs.getName() << " has an exec grade of " << rhs.getExecGrade() << std::endl;
 	if (rhs.getSignedForm() == true)
-		o << "Form " << rhs.getName() << " is signed" << std::endl;
+		o << "AForm " << rhs.getName() << " is signed" << std::endl;
 	else
-		o << "Form " << rhs.getName() << " is not signed" << std::endl;
+		o << "AForm " << rhs.getName() << " is not signed" << std::endl;
 	return (o);
 }

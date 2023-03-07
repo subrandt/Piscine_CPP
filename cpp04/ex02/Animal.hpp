@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 15:31:05 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/28 12:16:42 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/07 09:36:06 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class AAnimal
 {
 	public:
 		AAnimal(void);
-		AAnimal(AAnimal const & src) ;
+		AAnimal(AAnimal const & src);
 		virtual ~AAnimal(void);
 
 		std::string getType(void) const;
