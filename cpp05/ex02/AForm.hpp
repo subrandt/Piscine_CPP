@@ -22,7 +22,7 @@ class AForm
 {
 	public:
 
-		AForm(std::string name, int _sign_grade, int exec_grade, std::string target);
+		AForm(std::string name, int _sign_grade, int exec_grade);
 		AForm(AForm const & src);
 		~AForm(void);
 
@@ -35,6 +35,7 @@ class AForm
 		void				beSigned(Bureaucrat &bureaucrat);
 		virtual void 		execute(Bureaucrat const & executor) const = 0;
 		const std::string	getTarget(void) const;
+		void				setTarget(std::string target)
 
 		
 	private:

@@ -17,13 +17,15 @@
 // 	std::cout << "Default AForm constructor called" << std::endl;
 // }
 
-AForm::AForm(const std::string name, int _sign_grade, int exec_grade, const std::string target) : _name(name), _sign_grade(sign_grade), _exec_grade(exec_grade), _target(target)
+AForm::AForm(const std::string name, int _sign_grade, int exec_grade) : _name(name),
+	_sign_grade(sign_grade), _exec_grade(exec_grade)
 {
 	_signed_form = false;
 	std::cout << _name << "'s constructor called" << std::endl;
 }
 
-AForm::AForm(AForm const & src) : _name(src._name), _sign_grade(src._sign_grade), _exec_grade(src._exec_grade)
+AForm::AForm(AForm const & src) : _name(src._name), _sign_grade(src._sign_grade),
+	_exec_grade(src._exec_grade)
 {
 	std::cout << _name << "'s copy constructor called" << std::endl;
 	*this = src;
@@ -79,6 +81,11 @@ bool AForm::getSignedForm(void) const
 const std::string AForm::getTarget(void) const
 {
 	return (_target);
+}
+
+void AForm::setTarget(std::string target)
+{
+	_target = target;
 }
 
 const char*	Form::GradeTooHighException::what() const throw()

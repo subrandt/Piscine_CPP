@@ -6,15 +6,16 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/03 17:52:24 by subrandt          #+#    #+#              #
-#    Updated: 2023/03/07 11:38:04 by subrandt         ###   ########.fr        #
+#    Updated: 2023/03/07 13:40:59 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		execute_form
 
-SRC =		main.cpp			\
-			Bureaucrat.cpp		\
-			AForm.cpp
+SRC =		main.cpp					\
+			Bureaucrat.cpp				\
+			AForm.cpp					\
+			ShrubberyCreationForm.cpp	\
 			
 OBJ =		$(SRC:.cpp=.o)
 
