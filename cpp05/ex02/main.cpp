@@ -6,12 +6,13 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:16:35 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/07 11:28:05 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/08 17:28:45 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
@@ -55,19 +56,21 @@ int main(void)
 	// }
 
 	std::cout << "\nThere are some Forms:" << std::endl;
-	Form form_a("Form_a", 30, 30);
-	std::cout << form_a;
+	// std::cout << form_a;
 	
-	Form form_b("Form_b", 150, 150);
-	std::cout << form_b;
+	// ShrubberyCreationForm shrubbery2("file2");
+	// std::cout << form_b;
 
-	std::cout << "\nCan Bureaucrat a sign form_a?" << std::endl;
-	a.signForm(form_a);
-	std::cout << form_a;
+	// std::cout << "\nCan Bureaucrat a sign form_a?" << std::endl;
+	// a.signForm(shrubbery1);
+	// std::cout << form_a;
 
-	std::cout << "\nCan Bureaucrat b sign form_a?" << std::endl;
-	b.signForm(form_a);
-	std::cout << form_b;
+	// std::cout << "\nCan Bureaucrat b sign form_a?" << std::endl;
+	// b.signForm(shrubbery1);
+	// std::cout << form_b;
+	
+	ShrubberyCreationForm shrubbery1("file1");
+	shrubbery1.execute(a);
 	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:52:25 by subrandt          #+#    #+#             */
-/*   Updated: 2023/02/28 16:45:56 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/08 16:55:18 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Dog::Dog(Dog const & src) : Animal(src)
 	_brain = new Brain();
 	
 	*this = src;
-
 }
 
 Dog::~Dog(void)

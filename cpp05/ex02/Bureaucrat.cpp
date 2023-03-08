@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:18:15 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/07 11:33:51 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:56:10 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int Bureaucrat::downGrade(void)
 	return (_grade);
 }
 
-void	Bureaucrat::signForm(Form &form)
+void	Bureaucrat::signForm(AForm &form)
 {
 	try
 	{
@@ -111,6 +111,21 @@ void	Bureaucrat::signForm(Form &form)
 		std::cerr << e.what() << std::endl;
 		std::cout << _name << " couldn't sign " << form.getName();
 		std::cout << " because his sign grade doesn't allow it" << std::endl;
+	}
+}
+
+void 	Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		std::cout << _name << " couldn't execute " << form.getName();
+		std::cout << " because his sign grade doesn't allow it" << std::endl;		
 	}
 }
 

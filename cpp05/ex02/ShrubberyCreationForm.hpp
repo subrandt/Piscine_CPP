@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 09:49:14 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/07 16:54:29 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/08 17:27:38 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,10 @@ class ShrubberyCreationForm : public AForm
 
 		ShrubberyCreationForm & operator=(ShrubberyCreationForm const & rhs);
 
-	xxx	void create_ascii_tree_file(std::string &target)
-
-		// void execute(Bureaucrat const & executor) const;
+		void execute(Bureaucrat const & executor) const;
 
 	private:
-		//fct create file target
-		//fct write ascii trees
+		std::string _target;
 
 };
 

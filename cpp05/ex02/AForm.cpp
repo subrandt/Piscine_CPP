@@ -12,15 +12,16 @@
 
 #include "AForm.hpp"
 
-// AForm::AForm(void)
-// {
-// 	std::cout << "Default AForm constructor called" << std::endl;
-// }
+AForm::AForm(void): _name("undefined"), _sign_grade(150), _exec_grade(150)
+{
+	std::cout << "Default AForm constructor called" << std::endl;
+}
 
-AForm::AForm(const std::string name, int _sign_grade, int exec_grade) : _name(name),
+AForm::AForm(const std::string name, int sign_grade, int exec_grade) : _name(name),
 	_sign_grade(sign_grade), _exec_grade(exec_grade)
 {
 	_signed_form = false;
+
 	std::cout << _name << "'s constructor called" << std::endl;
 }
 
@@ -83,17 +84,12 @@ const std::string AForm::getTarget(void) const
 	return (_target);
 }
 
-void AForm::setTarget(std::string target)
-{
-	_target = target;
-}
-
-const char*	Form::GradeTooHighException::what() const throw()
+const char*	AForm::GradeTooHighException::what() const throw()
 {
 	return ("<ERROR> Grade too high");
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
 	return ("<ERROR> Grade too low");
 }
