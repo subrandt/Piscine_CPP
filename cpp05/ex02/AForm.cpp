@@ -96,11 +96,11 @@ const char* AForm::GradeTooLowException::what() const throw()
 
 std::ostream & operator<<(std::ostream & o, AForm const & rhs)
 {
-	o << "AForm " << rhs.getName() << " has a sign grade of " << rhs.getSignGrade() << std::endl;
-	o << "AForm " << rhs.getName() << " has an exec grade of " << rhs.getExecGrade() << std::endl;
+	o << "* AForm " << rhs.getName() << " has a sign grade of " << rhs.getSignGrade() << std::endl;
+	o << "* AForm " << rhs.getName() << " has an exec grade of " << rhs.getExecGrade() << std::endl;
 	if (rhs.getSignedForm() == true)
-		o << "AForm " << rhs.getName() << " is signed" << std::endl;
+		o << "* AForm " << rhs.getName() << " is signed" << std::endl;
 	else
-		o << "AForm " << rhs.getName() << " is not signed" << std::endl;
+		o << "* AForm " << rhs.getName() << " is not signed" << std::endl;
 	return (o);
 }

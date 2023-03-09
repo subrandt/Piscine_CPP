@@ -6,13 +6,15 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:16:35 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/08 17:28:45 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/09 15:30:51 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int main(void)
 {
@@ -36,7 +38,7 @@ int main(void)
 	// 	std::cerr << e.what() << std::endl;
 	// }
 
-	std::cout << "\nThere are some Bureaucrats:" << std::endl;
+	std::cout << "\nThere are some BUREAUCRATS:" << std::endl;
 	Bureaucrat a("Chef", 1);
 	std::cout << a;
 	
@@ -44,33 +46,45 @@ int main(void)
 	std::cout << b;
 	b.upGrade();
 	b.downGrade();
-	
-	// std::cout << "\nCan Sous-fifre be downgraded again?" << std::endl;
-	// try
-	// {
-	// 	b.downGrade();
-	// }
-	// catch (std::exception& e)
-	// {
-	// 	std::cerr << e.what() << std::endl;
-	// }
 
-	std::cout << "\nThere are some Forms:" << std::endl;
-	// std::cout << form_a;
-	
-	// ShrubberyCreationForm shrubbery2("file2");
-	// std::cout << form_b;
 
-	// std::cout << "\nCan Bureaucrat a sign form_a?" << std::endl;
-	// a.signForm(shrubbery1);
-	// std::cout << form_a;
+	std::cout << "\n\nThere are some FORMS:" << std::endl;
 
-	// std::cout << "\nCan Bureaucrat b sign form_a?" << std::endl;
-	// b.signForm(shrubbery1);
-	// std::cout << form_b;
+	std::cout << "\n >>> ShrubberyCreationForm <<<" << std::endl;
 	
 	ShrubberyCreationForm shrubbery1("file1");
-	shrubbery1.execute(a);
-	
+	std::cout << shrubbery1;
+	std::cout << "Can Bureaucrat " << b.getName() << " sign Shrubbery?" << std::endl;
+	b.signForm(shrubbery1);
+	std::cout << "Can Bureaucrat " << a.getName() << " sign Shrubbery?" << std::endl;
+	a.signForm(shrubbery1);
+	std::cout << "Can Bureaucrat " << a.getName() << " execute Shrubbery?" << std::endl;
+	a.executeForm(shrubbery1);
+	std::cout << "Can Bureaucrat " << b.getName() << " execute Shrubbery?" << std::endl;
+	b.executeForm(shrubbery1);
+
+
+	std::cout << "\n\n >>> RobotomyRequestForm <<<" << std::endl;
+	RobotomyRequestForm robotomy1("someone");
+	std::cout << robotomy1;
+	a.signForm(robotomy1);
+	std::cout << "Can Bureaucrat " << a.getName() << " execute Robotomy?" << std::endl;
+	a.executeForm(robotomy1);
+	a.executeForm(robotomy1);
+	a.executeForm(robotomy1);
+	a.executeForm(robotomy1);
+	std::cout << "Can Bureaucrat " << b.getName() << " execute Robotomy?" << std::endl;
+	b.executeForm(robotomy1);
+
+
+	std::cout << "\n\n >>> PresidentialPardonForm <<<" << std::endl;
+	PresidentialPardonForm pardon1("naughty");
+	std::cout << pardon1;
+	a.signForm(pardon1);
+	std::cout << "Can Bureaucrat " << a.getName() << " execute Presidential Pardon?" << std::endl;
+	a.executeForm(pardon1);
+	std::cout << "Can Bureaucrat " << b.getName() << " execute Presidential Pardon?" << std::endl;
+	b.executeForm(pardon1);
+
 	return (0);
 }

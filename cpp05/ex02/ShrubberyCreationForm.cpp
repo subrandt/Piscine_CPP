@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:39:54 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/08 17:25:50 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/09 09:44:16 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,17 @@ ShrubberyCreationForm & ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
+	//check if form is signed
+	if (getSignedForm() == false)
+	{
+		std::cout << "form is not signed, it cannot be executed" << std::endl;
+		return ;
+	}
+	
 	//check grade of bureaucrat
 	if(getExecGrade() < executor.getGrade())
 	{
-		throw (GradeTooLowException());
+		throw (AForm::GradeTooLowException());
 	}
 	
 	//create file with ascii trees
