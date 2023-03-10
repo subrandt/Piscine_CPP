@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:48:47 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/09 17:03:27 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:28:39 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,10 @@ class Intern
 
 		Intern & operator=(Intern const & rhs);
 
-		Form & 	makeForm(std::string form_name, std::string target);
-
+		AForm*  	makeForm(std::string form_name, const std::string target);
 
 	private:
 
 };
-
-// std::ostream & operator<<(std::ostream & o, Intern const & rhs);
 
 #endif

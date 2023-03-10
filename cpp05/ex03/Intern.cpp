@@ -6,11 +6,15 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 16:58:18 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/09 17:04:30 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/10 17:02:15 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 Intern::Intern(void)
 {
@@ -19,34 +23,50 @@ Intern::Intern(void)
 
 Intern::Intern(Intern const & src)
 {
-	std::cout << _name << "'s copy constructor called" << std::endl;
+	std::cout << "Interns's copy constructor called" << std::endl;
 	*this = src;
 }
 
 Intern::~Intern(void)
 {
-	std::cout << _name << "'s destructor called" << std::endl;
+	std::cout << "Intern's destructor called" << std::endl;
 }
 
 Intern & Intern::operator=(Intern const & rhs)
 {
 	std::cout << "Intern assignment operator called" << std::endl;
-	if (this != &rhs)
-	{
-		_grade = rhs._grade;
-	}
+	(void)rhs;
 	return (*this);
 }
 
-Form& 	Form::makeForm(std::string form_name, std::string target)
+AForm* 	Intern::makeForm(std::string form_name, const std::string target)
 {
+	int i;
+	std::string	choose_form[3] = {"shrubbery creation", 
+			"robotomy request", "presidential pardon"};
+	for (i = 0; i < 3; i++)
+	{
+		if (choose_form[i].compare(form_name) == 0)
+			break ;
+	}
+	switch(i)
+	{
+		case 0:
+			return (new ShrubberyCreationForm(target));
+			break ;
 
-	return (Form())
+		case 1:
+			return (new RobotomyRequestForm(target));
+			break ;
 
+		case 2:
+			return (new PresidentialPardonForm(target));
+			break ;
+
+		default:
+			std::cout << "<ERROR> " << form_name << " passed as parameter doesn't exist\n";
+			std::cout << "        it couldn't be created, sorry dude" << std::endl;
+	}
+
+	return (NULL);
 }
-
-// std::ostream & operator<<(std::ostream & o, Intern const & rhs)
-// {
-// 	o << "# Intern creates "  << std::endl;
-// 	return (o);
-// }
