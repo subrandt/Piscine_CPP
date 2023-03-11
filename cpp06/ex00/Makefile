@@ -6,14 +6,14 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/10 18:04:05 by subrandt          #+#    #+#              #
-#    Updated: 2023/03/10 18:04:08 by subrandt         ###   ########.fr        #
+#    Updated: 2023/03/11 17:12:47 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		conversion
 
 SRC =		main.cpp			\
-			Conversion.cpp
+			ScalarConverter.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 
