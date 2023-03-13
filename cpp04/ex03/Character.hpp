@@ -14,20 +14,23 @@
 # define CHARACTER_HPP
 
 # include "ICharacter.hpp"
+# include "AMateria.hpp"
+
+class AMateria;
 
 class Character : public ICharacter
 {
 	public:
 		Character(void);
-		Character(std::string &name);
+		Character(std::string name);
 		Character(Character const & src);
 		Character &operator=(Character const & rhs);
-		virtual ~Character() {}
+		virtual ~Character();
 
 		virtual std::string const & getName() const;
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);
-		virtual void use(int idx, Character& target);
+		virtual void use(int idx, ICharacter& target);
 	
 	protected:
 		std::string _name;

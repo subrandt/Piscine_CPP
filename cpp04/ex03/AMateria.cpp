@@ -6,11 +6,16 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 08:39:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/13 11:56:00 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/13 14:20:42 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+
+AMateria::AMateria(void)
+{
+    std::cout << "Default AMateria constructor called" << std::endl;
+}
 
 AMateria::AMateria(std::string const & type)
 {
@@ -18,9 +23,24 @@ AMateria::AMateria(std::string const & type)
 	_type = type;
 }
 
-std::string const & AMateria::getType() const //Returns the materia type
+std::string const & AMateria::getType() const
 {
 	return (_type);
 }
 
-// forme coplienne
+AMateria::AMateria(AMateria const & src)
+{
+	std::cout << "AMateria copy constructor called" << std::endl;
+    *this = src;
+}
+
+AMateria & AMateria::operator=(AMateria const & rhs)
+{
+	std::cout << "AMateria assignement operator called" << std::endl;
+	(void)rhs;
+    return (*this);
+}
+AMateria::~AMateria(void)
+{
+	std::cout << "Default AMateria destructor called" << std::endl;
+}

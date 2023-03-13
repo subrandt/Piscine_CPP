@@ -6,12 +6,11 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:10:20 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/13 12:43:54 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:43:44 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
-
 
 Character::Character(void)
 {
@@ -22,7 +21,7 @@ Character::Character(void)
 	std::cout << "Default Character constructor called" << std::endl;
 }
 
-Character::Character(std::string &name)
+Character::Character(std::string name)
 {
 	_inventory[0] = NULL;
 	_inventory[1] = NULL;
@@ -41,7 +40,7 @@ Character::Character(Character const & src)
 Character::~Character(void)
 {
 	std::cout << "Default Character destructor called" << std::endl;
-	for (i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (_inventory[i])
 			delete(_inventory[i]);
@@ -55,21 +54,22 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	for (i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		if (_inventory[i] == NULL)
 		{
 			_inventory[i] = m;
+			break ;
 		}
 	}
 }
 
 void Character::unequip(int idx)
 {
-	_inventory[idx] == NULL;
+	_inventory[idx] = NULL;
 }
 
-void Character::use(int idx, Character& target)
+void Character::use(int idx, ICharacter& target)
 {
 	if (_inventory[idx])
 	{
@@ -82,7 +82,7 @@ Character & Character::operator=(Character const & rhs)
 	std::cout << "Character assignement operator called" << std::endl;
 	if (this != &rhs)
 	{
-		for (i = 0; i < 4; i++)
+		for (int i = 0; i < 4; i++)
 		{
 			if (_inventory[i])
 			{
@@ -90,9 +90,9 @@ Character & Character::operator=(Character const & rhs)
 				_inventory[i] = NULL;
 			}
 		}
-		for (i = 0; i < 4; i++)
+		for (int i = 0; i < 4; i++)
 		{
-			if (rhs[i])
+			if (rhs._inventory[i])
 			{
 				_inventory[i] = rhs._inventory[i]->clone();
 			}

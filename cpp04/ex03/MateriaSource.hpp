@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:21:52 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/01 16:48:43 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:13:22 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 # include <iostream>
 # include "IMateriaSource.hpp"
-# include "AMateria.hpp"
+
+class AMateria;
 
 class MateriaSource : public IMateriaSource
 {
@@ -23,10 +24,13 @@ class MateriaSource : public IMateriaSource
 		MateriaSource(void);
 		MateriaSource(MateriaSource const & src);
 		MateriaSource &operator=(MateriaSource const & rhs);
-		~MateriaSource(void) {}
+		~MateriaSource(void);
 		
-		// virtual void learnMateria(AMateria*);
-		// virtual AMateria* createMateria(std::string const & type);
+		virtual void learnMateria(AMateria*);
+		virtual AMateria* createMateria(std::string const & type);
+	
+	private:
+		AMateria *_materias[4];
 };
 
 #endif

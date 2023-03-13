@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:03:29 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/01 15:08:04 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:09:21 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define ICHARACTER_HPP
 
 # include <iostream>
-# include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

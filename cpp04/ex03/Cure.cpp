@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+#include "ICharacter.hpp"
 
 Cure::Cure(void) : AMateria ("cure")
 {
@@ -41,10 +42,6 @@ AMateria *Cure::clone(void) const
 
 Cure & Cure::operator=(Cure const & rhs)
 {
-	std::cout << "Cure assignement operator called" << std::endl;
-	if (this != &rhs)
-	{
-		_type = rhs._type;
-	}
+	(void)rhs;	
 	return (*this);
 }

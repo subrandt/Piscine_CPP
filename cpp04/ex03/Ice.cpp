@@ -6,11 +6,12 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:38:11 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/13 12:44:53 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:18:08 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 
 Ice::Ice(void) : AMateria ("ice")
 {
@@ -42,10 +43,6 @@ void Ice::use(ICharacter& target)
 
 Ice & Ice::operator=(Ice const & rhs)
 {
-	std::cout << "Ice assignement operator called" << std::endl;
-	if (this != &rhs)
-	{
-		_type = rhs._type;
-	}
+	(void)rhs;	
 	return (*this);
 }

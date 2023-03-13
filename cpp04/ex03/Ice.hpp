@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 14:38:45 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/01 15:35:31 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:06:36 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define ICE_HPP
 
 # include "AMateria.hpp"
+
+class ICharacter;
 
 class Ice : public AMateria
 {
