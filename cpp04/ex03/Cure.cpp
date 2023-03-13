@@ -14,7 +14,6 @@
 
 Cure::Cure(void) : AMateria ("cure")
 {
-	// _type = "cure";
 	std::cout << "Default Cure constructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 08:39:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/01 15:17:05 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/13 11:56:00 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,3 +22,5 @@ std::string const & AMateria::getType() const //Returns the materia type
 {
 	return (_type);
 }
+
+// forme coplienne
