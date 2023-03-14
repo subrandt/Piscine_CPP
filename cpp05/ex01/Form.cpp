@@ -6,20 +6,28 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 18:15:29 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/07 11:33:54 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/14 15:57:34 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-// Form::Form(void)
-// {
-// 	std::cout << "Default Form constructor called" << std::endl;
-// }
+Form::Form(void) : _name("default_name"), _sign_grade(150), _exec_grade(150)
+{
+	std::cout << "Default Form constructor called" << std::endl;
+}
 
 Form::Form(const std::string name, int sign_grade, int exec_grade) : _name(name), _sign_grade(sign_grade), _exec_grade(exec_grade)
 {
 	_signed_form = false;
+	if (sign_grade < 1 || exec_grade < 1)
+	{
+		throw (Form::GradeTooHighException());
+	}
+	if (sign_grade > 150 || exec_grade > 150)
+	{
+		throw (Form::GradeTooLowException());
+	}
 	std::cout << _name << "'s constructor called" << std::endl;
 }
 

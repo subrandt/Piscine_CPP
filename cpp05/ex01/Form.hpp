@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 17:59:45 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/07 08:57:08 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/14 10:20:52 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Form
 {
 	public:
 
+		Form(void);
 		Form(std::string name, int _sign_grade, int exec_grade);
 		Form(Form const & src);
 		~Form(void);
@@ -32,12 +33,10 @@ class Form
 		int					getSignGrade(void) const;
 		int					getExecGrade(void) const;
 		bool				getSignedForm(void) const;
-		void	beSigned(Bureaucrat &bureaucrat); //set form to signed
+		void				beSigned(Bureaucrat &bureaucrat); //set form to signed
 
 		
 	private:
-		Form(void);
-
 		const std::string 	_name;
 		const int			_sign_grade;
 		const int 			_exec_grade;

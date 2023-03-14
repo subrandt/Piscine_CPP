@@ -1,0 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/22 11:52:25 by subrandt          #+#    #+#             */
+/*   Updated: 2023/03/01 14:50:32 by subrandt         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Dog.hpp"
+
+Dog::Dog(void) : AAnimal()
+{
+	this->_type = "Dog";
+	std::cout << "Default Dog constructor called" << std::endl;
+	this->_brain = new Brain();
+}
+
+Dog::Dog(Dog const & src) : AAnimal(src)
+{
+	std::cout << "Dog copy constructor called" << std::endl;
+	this->_brain = new Brain();
+	*this = src;
+}
+
+Dog::~Dog(void)
+{
+	std::cout << "Dog destructor called" << std::endl;
+	delete _brain;
+}
+
+void Dog::makeSound(void) const
+{
+	std::cout << "Wouaf wouaf!!" << std::endl;
+}
+
+Brain	*Dog::getBrain(void) const
+{
+	return(_brain);
+}
+
+Dog & Dog::operator=(Dog const & rhs)
+{
+	std::cout << "Dog assignment operator called" << std::endl;
+	if (this != &rhs)
+	{
+		*_brain = *rhs.getBrain();
+		this->_type = rhs.getType();
+	}
+	return (*this);
+}

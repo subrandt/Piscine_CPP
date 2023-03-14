@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:16:35 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/03 16:50:42 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/14 10:14:12 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main(void)
 {
-	std::cout << "\nIs Nobody's grade ok?" << std::endl;
+	std::cout << "\nNobody has a grade of 0.\nIs Nobody's grade ok?" << std::endl;
 	try
 	{
 		Bureaucrat c("Nobody", 0);
@@ -25,7 +25,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "\nIs Anybody's grade ok?" << std::endl;
+	std::cout << "\nAnybody has a grade of 151.\nIs Anybody's grade ok?" << std::endl;
 	try
 	{
 		Bureaucrat d("Anybody", 151);

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:16:35 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/07 11:29:28 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/14 11:26:28 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int main(void)
 
 	std::cout << "\nCan Bureaucrat a sign form_a?" << std::endl;
 	a.signForm(form_a);
+	std::cout << "Bureaucrat a tries to sign form_a again:" << std::endl;
 	a.signForm(form_a);
 
 	std::cout << form_a;
