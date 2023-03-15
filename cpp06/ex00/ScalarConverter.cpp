@@ -12,6 +12,7 @@
 
 #include "ScalarConverter.hpp"
 #include <cctype>
+#include <string>
 
 ScalarConverter::ScalarConverter(void)
 {
@@ -38,7 +39,7 @@ ScalarConverter & ScalarConverter::operator=(ScalarConverter const & rhs)
 	return (*this);
 }
 
-bool	ScalarConverter::convert(std::string literal)
+bool	ScalarConverter::convert(std::string const & literal)
 {
 	int type;
 
@@ -53,30 +54,51 @@ bool	ScalarConverter::convert(std::string literal)
 	return (0);
 }
 
-int		ScalarConverter::getType(std::string literal)
+int		ScalarConverter::getType(std::string const & literal)
 {
-	if (isChar(literal))
-		return (1); // if char
-	// return (2) if int
-	// return (3) if float
-	// return (4) if double
+	if (isChar(literal))// if char
+		return (1);
+	// if (isInt(literal)) // if int
+	// 	return (2);
+	// if (isFloat(literal)) //if float
+	// 	return (3);
+	// if (isDouble(literal)) if double
+	// return (4);
+
 	// return (5) if error
 	return (0);
 }
 
-bool		ScalarConverter::isChar(std::string literal)
+bool	ScalarConverter::isChar(std::string const & literal)
 {
 	if (literal.length() == 1)
 	{
 		if (!isprint(literal[0]))
-			std::cout << "char: Non displayable" << std::endl;
+			std::cout << literal[0] << " isn't displayable" << std::endl;
 		else
 			std::cout << literal[0] << std::endl;
 		return (1);
 	}
-
+	else
+		std::cout << literal << " isn't a char" << std::endl;
 	return (0);
 }
+
+// bool	ScalarConverter::isInt(std::string const & literal)
+// {
+
+// }
+
+// bool	ScalarConverter::isFloat(std::string const & literal)
+// {
+
+// }
+
+// bool	ScalarConverter::isDouble(std::string const & literal)
+// {
+
+// }
+
 
 // std::ostream & operator<<(std::ostream & o, ScalarConverter const & rhs)
 // {

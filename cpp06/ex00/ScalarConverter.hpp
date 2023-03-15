@@ -28,13 +28,17 @@ class ScalarConverter
 
 		ScalarConverter & operator=(ScalarConverter const & rhs);
 
-		static bool	convert(std::string literal);
+		static bool	convert(std::string const & literal);
 
 	private:
 		ScalarConverter(void);
 		
-		static int	getType(const std::string literal);
-		static bool	isChar(const std::string literal);
+		static int	getType(const std::string & literal);
+		
+		static bool	isChar(std::string const & literal);
+		static bool isInt(std::string const & literal);
+		static bool isFloat(std::string const & literal);
+		static bool isDouble(std::string const & literal);
 
 };
 
