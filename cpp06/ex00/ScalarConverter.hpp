@@ -17,19 +17,24 @@
 # include <cstdlib>
 # include <limits>
 
+//define pour types ??
+
 class ScalarConverter
 {
 	public:
 
-		ScalarConverter(void);
 		ScalarConverter(ScalarConverter const & src);
 		~ScalarConverter(void);
 
 		ScalarConverter & operator=(ScalarConverter const & rhs);
 
-		void	convert(std::string literal);
+		static bool	convert(std::string literal);
 
 	private:
+		ScalarConverter(void);
+		
+		static int	getType(const std::string literal);
+		static bool	isChar(const std::string literal);
 
 };
 
