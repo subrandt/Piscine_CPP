@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:16:35 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/09 15:30:51 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/15 09:15:16 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ int main(void)
 	std::cout << robotomy1;
 	a.signForm(robotomy1);
 	std::cout << "Can Bureaucrat " << a.getName() << " execute Robotomy?" << std::endl;
-	a.executeForm(robotomy1);
-	a.executeForm(robotomy1);
-	a.executeForm(robotomy1);
 	a.executeForm(robotomy1);
 	std::cout << "Can Bureaucrat " << b.getName() << " execute Robotomy?" << std::endl;
 	b.executeForm(robotomy1);

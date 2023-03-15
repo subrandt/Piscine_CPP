@@ -6,7 +6,7 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/09 16:43:36 by subrandt          #+#    #+#              #
-#    Updated: 2023/03/09 16:43:58 by subrandt         ###   ########.fr        #
+#    Updated: 2023/03/15 09:42:44 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ clean:
 			rm -rf $(OBJ)
 
 fclean:		clean
-			rm -rf $(NAME)
+			rm -rf $(NAME)			
 
 re:			fclean all
 

@@ -6,13 +6,13 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:18:15 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/14 15:45:11 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/15 08:57:19 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void)
+Bureaucrat::Bureaucrat(void) : _name("no_name"), _grade(150)
 {
 	std::cout << "Default Bureaucrat constructor called" << std::endl;
 }
