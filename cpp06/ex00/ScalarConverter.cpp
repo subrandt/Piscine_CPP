@@ -47,10 +47,10 @@ bool	ScalarConverter::convert(std::string const & literal)
 	if (type == 1)
 	{
 		std::cout << "type : char" << std::endl;
-		// convertChar(literal[0]);
+		convertChar(literal[0]);
 		return (1);
 	}
-	// if (type == 1) ...
+	// if (type == 2) ...
 	return (0);
 }
 
@@ -99,6 +99,15 @@ bool	ScalarConverter::isChar(std::string const & literal)
 
 // }
 
+void ScalarConverter::convertChar(char const & literal)
+{
+	std::cout << "char : " << literal << std::endl;
+	std::cout << "int : " << static_cast<int>(literal) << std::endl;
+	std::cout << "float : " << static_cast<float>(literal) << std::endl;
+	std::cout << "double : " << static_cast<double>(literal) << std::endl;
+
+
+}
 
 // std::ostream & operator<<(std::ostream & o, ScalarConverter const & rhs)
 // {

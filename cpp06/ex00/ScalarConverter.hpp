@@ -40,6 +40,8 @@ class ScalarConverter
 		static bool isFloat(std::string const & literal);
 		static bool isDouble(std::string const & literal);
 
+		static void convertChar(char const & literal);
+
 };
 
 // std::ostream & operator<<(std::ostream & o, ScalarConverter const & rhs);
