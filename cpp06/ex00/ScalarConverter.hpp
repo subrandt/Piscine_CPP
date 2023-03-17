@@ -14,10 +14,6 @@
 # define SCALAR_CONVERTER_HPP
 
 # include <iostream>
-# include <cstdlib>
-# include <limits>
-
-//define pour types ??
 
 class ScalarConverter
 {
