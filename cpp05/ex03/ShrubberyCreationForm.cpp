@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:39:54 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/09 09:44:16 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/17 09:41:55 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,20 +60,28 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	std::ofstream newfile;
 	std::string filename = std::string (_target + "_shrubbery");
 	newfile.open(filename.c_str());
-	
-	std::string asci_trees =  
-		"            ,@@@@@@@,\n"
-		"    ,,,.   ,@@@@@@/@@,  .oo8888o.\n"
-		"  ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n"
-		",%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n"
-		"%&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n"
-		"%&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n"
-		"`&%\\ ` /%&'    |.|        \\ '|8'\n"
-		"	|o|        | |         | |\n"
-		"	|.|        | |         | |\n"
-		"	\\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_";
+	if (newfile.is_open())
+	{
+		
+		std::string asci_trees =  
+		" \n"
+		" \n"
+		"			,@@@@@@@,                 \n"
+		"	,,,.   ,@@@@@@/@@,  .oo8888o.     \n"
+		"	,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o \n"
+		",%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'  \n"
+		"%&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'   \n"
+		"%&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'   \n"
+		"`&%\\ ` /%&'    |.|        \\ '|8'     \n"
+		"	|o|        | |         | |         \n"
+		"	|.|        | |         | |         \n"
+		"  \\/ ._\\//_/__/  , \\_//__\\/.  \\_//__/_\n"
+		" \n";
 
-	newfile << asci_trees << std::endl;
+		newfile << asci_trees << std::endl;
+	}
+	else
+		std::cout << "Error opening file" << std::endl;
 	newfile.close();
 
 	std::cout << "-> form successfully executed - ascii_trees_file created" << std::endl;

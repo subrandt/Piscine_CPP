@@ -41,6 +41,7 @@ class ScalarConverter
 		static bool isDouble(std::string const & literal);
 
 		static void convertChar(char const & literal);
+		static void convertInt(int const & literal);
 
 };
 

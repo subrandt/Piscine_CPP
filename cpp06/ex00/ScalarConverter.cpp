@@ -99,18 +99,15 @@ bool	ScalarConverter::isChar(std::string const & literal)
 
 // }
 
-void ScalarConverter::convertChar(char const & literal)
+void ScalarConverter::convertChar(char const & literal)//gerer les chiffres en int!!!
 {
 	std::cout << "char : " << literal << std::endl;
 	std::cout << "int : " << static_cast<int>(literal) << std::endl;
-	std::cout << "float : " << static_cast<float>(literal) << std::endl;
-	std::cout << "double : " << static_cast<double>(literal) << std::endl;
-
-
+	std::cout << "float : " << static_cast<float>(literal) << ".0f" << std::endl;
+	std::cout << "double : " << static_cast<double>(literal) << ".0" << std::endl;
 }
 
-// std::ostream & operator<<(std::ostream & o, ScalarConverter const & rhs)
-// {
-// 	o <<  <<  << std::endl;
-// 	return (o);
-// }
+//void ScalarConverter::convertInt(int const & literal)
+//{
+
+//}
