@@ -35,14 +35,16 @@ class ScalarConverter
 		static bool isInt(std::string const & literal);
 		static bool isFloat(std::string const & literal);
 		static bool isDouble(std::string const & literal);
+		static bool isNan(std::string const & literal);
+		static bool isInf(std::string const & literal);
 
 		static void convertChar(char const & literal);
 		static void convertInt(long int const & literal);
 		static void convertFloat(float const & literal);
 		static void convertDouble(double const & literal);
+		static void convertNan(void);
+		static void convertInf(std::string const & literal);
 
 };
-
-// std::ostream & operator<<(std::ostream & o, ScalarConverter const & rhs);
 
 #endif

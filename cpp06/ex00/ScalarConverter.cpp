@@ -68,6 +68,16 @@ bool	ScalarConverter::convert(std::string const & literal)
 		convertDouble(strtod(literal.c_str(), NULL));
 		return (1);
 	}
+	if (type == 5)
+	{
+		convertNan();
+		return (1);
+	}
+	if (type == 6)
+	{
+		convertInf(literal);
+		return (1);
+	}
 	return (0);
 }
 
@@ -80,9 +90,11 @@ int		ScalarConverter::getType(std::string const & literal)
 	if (isFloat(literal)) //if float
 		return (3);
 	if (isDouble(literal)) //if double
-	return (4);
-
-	// return (5) if error
+		return (4);
+	if (isNan(literal))
+		return (5);
+	if (isInf(literal))
+		return (6);
 	return (0);
 }
 
@@ -114,7 +126,9 @@ bool	ScalarConverter::isInt(std::string const & literal)
 	{
 		for (long unsigned int i = 0; i < literal.length(); i++)
 		{
-			if ((literal[0] != '-') && !isdigit(literal[i]))
+			if (literal[0] != '-')
+				i++;
+			if(isdigit(literal[i]) == 0)
 				return (0);
 		}
 		if (literal_to_convert >= INT_MIN && literal_to_convert <= INT_MAX)
@@ -139,7 +153,6 @@ bool	ScalarConverter::isFloat(std::string const & literal)
 				return (0);
 			}
 		}
-
 	}
 	return (0);
 }
@@ -152,6 +165,40 @@ bool	ScalarConverter::isDouble(std::string const & literal)
 			return (1);
 	}
 	return (0);
+}
+
+bool	ScalarConverter::isNan(std::string const & literal)
+{
+	if (literal.compare("nan") == 0 || literal.compare("nanf") == 0)
+		return (1);
+	return (0);
+}
+
+bool	ScalarConverter::isInf(std::string const & literal)
+{
+	if (literal.compare("inf") == 0 || literal.compare("inff") == 0 ||
+		literal.compare("+inf") == 0 || literal.compare("+inff") == 0 ||
+		literal.compare("-inf") == 0 || literal.compare("-inff") == 0)
+		return (1);
+	return (0);
+}
+
+void ScalarConverter::convertInf(std::string const & literal)
+{
+	std::cout << "char : impossible" << std::endl;
+	std::cout << "int : impossible" << std::endl;
+	if (literal.compare("inf") == 0 || literal.compare("inff") == 0 ||
+		literal.compare("+inf") == 0 || literal.compare("+inff") == 0)
+	{
+		std::cout << "float : +inff" << std::endl;
+		std::cout << "double : +inf" << std::endl;
+		return ;
+	}
+	if (literal.compare("-inf") == 0 || literal.compare("-inff") == 0)
+	{
+		std::cout << "float : -inff" << std::endl;
+		std::cout << "double : -inf" << std::endl;
+	}
 }
 
 void ScalarConverter::convertChar(char const & literal)
@@ -215,4 +262,12 @@ void ScalarConverter::convertDouble(double const & literal)\
 		std::cout << "int : impossible" << std::endl;
 	std::cout << "float : " << static_cast<float>(literal) << "f" << std::endl;
 	std::cout << "double : " << static_cast<double>(literal) << std::endl;
+}
+
+void ScalarConverter::convertNan(void)
+{
+	std::cout << "char : impossible" << std::endl;
+	std::cout << "int : impossible" << std::endl;
+	std::cout << "float : nanf" << std::endl;
+	std::cout << "double : nan" << std::endl;
 }
