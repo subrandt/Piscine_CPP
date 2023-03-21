@@ -14,6 +14,7 @@
 #include <cctype>
 #include <string>
 #include <climits>
+#include <limits>
 #include <cstdlib>
 
 ScalarConverter::ScalarConverter(void)
@@ -44,6 +45,7 @@ ScalarConverter & ScalarConverter::operator=(ScalarConverter const & rhs)
 bool	ScalarConverter::convert(std::string const & literal)
 {
 	int type;
+	
 
 	type = getType(literal);
 	if (type == 1)
@@ -59,6 +61,11 @@ bool	ScalarConverter::convert(std::string const & literal)
 	if (type == 3)
 	{
 		convertFloat(strtof(literal.c_str(), NULL));
+		return (1);
+	}
+	if (type == 4)
+	{
+		convertDouble(strtod(literal.c_str(), NULL));
 		return (1);
 	}
 	return (0);
@@ -89,11 +96,18 @@ bool	ScalarConverter::isChar(std::string const & literal)
 			std::cout << literal[0] << std::endl;
 		return (1);
 	}
+	if (literal.length() != 1 && !isdigit(literal[0]) && literal[0] != '-')
+	{
+		std::cout << "Wrong argument" << std::endl;
+		return (0);
+	}
+
 	return (0);
 }
 
 bool	ScalarConverter::isInt(std::string const & literal)
 {
+
 	long int literal_to_convert = atol(literal.c_str());
 
 	if ((literal[0] == '-') || isdigit(literal[0]))
@@ -117,7 +131,7 @@ bool	ScalarConverter::isFloat(std::string const & literal)
 	{
 		if (isdigit(literal[0]) &&	literal[i] == 'f')
 		{
-			if (i + 1 == literal.length())
+			if (i + 1 == literal.length() && strtof(literal.c_str(), NULL))
 				return (1);
 			else
 			{
@@ -132,7 +146,11 @@ bool	ScalarConverter::isFloat(std::string const & literal)
 
 bool	ScalarConverter::isDouble(std::string const & literal)
 {
-	(void)literal;
+	for (long unsigned int i = 0; i < literal.length(); i++)
+	{
+		if (isdigit(literal[0]) && strtod(literal.c_str(), NULL))
+			return (1);
+	}
 	return (0);
 }
 
@@ -146,6 +164,7 @@ void ScalarConverter::convertChar(char const & literal)
 
 void ScalarConverter::convertInt(long int const & literal)
 {
+
 	if (literal < 0 || literal > 127)
 		std::cout << "char : impossible" << std::endl;
 	else if ((literal >= 0 &&  literal <= 31) || literal == 127)
@@ -153,10 +172,13 @@ void ScalarConverter::convertInt(long int const & literal)
 	else
 		std::cout << "char : '" << static_cast<char>(literal) << "'" << std::endl;
 	std::cout << "int : " << static_cast<int>(literal) << std::endl;
-	std::cout << "float : " << static_cast<float>(literal) << ".0f" << std::endl;
+	
+	if (literal >= 100000 || literal <= -100000)
+		std::cout << "float : " << static_cast<float>(literal) << "f" << std::endl;
+	else
+		std::cout << "float : " << static_cast<float>(literal) << ".0f" << std::endl;
 	std::cout << "double : " << static_cast<double>(literal) << ".0" << std::endl;
 }
-
 
 void ScalarConverter::convertFloat(float const & literal)
 {
@@ -166,14 +188,31 @@ void ScalarConverter::convertFloat(float const & literal)
 		std::cout << "char : non displayable" << std::endl;
 	else
 		std::cout << "char : '" << static_cast<char>(literal) << "'" << std::endl;
-	std::cout << "int : " << static_cast<int>(literal) << std::endl;
-	//print "f" si >=1 000 000 
-	// sinon c'est automatique
+	
+	if (literal >= std::numeric_limits<int>::min() && literal <= std::numeric_limits<int>::max())
+		std::cout << "int : " << static_cast<int>(literal) << std::endl;
+	else
+		std::cout << "int : impossible" << std::endl;
+
 	// ajouter .0f
 		// a partir 100 000 precision ...?
-	if (literal < 1000000)
-		std::cout << "float : " << static_cast<float>(literal) << "f" << std::endl;
+	std::cout << "float : " << static_cast<float>(literal) << "f" << std::endl;
+	std::cout << "double : " << static_cast<double>(literal) << std::endl;
+}
+
+void ScalarConverter::convertDouble(double const & literal)\
+{
+	if (literal < 0 || literal > 127)
+		std::cout << "char : impossible" << std::endl;
+	else if ((literal >= 0 &&  literal <= 31) || literal == 127)
+		std::cout << "char : non displayable" << std::endl;
 	else
-		std::cout << "float : " << static_cast<float>(literal) << std::endl;
+		std::cout << "char : '" << static_cast<char>(literal) << "'" << std::endl;
+		
+	if (literal >= std::numeric_limits<int>::min() && literal <= std::numeric_limits<int>::max())
+		std::cout << "int : " << static_cast<int>(literal) << std::endl;
+	else
+		std::cout << "int : impossible" << std::endl;
+	std::cout << "float : " << static_cast<float>(literal) << "f" << std::endl;
 	std::cout << "double : " << static_cast<double>(literal) << std::endl;
 }

@@ -39,6 +39,7 @@ class ScalarConverter
 		static void convertChar(char const & literal);
 		static void convertInt(long int const & literal);
 		static void convertFloat(float const & literal);
+		static void convertDouble(double const & literal);
 
 };
 

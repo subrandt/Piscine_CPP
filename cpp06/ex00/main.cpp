@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 17:16:35 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/15 20:54:47 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/21 09:12:20 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@ int main(int argc, char **argv)
 	}
 	if (ScalarConverter::convert(argv[1]))
 		return (1);
-	
-	// check argv[1] - type char * / int / float / double
-	// conversion 
 	
 	return (0);
 }
