@@ -44,7 +44,6 @@ class ScalarConverter
 		static void convertDouble(double const & literal);
 		static void convertNan(void);
 		static void convertInf(std::string const & literal);
-
 };
 
 #endif
