@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:57:51 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/21 17:02:17 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/21 17:43:41 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define SERIALIZER_HPP
 
 # include <iostream>
+
+struct	Data
+{
+	int	a;
+};
 
 class Serializer
 {
