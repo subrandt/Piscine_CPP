@@ -5,16 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/21 16:55:48 by subrandt          #+#    #+#              #
-#    Updated: 2023/03/22 10:33:31 by subrandt         ###   ########.fr        #
+#    Created: 2023/03/22 12:40:34 by subrandt          #+#    #+#              #
+#    Updated: 2023/03/22 15:34:34 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-NAME =		serializer
+NAME =		base
 
 SRC =		main.cpp			\
-			Serializer.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 

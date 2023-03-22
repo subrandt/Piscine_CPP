@@ -6,18 +6,28 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 16:52:17 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/21 16:55:14 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:15:24 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
-int main(int argc, char **argv)
+int main(void)
 {
-	if (argc != 2)
-	{
-		std::cerr << "Wrong number of arguments" << std::endl;
-		return (1);
-	}
+	Data data;
+	data.nb = 42;
+	data.str = "quarante-deux";
+	
+	std::cout << "\nData : " << std::endl;
+	std::cout << data.nb << std::endl;
+	std::cout << data.str << std::endl;
+
+	uintptr_t ptr = Serializer::serialize(&data);
+	Data *data2 = Serializer::deserialize(ptr);
+	
+	std::cout << "\nData after serialize/deserialize : " << std::endl;
+	std::cout << data2->nb << std::endl;
+	std::cout << data2->str << std::endl;
+
 	return (0);
 }

@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 16:57:51 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/22 10:34:11 by subrandt         ###   ########.fr       */
+/*   Created: 2023/03/22 14:55:09 by subrandt          #+#    #+#             */
+/*   Updated: 2023/03/22 15:34:53 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef C_HPP
+# define C_HPP
 
 # include <iostream>
-# include <stdint.h>
+# include "Base.hpp"
 
-struct	Data
-{
-	int	nb;
-	std::string str;
-};
 
-class Serializer
+class C : public Base
 {
 	public:
 
-		Serializer(Serializer const & src);
-		~Serializer(void);
-
-		Serializer & operator=(Serializer const & rhs);
-		
-		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t raw);
+		virtual ~C(void) {}
 
 	private:
 		
-		Serializer(void);
-
 };
 
 #endif

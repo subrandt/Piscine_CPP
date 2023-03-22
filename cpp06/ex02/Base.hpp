@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Base.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,34 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef BASE_HPP
+# define BASE_HPP
 
 # include <iostream>
-# include <stdint.h>
 
-struct	Data
-{
-	int	nb;
-	std::string str;
-};
 
-class Serializer
+class Base
 {
 	public:
 
-		Serializer(Serializer const & src);
-		~Serializer(void);
-
-		Serializer & operator=(Serializer const & rhs);
-		
-		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t raw);
+		virtual ~Base(void) {}
 
 	private:
 		
-		Serializer(void);
-
 };
 
 #endif
