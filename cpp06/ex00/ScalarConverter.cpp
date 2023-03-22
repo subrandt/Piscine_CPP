@@ -126,7 +126,7 @@ bool	ScalarConverter::isInt(std::string const & literal)
 	{
 		for (long unsigned int i = 0; i < literal.length(); i++)
 		{
-			if (literal[0] != '-')
+			if (literal[0] == '-')
 				i++;
 			if(isdigit(literal[i]) == 0)
 				return (0);
