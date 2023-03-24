@@ -37,6 +37,7 @@ class ScalarConverter
 		static bool isDouble(std::string const & literal);
 		static bool isNan(std::string const & literal);
 		static bool isInf(std::string const & literal);
+		static void isError(std::string const & literal);
 
 		static void convertChar(char const & literal);
 		static void convertInt(long int const & literal);

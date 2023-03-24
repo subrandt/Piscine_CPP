@@ -16,6 +16,7 @@
 #include <climits>
 #include <limits>
 #include <cstdlib>
+#include <cstring>
 
 ScalarConverter::ScalarConverter(void)
 {
@@ -95,6 +96,8 @@ int		ScalarConverter::getType(std::string const & literal)
 		return (5);
 	if (isInf(literal))
 		return (6);
+	else 
+		isError(literal);
 	return (0);
 }
 
@@ -104,16 +107,8 @@ bool	ScalarConverter::isChar(std::string const & literal)
 	{
 		if (!isprint(literal[0]))
 			std::cout << literal[0] << " isn't displayable" << std::endl;
-		else
-			std::cout << literal[0] << std::endl;
 		return (1);
 	}
-	if (literal.length() != 1 && !isdigit(literal[0]) && literal[0] != '-')
-	{
-		std::cout << "Wrong argument" << std::endl;
-		return (0);
-	}
-
 	return (0);
 }
 
@@ -121,36 +116,33 @@ bool	ScalarConverter::isInt(std::string const & literal)
 {
 
 	long int literal_to_convert = atol(literal.c_str());
+	char *p_end;
 
-	if ((literal[0] == '-') || isdigit(literal[0]))
+	if(strtol(literal.c_str(), &p_end, 10))
 	{
-		for (long unsigned int i = 0; i < literal.length(); i++)
+		if (strlen(p_end) == 0)
 		{
-			if (literal[0] == '-')
-				i++;
-			if(isdigit(literal[i]) == 0)
-				return (0);
+			if (literal_to_convert >= INT_MIN && literal_to_convert <= INT_MAX)
+				return (1);
 		}
-		if (literal_to_convert >= INT_MIN && literal_to_convert <= INT_MAX)
-			return (1);
 		return (0);
 	}
 	return (0);
-
 }
 
 bool	ScalarConverter::isFloat(std::string const & literal)
 {
+	char *p_end;
 	for (long unsigned int i = 0; i < literal.length(); i++)
 	{
-		if (isdigit(literal[0]) &&	literal[i] == 'f')
+		if (literal[i] == 'f')
 		{
-			if (i + 1 == literal.length() && strtof(literal.c_str(), NULL))
-				return (1);
-			else
+			if (strtof(literal.c_str(), &p_end))
 			{
-				std::cout << "Wrong float format" << std::endl;
-				return (0);
+				if (strlen(p_end) == 1 && strcmp(p_end, "f") == 0)
+					return (1);
+				else
+					return (0);
 			}
 		}
 	}
@@ -159,12 +151,24 @@ bool	ScalarConverter::isFloat(std::string const & literal)
 
 bool	ScalarConverter::isDouble(std::string const & literal)
 {
+	char *p_end;
 	for (long unsigned int i = 0; i < literal.length(); i++)
 	{
-		if (isdigit(literal[0]) && strtod(literal.c_str(), NULL))
-			return (1);
+			if (strtod(literal.c_str(), &p_end))
+			{
+				if (strlen(p_end) == 0)
+					return (1);
+				else
+					return (0);
+		}
 	}
 	return (0);
+}
+
+void	ScalarConverter::isError(std::string const & literal)
+{
+	(void)literal;
+	std::cerr << "Error" << std::endl;
 }
 
 bool	ScalarConverter::isNan(std::string const & literal)
