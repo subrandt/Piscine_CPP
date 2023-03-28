@@ -118,16 +118,13 @@ bool	ScalarConverter::isInt(std::string const & literal)
 	long int literal_to_convert = atol(literal.c_str());
 	char *p_end;
 
-	if(strtol(literal.c_str(), &p_end, 10))
-	{
+	strtol(literal.c_str(), &p_end, 10);
 		if (strlen(p_end) == 0)
 		{
 			if (literal_to_convert >= INT_MIN && literal_to_convert <= INT_MAX)
 				return (1);
 		}
 		return (0);
-	}
-	return (0);
 }
 
 bool	ScalarConverter::isFloat(std::string const & literal)
@@ -152,16 +149,16 @@ bool	ScalarConverter::isFloat(std::string const & literal)
 bool	ScalarConverter::isDouble(std::string const & literal)
 {
 	char *p_end;
-	for (long unsigned int i = 0; i < literal.length(); i++)
-	{
-			if (strtod(literal.c_str(), &p_end))
+	// for (long unsigned int i = 0; i < literal.length(); i++)
+	// {
+			strtod(literal.c_str(), &p_end);
 			{
-				if (strlen(p_end) == 0)
+				if (strlen(p_end) == 0 && literal[(literal.length() - 1)] != '.')
 					return (1);
 				else
 					return (0);
-		}
-	}
+			}
+	// }
 	return (0);
 }
 
@@ -245,13 +242,20 @@ void ScalarConverter::convertFloat(float const & literal)
 	else
 		std::cout << "int : impossible" << std::endl;
 
-	// ajouter .0f
-		// a partir 100 000 precision ...?
-	std::cout << "float : " << static_cast<float>(literal) << "f" << std::endl;
-	std::cout << "double : " << static_cast<double>(literal) << std::endl;
+	
+	if (literal < 100000 && (literal - static_cast<int>(literal)) == 0)
+		std::cout << "float : " << static_cast<float>(literal) << ".0f"<< std::endl;
+	else
+		std::cout << "float : " << static_cast<float>(literal)<<  "f" << std::endl;
+	
+	
+	if (literal < 100000 && (literal - static_cast<int>(literal)) == 0)
+		std::cout << "double : " << static_cast<double>(literal) << ".0" << std::endl;
+	else
+		std::cout << "double : " << static_cast<double>(literal) << std::endl;
 }
 
-void ScalarConverter::convertDouble(double const & literal)\
+void ScalarConverter::convertDouble(double const & literal)
 {
 	if (literal < 0 || literal > 127)
 		std::cout << "char : impossible" << std::endl;
@@ -264,8 +268,17 @@ void ScalarConverter::convertDouble(double const & literal)\
 		std::cout << "int : " << static_cast<int>(literal) << std::endl;
 	else
 		std::cout << "int : impossible" << std::endl;
-	std::cout << "float : " << static_cast<float>(literal) << "f" << std::endl;
-	std::cout << "double : " << static_cast<double>(literal) << std::endl;
+	
+	if (literal < 100000 && (literal - static_cast<int>(literal)) == 0)
+		std::cout << "float : " << static_cast<float>(literal) << ".0";
+	else
+		std::cout << "float : " << static_cast<float>(literal) ;
+	std::cout << "f" << std::endl;
+
+	if (literal < 100000 && (literal - static_cast<int>(literal)) == 0)
+		std::cout << "double : " << static_cast<double>(literal) << ".0" << std::endl;
+	else
+		std::cout << "double : " << static_cast<double>(literal) << std::endl;
 }
 
 void ScalarConverter::convertNan(void)
