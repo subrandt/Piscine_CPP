@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:23:40 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/27 17:42:45 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:26:21 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ class Array
 		~Array<T>(void);
 
 		Array<T> & operator=(Array<T> const & rhs);
+		T & operator[](unsigned int const & index);
+		
 	
 	private:
-		unsigned int _n;//number of elements of array[]
+		unsigned int _n;
 		T * _array;
 	
-		int	size(); //A member function size() that returns the number of elements 
-						//in the array. This member function takes no parameter 
-						//and musn’t modify the current instance.
+		unsigned int	size();
 
 		class InvalidIndex : public std::exception
 		{
@@ -38,5 +38,8 @@ class Array
 				virtual const char* what() const throw();
 		};
 };
+
+# include "Array.tpp"
+
 
 #endif

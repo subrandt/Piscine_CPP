@@ -6,14 +6,13 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/27 14:25:54 by subrandt          #+#    #+#              #
-#    Updated: 2023/03/27 17:48:55 by subrandt         ###   ########.fr        #
+#    Updated: 2023/03/28 11:26:44 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		Array
 
 SRC =		main.cpp			\
-			Array.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 
