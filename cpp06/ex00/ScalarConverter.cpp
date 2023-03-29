@@ -86,17 +86,17 @@ int		ScalarConverter::getType(std::string const & literal)
 {
 	if (isChar(literal))// if char
 		return (1);
+	if (isNan(literal))
+		return (5);
+	if (isInf(literal))
+		return (6);
 	if (isInt(literal)) // if int
 	 	return (2);
 	if (isFloat(literal)) //if float
 		return (3);
 	if (isDouble(literal)) //if double
 		return (4);
-	if (isNan(literal))
-		return (5);
-	if (isInf(literal))
-		return (6);
-	else 
+	else
 		isError(literal);
 	return (0);
 }
@@ -149,16 +149,15 @@ bool	ScalarConverter::isFloat(std::string const & literal)
 bool	ScalarConverter::isDouble(std::string const & literal)
 {
 	char *p_end;
-	// for (long unsigned int i = 0; i < literal.length(); i++)
-	// {
-			strtod(literal.c_str(), &p_end);
-			{
-				if (strlen(p_end) == 0 && literal[(literal.length() - 1)] != '.')
-					return (1);
-				else
-					return (0);
-			}
-	// }
+	
+	strtod(literal.c_str(), &p_end);
+	{
+		if (strlen(p_end) == 0 && literal[(literal.length() - 1)] != '.')
+			return (1);
+		else
+			return (0);
+	}
+	
 	return (0);
 }
 
@@ -170,7 +169,9 @@ void	ScalarConverter::isError(std::string const & literal)
 
 bool	ScalarConverter::isNan(std::string const & literal)
 {
-	if (literal.compare("nan") == 0 || literal.compare("nanf") == 0)
+	if (literal.compare("nan") == 0 || literal.compare("nanf") == 0 ||
+		literal.compare("+nan") == 0 || literal.compare("+nanf") == 0 ||
+		literal.compare("-nan") == 0 || literal.compare("-nanf") == 0)
 		return (1);
 	return (0);
 }
