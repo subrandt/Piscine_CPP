@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 12:41:11 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/22 16:14:41 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/03/29 11:06:56 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ int main(void)
 	Base * base = generate();
 	identify(base);
 	identify(*base);
+	delete base;
 	return (0);
 }
