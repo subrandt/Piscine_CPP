@@ -6,11 +6,11 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/24 09:02:44 by subrandt          #+#    #+#              #
-#    Updated: 2023/03/24 15:14:39 by subrandt         ###   ########.fr        #
+#    Updated: 2023/03/29 13:49:39 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		Iter
+NAME =		iter
 
 SRC =		main.cpp			\
 

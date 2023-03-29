@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/24 09:02:44 by subrandt          #+#    #+#              #
-#    Updated: 2023/03/29 13:48:07 by subrandt         ###   ########.fr        #
+#    Created: 2023/03/29 13:45:15 by subrandt          #+#    #+#              #
+#    Updated: 2023/03/29 13:45:37 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		whatever
+NAME =		easyfind
 
 SRC =		main.cpp			\
 
