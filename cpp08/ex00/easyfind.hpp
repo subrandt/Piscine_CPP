@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/29 14:07:00 by subrandt          #+#    #+#             */
-/*   Updated: 2023/03/29 17:53:18 by subrandt         ###   ########.fr       */
+/*   Created: 2023/03/27 14:23:40 by subrandt          #+#    #+#             */
+/*   Updated: 2023/04/03 16:55:16 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <vector>
-#include "easyfind.hpp"
+#ifndef EASYFIND_HPP
+# define EASYFIND_HPP
 
+# include <iostream>
+# include <algorithm>
+# include <vector>
+# include <list>
 
-int main(void)
+class IntegerNotFound : public std::exception
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
+	public:
+		virtual const char * what() const throw();
+};
 
+# include "easyfind.tpp"
 
-    return (0);
-}
+#endif
