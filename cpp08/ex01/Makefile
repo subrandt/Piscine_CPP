@@ -6,13 +6,14 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/03 17:08:25 by subrandt          #+#    #+#              #
-#    Updated: 2023/04/03 17:10:22 by subrandt         ###   ########.fr        #
+#    Updated: 2023/04/04 13:00:58 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		span
 
 SRC =		main.cpp			\
+			Span.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 
