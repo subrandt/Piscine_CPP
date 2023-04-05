@@ -6,11 +6,12 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:23:28 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/04 17:05:33 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/05 10:24:09 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+#include <climits>
 
 Span::Span(void) : _N(2)
 {
@@ -59,15 +60,19 @@ Span & Span::operator=(Span const & rhs)
 	return (*this);
 }
 
-void	Span::addNumber(int number)
+void	Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
 	if (span.size() >= _N)
 		throw(Span::TooManyNumbersStoredException());
-	span.push_back(number);
-	// std::cout << "number = " << number;
-	// std::cout << ", size = " << span.size() << std::endl;
-	// std::cout << "Size private : " << _N << std::endl;
+	span.insert(span.begin(), begin, end);
+}
 
+void	Span::addNumber(int number)
+{
+	//check completion:
+	if (span.size() >= _N)
+		throw(Span::TooManyNumbersStoredException());
+	span.push_back(number);
 }
 
 unsigned int	Span::shortestSpan(void)

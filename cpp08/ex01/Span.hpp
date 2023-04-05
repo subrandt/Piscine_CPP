@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:14:49 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/04 15:55:51 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/05 10:26:10 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class Span
 		void			addNumber(int number);
 		unsigned int	shortestSpan(void);
 		unsigned int	longestSpan(void);
+		void			addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
 		
 		class NoNumbersStoredException : public std::exception
 		{
