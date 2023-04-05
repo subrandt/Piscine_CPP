@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:14:49 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/05 10:26:10 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/05 11:36:10 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,5 @@ class Span
 		unsigned int _N;
 
 };
-
-std::ostream & operator<<(std::ostream & o, Span const & rhs);
 
 #endif
