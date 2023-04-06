@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:23:28 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/05 10:24:09 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/06 10:34:44 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ Span & Span::operator=(Span const & rhs)
 
 void	Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
+	if (end - begin > _N)
+		throw(Span::TooBigRange());
 	if (span.size() >= _N)
 		throw(Span::TooManyNumbersStoredException());
 	span.insert(span.begin(), begin, end);
@@ -138,4 +140,9 @@ const char * Span::OnlyOneNumberStoredException::what()  const throw()
 const char * Span::TooManyNumbersStoredException::what() const throw()
 {
 	return ("<ERROR> Already N numbers stored, no new element can be added.");
+}
+
+const char * Span::TooBigRange::what() const throw()
+{
+	return ("<ERROR> The range you try to add is too big.");
 }

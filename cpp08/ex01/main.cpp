@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:11:35 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/05 11:20:44 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/06 10:35:37 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,14 @@ int main(void)
 		{
 			range.push_back(i);
 		}
-		sp3.addRange(range.begin(), range.end());
+		try
+		{
+			sp3.addRange(range.begin(), range.end());
+		}
+		catch (std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
 		
 
 		// std::cout << "print the range of 10001 numbers:" << std::endl;

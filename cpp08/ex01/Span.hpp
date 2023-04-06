@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:14:49 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/05 11:36:10 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/06 10:33:37 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ class Span
 				virtual const char* what() const throw();
 		};
 		class TooManyNumbersStoredException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
+		class TooBigRange : public std::exception
 		{
 			public:
 				virtual const char* what() const throw();
