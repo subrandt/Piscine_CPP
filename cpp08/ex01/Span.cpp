@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 17:23:28 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/06 10:34:44 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:37:13 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ Span & Span::operator=(Span const & rhs)
 	if (this != &rhs)
 	{
 		(void)rhs;
-		// _N = rhs._N;
 	}
 	return (*this);
 }

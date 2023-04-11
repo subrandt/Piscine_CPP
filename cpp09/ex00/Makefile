@@ -6,13 +6,14 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 12:10:31 by subrandt          #+#    #+#              #
-#    Updated: 2023/04/06 12:10:34 by subrandt         ###   ########.fr        #
+#    Updated: 2023/04/07 14:33:53 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		btc
 
-SRC =		main.cpp
+SRC =		main.cpp			\
+			BitcoinExchange.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 
