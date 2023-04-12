@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:46:49 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/11 17:43:02 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:33:58 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@
 # include <fstream>
 # include <map>
 # include <cstdlib>
-# include <algorithm>
+# include <time.h>
+# include <cstring>
+# include <climits>
+
 
 class Btc
 {
@@ -33,6 +36,7 @@ class Btc
 	
 		void parse_data(std::string const & inputfile);
 		std::map<std::string, float> _database;
+
 };
 
 
