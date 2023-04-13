@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:46:49 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/12 18:33:58 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:33:59 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 # include <iostream>
 # include <fstream>
 # include <map>
-# include <cstdlib>
+# include <cstdlib>	
 # include <time.h>
 # include <cstring>
 # include <climits>
+# include <cctype>
 
 
 class Btc

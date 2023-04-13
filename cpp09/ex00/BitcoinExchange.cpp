@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:45:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/12 18:47:14 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:13:29 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,61 @@ static bool open_file(std::string const & inputfile)
 // }
 
 
-
-//check_database :
-//check key (it->first)
-	
-
-//check value (it->second)
-	
-
 //to check date format in database
 bool	check_valid_date(std::string key)
 {	
 	if (key.length() != 10)
 	{
-		std::cerr << "Error in database : wrong date format" << std::endl;
+		std::cerr << "Error in database: wrong date format" << std::endl;
 		return (false);
 	}
+	std::string day;
+	day = key.substr(8, 2);
+	if (atoi(day.c_str()) > 31 || std::isdigit(day[1]) == 0)
+	{
+		std::cerr << "Error in database: wrong date" << std::endl;
+		return (false);
+	}
+
 	//format date YYYY-MM-DD -> strptime
-	//(années bisextiles)
-	//date valable (bitcoin depuis 2009-01-03) 
+    struct tm tm = {};
+	char *time = strptime(key.c_str(), "%Y-%m-%d", &tm);
+	int d = tm.tm_mday;
+	int m = tm.tm_mon + 1;
+	int y = tm.tm_year + 1900;
+
+    if (time == NULL) 
+	{
+        // std::cout << y << "-" << m << "-" << d << std::endl;
+		std::cout << "Error in database: wrong date" << std::endl;
+		return (false);
+	}
+	else
+	{
+	    // std::cout << y << "-" << m << "-" << d << std::endl;
+
+		//date valable (bitcoin depuis 2009-01-03) 
+		if ((y == 2009 && m == 1 && d < 3) || y < 2009)
+		{
+			std::cerr << "Error in database: date before bitcoin creation" << std::endl;
+			return (false);
+		}
+		//month with 30 days + 30fev
+		// if ()
+
+		//(années bisextiles)
+		if (((y % 4 != 0) || (y % 100 == 0)) && (y % 400 != 0))
+		{
+			if (m == 2 && d == 29)
+			{
+				std::cerr << "Error in database, wrong date - not a leap year" << std::endl;
+				return (false);
+			}
+		}
+
+	}
+	
+	
 	return (true);
 }
 
@@ -93,6 +129,7 @@ bool	check_valid_value(std::string value)
 	if (value.compare("") == 0)
 	{
 		std::cerr << "Error in database: empty bitcoin entry" << std::endl;
+		return (false);
 	}
 	if (strlen(p_end) != 0)
 	{
@@ -100,12 +137,11 @@ bool	check_valid_value(std::string value)
 		return (false);
 	}
 	
-	if (value_f > INT_MAX)// NE FONCTIONNE PAS !!!
+	if (value_f > INT_MAX)// NE FONCTIONNE PAS SUPERIEUR A exp18!!!
 	{
 		std::cerr << "Error in database: wrong bitcoin format - value out of range" << std::endl;
 		return (false);
 	}
-
 
 	//max/min value
 	if (atof(value.c_str()) < 0)
