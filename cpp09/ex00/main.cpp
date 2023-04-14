@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:28:10 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/11 15:49:38 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/14 15:43:00 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int main(int argc, char **argv)
 	const std::string inputfile(argv[1]);
 	Btc btc(inputfile);
 	
-	close_files(argv[1]);//ne sert pas de fermer 
+	close_files(argv[1]);
 
 	return (0);
 }
