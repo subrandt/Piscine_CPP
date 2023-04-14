@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:45:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/13 17:13:29 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/14 09:18:51 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,47 @@ static bool open_file(std::string const & inputfile)
 
 // }
 
+//to check date if format is a valid calendar date
+bool	check_valid_calendar_date(std::string const & key)
+{
+	struct tm tm = {};
+	char *time = strptime(key.c_str(), "%Y-%m-%d", &tm);
+	int d = tm.tm_mday;
+	int m = tm.tm_mon + 1;
+	int y = tm.tm_year + 1900;
+
+    if (time == NULL) 
+	{
+		std::cout << "Error in database: wrong date" << std::endl;
+		return (false);
+	}
+	else
+	{
+		//date valable (bitcoin depuis 2009-01-03) 
+		if ((y == 2009 && m == 1 && d < 3) || y < 2009)
+		{
+			std::cerr << "Error in database: date before bitcoin creation" << std::endl;
+			return (false);
+		}
+		//month with 30 days + 30fev
+		if ((m == 2 && d == 30) || ((m == 4 || m == 6 || m == 9 || m == 11) && d == 31))
+		{
+			std::cerr << "Error in database: month doesn't have 31 days" << std::endl;
+			return (false);
+		}
+		//(années bisextiles)
+		if (((y % 4 != 0) || (y % 100 == 0)) && (y % 400 != 0))
+		{
+			if (m == 2 && d == 29)
+			{
+				std::cerr << "Error in database: wrong date - not a leap year" << std::endl;
+				return (false);
+			}
+		}
+	}
+	return (true);
+	
+}
 
 //to check date format in database
 bool	check_valid_date(std::string key)
@@ -77,45 +118,10 @@ bool	check_valid_date(std::string key)
 		return (false);
 	}
 
-	//format date YYYY-MM-DD -> strptime
-    struct tm tm = {};
-	char *time = strptime(key.c_str(), "%Y-%m-%d", &tm);
-	int d = tm.tm_mday;
-	int m = tm.tm_mon + 1;
-	int y = tm.tm_year + 1900;
-
-    if (time == NULL) 
-	{
-        // std::cout << y << "-" << m << "-" << d << std::endl;
-		std::cout << "Error in database: wrong date" << std::endl;
+	//format date YYYY-MM-DD -> strptime : check if right format
+	if (check_valid_calendar_date(key) == false)
 		return (false);
-	}
-	else
-	{
-	    // std::cout << y << "-" << m << "-" << d << std::endl;
-
-		//date valable (bitcoin depuis 2009-01-03) 
-		if ((y == 2009 && m == 1 && d < 3) || y < 2009)
-		{
-			std::cerr << "Error in database: date before bitcoin creation" << std::endl;
-			return (false);
-		}
-		//month with 30 days + 30fev
-		// if ()
-
-		//(années bisextiles)
-		if (((y % 4 != 0) || (y % 100 == 0)) && (y % 400 != 0))
-		{
-			if (m == 2 && d == 29)
-			{
-				std::cerr << "Error in database, wrong date - not a leap year" << std::endl;
-				return (false);
-			}
-		}
-
-	}
-	
-	
+    
 	return (true);
 }
 
