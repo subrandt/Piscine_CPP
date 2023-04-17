@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:45:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/14 16:57:58 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:32:37 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static bool open_file(std::string const & inputfile)
 	return (true);
 }
 
-//to check date if format is a valid calendar date
+//to check date if format is a valid calendar date in database and inputfile
 static bool	check_valid_calendar_date(std::string const & key)
 {
 	struct tm tm = {};
@@ -75,7 +75,7 @@ static bool	check_valid_calendar_date(std::string const & key)
 
     if (time == NULL) 
 	{
-		std::cout << "Error in database: wrong date" << std::endl;
+		// std::cout << "Error in database: wrong date" << std::endl;
 		return (false);
 	}
 	else
@@ -83,13 +83,13 @@ static bool	check_valid_calendar_date(std::string const & key)
 		//date valable (bitcoin depuis 2009-01-03) 
 		if ((y == 2009 && m == 1 && d < 3) || y < 2009)
 		{
-			std::cerr << "Error in database: date before bitcoin creation" << std::endl;
+			// std::cerr << "Error in database: date before bitcoin creation" << std::endl;
 			return (false);
 		}
 		//month with 30 days + 30fev
 		if ((m == 2 && d == 30) || ((m == 4 || m == 6 || m == 9 || m == 11) && d == 31))
 		{
-			std::cerr << "Error in database: month doesn't have 31 days" << std::endl;
+			// std::cerr << "Error in database: month doesn't have 31 days" << std::endl;
 			return (false);
 		}
 		//(années bisextiles)
@@ -97,7 +97,7 @@ static bool	check_valid_calendar_date(std::string const & key)
 		{
 			if (m == 2 && d == 29)
 			{
-				std::cerr << "Error in database: wrong date - not a leap year" << std::endl;
+				// std::cerr << "Error in database: wrong date - not a leap year" << std::endl;
 				return (false);
 			}
 		}
@@ -106,19 +106,17 @@ static bool	check_valid_calendar_date(std::string const & key)
 	
 }
 
-//to check date format in database
+//to check date format in database and inputfile
 static bool	check_valid_date(std::string const & key)
 {	
 	if (key.length() != 10)
 	{
-		std::cerr << "Error: wrong date format" << std::endl;
 		return (false);
 	}
 	std::string day;
 	day = key.substr(8, 2);
 	if (atoi(day.c_str()) > 31 || std::isdigit(day[1]) == 0)
 	{
-		std::cerr << "Error: wrong date" << std::endl;
 		return (false);
 	}
 
@@ -129,7 +127,7 @@ static bool	check_valid_date(std::string const & key)
 	return (true);
 }
 
-//to check if the bitcoin value is valid
+//to check if the bitcoin value is valid in database
 static  bool	check_valid_value(std::string const & value)
 {
 	char *p_end;
@@ -138,18 +136,15 @@ static  bool	check_valid_value(std::string const & value)
 	value_f = strtof(value.c_str(), &p_end);
 	if (value.compare("") == 0)
 	{
-		std::cerr << "Error in database: empty bitcoin entry" << std::endl;
 		return (false);
 	}
 	if (strlen(p_end) != 0)
 	{
-		std::cerr << "Error in database: wrong bitcoin format - not only digits" << std::endl;
 		return (false);
 	}
 	
 	if (value_f > INT_MAX)// NE FONCTIONNE PAS SUPERIEUR A exp18!!!
 	{
-		std::cerr << "Error in database: wrong bitcoin format - value out of range" << std::endl;
 		return (false);
 	}
 	return (true);
@@ -164,19 +159,16 @@ static  bool	check_valid_btc_number(std::string const & btc_nb) //float or integ
 	value_f = strtof(btc_nb.c_str(), &p_end);
 	if (btc_nb.compare("") == 0)
 	{
-		std::cerr << "Error inputfile: no value" << std::endl;
 		return (false);
 	}
 	if (strlen(p_end) != 0)
 	{
-		std::cerr << "Error inputfile: value error" << std::endl;
 		return (false);
 	}
 	
 	//max/min value
 	if (value_f <= 0 || value_f >= 1000)
 	{
-		std::cerr << "Error inputfile: value out of range" << std::endl;
 		return (false);
 	}
 	return (true);
@@ -204,19 +196,23 @@ static void check_inputfile(std::string const & inputfile)
 			std::cerr << "Error inputfile: wrong first line" << std::endl;
 			return ;
 		}
+		unsigned int line_inputfile = 1;
 		while (getline(fs, line))
 		{
+			line_inputfile++;
 			//split date and value:
 			//find "|"
 			if (check_empty_line(line) == true)
 			{
-				std::cerr << "Error inputfile: empty line" << std::endl;
+				std::cerr << "line " << line_inputfile;
+				std::cerr << " - Error inputfile: empty line" << std::endl;
 				continue ;
 			}
 			size_t pipe_pos;
 			if (line.find('|') == std::string::npos)
 			{
-				std::cerr << "Error inputfile: no pipe separating data" << std::endl;
+				std::cerr << "line " << line_inputfile;
+				std::cerr << " - Error inputfile: no pipe separating data" << std::endl;
 				continue ;
 			}
 			else
@@ -226,19 +222,30 @@ static void check_inputfile(std::string const & inputfile)
 			//split date and parse
 			size_t begin = 0;
 			size_t end = line.length();
-			if (check_valid_date(line.substr(begin, (pipe_pos))) == true)
+			if (check_valid_date(line.substr(begin, (pipe_pos - 1))) == true)
 			{
-				std::string btc_date = line.substr(begin, (pipe_pos));
-			
-			//split value and parse
+				std::string btc_date = line.substr(begin, (pipe_pos - 1));
+				//split value and parse
 				//value = float or integer between 0 and 1000
 				if (check_valid_btc_number(line.substr((pipe_pos + 1), end)) == true)
 				{
-					int btc_nb = atoi(line.substr((pipe_pos + 1), end).c_str());
+					double btc_nb = atof(line.substr((pipe_pos + 1), end).c_str());
 					
 					// print inputfile values :
 					std::cout << btc_date << " - " << btc_nb << std::endl;
 				}
+				else
+				{
+					std::cerr << "line " << line_inputfile;
+					std::cerr << " - Error inputfile: wrong value" << std::endl;
+					continue ;
+				}
+			}
+			else
+			{
+				std::cerr << "line " << line_inputfile;
+				std::cerr << " - Error inputfile: wrong date" << std::endl;
+				continue ;
 			}
 			//compare to database
 			//output like given example: 2011-01-03 => 3 = 0.9
@@ -273,19 +280,23 @@ void	Btc::parse_data(std::string const & inputfile)
 			return ;
 		}
 
-		//fill map<> : _database[key] = value
+		unsigned int line_database = 1;
+		//fill map<>: _database[key] = value
 		while (getline(fs, line))
 		{
+			line_database++;
 			if (check_empty_line(line) == true)
 			{
-				std::cerr << "Error in database: empty line" << std::endl;
+				std::cerr << "line " << line_database;
+				std::cerr << " - Error in database: empty line" << std::endl;
 				continue ;
 			}
 			//split date :
 			size_t comma_pos;
 			if (line.find(',') == std::string::npos)
 			{
-				std::cerr << "Error in database: no comma separating data" << std::endl;
+				std::cerr << "line " << line_database;
+				std::cerr << " - Error in database: no comma separating data" << std::endl;
 				continue ;
 			}
 			else
@@ -298,15 +309,27 @@ void	Btc::parse_data(std::string const & inputfile)
 			{
 				std::string key = line.substr(begin, (comma_pos));
 
-				//split value :
+				//split value:
 				if (check_valid_value(line.substr((comma_pos + 1), end)) == true)
 				{
 					float value = atof(line.substr((comma_pos + 1), end).c_str());
 					_database[key] = value;
 					
-					// print map<> :
+					// print map<>:
 					// std::cout << key << " - " << value << std::endl;
 				}
+				else
+				{
+					std::cerr << "line " << line_database;
+					std::cerr << " - Error in database: wrong value" << std::endl;
+					continue ;
+				}
+			}
+			else
+			{
+				std::cerr << "line " << line_database;
+				std::cerr << " - Error in database: wrong date" << std::endl;
+				continue ;
 			}
 		}
 	}
