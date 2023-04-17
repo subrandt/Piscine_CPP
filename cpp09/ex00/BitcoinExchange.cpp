@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:45:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/17 14:32:37 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/17 18:25:42 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,7 +181,36 @@ static bool check_empty_line(std::string const & line)
 	return (false);
 }
 
-static void check_inputfile(std::string const & inputfile)
+//compare to database
+void Btc::calculate_output_value(void)
+{
+	//if database has the exact date
+	_it = _database.find(_output_date);
+	if (_it != _database.end())
+		_btc_value = _it->second;
+	//else take the older date
+	// else
+	// {
+	// 	_it = _database.lower_bound(_output_date);
+	// 	if (_it == _database.begin())
+	// 	{
+	// 		_btc_value = _it->second;
+	// 		return ;
+	// 	}		
+	// 	if (_it != _database.end())
+	// 		_it--;
+	// 	_btc_value = _it->second;
+	// }
+}
+
+//output like given example: 2011-01-03 => 3 = 0.9
+void Btc::print_output(void)
+{
+	std::cout << _output_date << " => " << _output_nb_btc << " = ";
+	std::cout << _output_nb_btc * _btc_value << std::endl;
+}
+
+void Btc::check_inputfile(std::string const & inputfile)
 {
 	std::fstream fs (inputfile.c_str());
 
@@ -224,7 +253,8 @@ static void check_inputfile(std::string const & inputfile)
 			size_t end = line.length();
 			if (check_valid_date(line.substr(begin, (pipe_pos - 1))) == true)
 			{
-				std::string btc_date = line.substr(begin, (pipe_pos - 1));
+				_output_date = line.substr(begin, (pipe_pos - 1));
+				
 				//split value and parse
 				//value = float or integer between 0 and 1000
 				if (check_valid_btc_number(line.substr((pipe_pos + 1), end)) == true)
@@ -232,7 +262,8 @@ static void check_inputfile(std::string const & inputfile)
 					double btc_nb = atof(line.substr((pipe_pos + 1), end).c_str());
 					
 					// print inputfile values :
-					std::cout << btc_date << " - " << btc_nb << std::endl;
+					// std::cout << _output_date << " - " << btc_nb << std::endl;
+					_output_nb_btc = btc_nb;
 				}
 				else
 				{
@@ -248,7 +279,9 @@ static void check_inputfile(std::string const & inputfile)
 				continue ;
 			}
 			//compare to database
+			calculate_output_value();
 			//output like given example: 2011-01-03 => 3 = 0.9
+			print_output();
 		}
 	}
 	else
@@ -267,7 +300,8 @@ void	Btc::parse_data(std::string const & inputfile)
 		return ;
 	if (open_file("data.csv") == false)
 		return ;
-
+	
+	//parsing database :
 	if (fs.is_open())
 	{
 		std::string	line;
@@ -339,5 +373,6 @@ void	Btc::parse_data(std::string const & inputfile)
 		fs.close();
 		return ;
 	}
+	//parsing inputfile
 	check_inputfile(inputfile);
 }

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:46:49 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/13 16:33:59 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/17 17:07:35 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,17 @@ class Btc
 		Btc & operator=(Btc const & rhs);
 	
 		void parse_data(std::string const & inputfile);
+		void check_inputfile(std::string const & inputfile);
+		void calculate_output_value(void);
+		void print_output(void);
+
+
 		std::map<std::string, float> _database;
+		std::map<std::string, float>::iterator _it;
+
+		std::string _output_date;
+		float		_output_nb_btc;
+		float		_btc_value;
 
 };
 
