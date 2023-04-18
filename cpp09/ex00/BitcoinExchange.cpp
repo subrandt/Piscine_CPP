@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:45:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/18 11:24:42 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/18 13:45:39 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 Btc::Btc(void)
 {
-	// std::cout << "Default constructor called, not used here" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Btc::Btc(std::string const & inputfile)
