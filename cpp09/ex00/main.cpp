@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:28:10 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/18 11:43:50 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:52:47 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static void close_files(const char *inputfile)
 	if (database.is_open())
 	{
 		database.close();
-		std::cout << "Database successfully closed" << std::endl;
 	}
 
 	//close inputfile
@@ -29,7 +28,6 @@ static void close_files(const char *inputfile)
 	if (fs.is_open())
 	{
 		fs.close();
-		std::cout << "Inputfile successfully closed" << std::endl;
 	}
 }
 
@@ -42,8 +40,6 @@ int main(int argc, char **argv)
 		return (1);
 	}
 
-	
-	
 	const std::string inputfile(argv[1]);
 	Btc btc(inputfile);
 	

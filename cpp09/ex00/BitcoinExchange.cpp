@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:45:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/18 13:45:39 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:50:10 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,12 @@ Btc::~Btc(void)
 
 Btc & Btc::operator=(Btc const & rhs)
 {
-	(void)rhs;
+	if (this != &rhs) 
+	{
+		_database = rhs._database;
+		_output_date = rhs._output_date;
+		_btc_value = rhs._btc_value;
+	}
 	return (*this);
 }
 
@@ -60,7 +65,6 @@ static bool open_file(std::string const & inputfile)
 		fs.close();
 		return (false);
 	}
-	std::cout << inputfile << " successfully opened" << std::endl;
 	return (true);
 }
 
@@ -75,29 +79,25 @@ static bool	check_valid_calendar_date(std::string const & key)
 
     if (time == NULL) 
 	{
-		// std::cout << "Error in database: wrong date" << std::endl;
 		return (false);
 	}
 	else
 	{
-		//date valable (bitcoin depuis 2009-01-03) 
+		//check date of bitcoin : since 2009-01-03) 
 		if ((y == 2009 && m == 1 && d < 3) || y < 2009)
 		{
-			// std::cerr << "Error in database: date before bitcoin creation" << std::endl;
 			return (false);
 		}
 		//month with 30 days + 30fev
 		if ((m == 2 && d == 30) || ((m == 4 || m == 6 || m == 9 || m == 11) && d == 31))
 		{
-			// std::cerr << "Error in database: month doesn't have 31 days" << std::endl;
 			return (false);
 		}
-		//(années bisextiles)
+		//leap years
 		if (((y % 4 != 0) || (y % 100 == 0)) && (y % 400 != 0))
 		{
 			if (m == 2 && d == 29)
 			{
-				// std::cerr << "Error in database: wrong date - not a leap year" << std::endl;
 				return (false);
 			}
 		}
@@ -143,7 +143,7 @@ static  bool	check_valid_value(std::string const & value)
 		return (false);
 	}
 	
-	if (value_f > INT_MAX)// NE FONCTIONNE PAS SUPERIEUR A exp18!!!
+	if (value_f > INT_MAX)
 	{
 		return (false);
 	}
@@ -184,24 +184,26 @@ static bool check_empty_line(std::string const & line)
 //compare to database
 void Btc::calculate_output_value(void)
 {
+	std::map<std::string, float>::iterator it;
+
 	//if database has the exact date
-	_it = _database.find(_output_date);
-	if (_it != _database.end())
-		_btc_value = _it->second;
+	it = _database.find(_output_date);
+	if (it != _database.end())
+		_btc_value = it->second;
 	//else take the older date
 	else
 	{
-		_it = _database.upper_bound(_output_date);
-		// if (_it == _database.begin())
+		it = _database.upper_bound(_output_date);
+		// if (it == _database.begin())
 		// {
-		// 	_btc_value = _it->second;
+		// 	_btc_value = it->second;
 		// 	return ;
-		// }	
-		if (_it != _database.end())
-			_it--;
+		// }
+		if (it != _database.end())
+			it--;
 		else
-			_it--;
-		_btc_value = _it->second;
+			it--;
+		_btc_value = it->second;
 	}
 }
 
@@ -262,9 +264,6 @@ void Btc::check_inputfile(std::string const & inputfile)
 				if (check_valid_btc_number(line.substr((pipe_pos + 1), end)) == true)
 				{
 					double btc_nb = atof(line.substr((pipe_pos + 1), end).c_str());
-					
-					// print inputfile values :
-					// std::cout << _output_date << " - " << btc_nb << std::endl;
 					_output_nb_btc = btc_nb;
 				}
 				else
@@ -280,9 +279,9 @@ void Btc::check_inputfile(std::string const & inputfile)
 				std::cerr << " - Error inputfile: wrong date" << std::endl;
 				continue ;
 			}
-			//compare to database
+			//compare to database:
 			calculate_output_value();
-			//output like given example: 2011-01-03 => 3 = 0.9
+			//output like given example: 2011-01-03 => 3 = 0.9:
 			print_output();
 		}
 	}

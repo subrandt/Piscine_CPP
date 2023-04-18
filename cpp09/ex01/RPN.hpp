@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:47:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/18 14:06:15 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/18 15:45:44 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <stack>
+# include <cstdlib>
 
 class RPN
 {
@@ -28,7 +29,7 @@ class RPN
 		RPN(void);
 		RPN & operator=(RPN const & rhs);
 
-		void parse_data(std::string const & operation);
+		void parsing_operation(std::string const & operation);
 
 		std::stack<int> _stack;
 };

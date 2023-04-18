@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:46:49 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/17 17:07:35 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:52:28 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ class Btc
 
 
 		std::map<std::string, float> _database;
-		std::map<std::string, float>::iterator _it;
 
 		std::string _output_date;
 		float		_output_nb_btc;
