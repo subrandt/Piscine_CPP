@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:45:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/17 18:25:42 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/18 11:24:42 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ static  bool	check_valid_value(std::string const & value)
 static  bool	check_valid_btc_number(std::string const & btc_nb) //float or integer
 {
 	char *p_end;
-	long int value_f;
+	double value_f;
 	
 	value_f = strtof(btc_nb.c_str(), &p_end);
 	if (btc_nb.compare("") == 0)
@@ -189,18 +189,20 @@ void Btc::calculate_output_value(void)
 	if (_it != _database.end())
 		_btc_value = _it->second;
 	//else take the older date
-	// else
-	// {
-	// 	_it = _database.lower_bound(_output_date);
-	// 	if (_it == _database.begin())
-	// 	{
-	// 		_btc_value = _it->second;
-	// 		return ;
-	// 	}		
-	// 	if (_it != _database.end())
-	// 		_it--;
-	// 	_btc_value = _it->second;
-	// }
+	else
+	{
+		_it = _database.upper_bound(_output_date);
+		// if (_it == _database.begin())
+		// {
+		// 	_btc_value = _it->second;
+		// 	return ;
+		// }	
+		if (_it != _database.end())
+			_it--;
+		else
+			_it--;
+		_btc_value = _it->second;
+	}
 }
 
 //output like given example: 2011-01-03 => 3 = 0.9
