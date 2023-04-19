@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 12:28:26 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/19 17:48:49 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/19 18:17:22 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool parsing(std::string const & argv)
 		}
 		if (argv[i] == '+' || argv[i] == '-' || argv[i] == '*' || argv[i] == '/')
 		{
-			if (nb_numbers < 2 || (nb_op != nb_numbers - 2))
+			if (nb_numbers < 2 )
 			{
 				std::cout << "ERROR" << std::endl;
 				return (false);
