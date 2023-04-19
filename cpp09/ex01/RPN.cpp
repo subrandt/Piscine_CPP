@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:48:28 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/18 16:44:02 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/19 17:53:38 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ RPN::RPN(void)
 RPN::RPN(std::string const & operation)
 {
 	// std::cout << "Default Inputfile constructor called" << std::endl;
-	parsing_operation(operation);
+	RPN_operation(operation);
 }
 
 RPN::RPN(RPN const & src)
@@ -40,7 +40,10 @@ RPN::~RPN(void)
 
 RPN & RPN::operator=(RPN const & rhs)
 {
-	(void)rhs;
+	if (this != &rhs)
+	{
+		_stack = rhs._stack;
+	}
 	return (*this);
 }
 
@@ -48,18 +51,45 @@ RPN & RPN::operator=(RPN const & rhs)
 /*								Other Functions								  */
 /* ************************************************************************** */
 
-void RPN::parsing_operation(std::string const & operation)
+static float calculate(float & first, char  op, float & second)
 {
-	//parsing:
-	//au fur et a mesure de push dans la stack
-	//isdigit + operateurs uniquement 
-	//d'abord 2 chiffres puis l'operateur
-	//erreurs sur sortie standart!!
+	int i;
+	float result;
+	char operator_choice[4] = {'+', '-', '*', '/'};
+	for (i = 0; operator_choice[i] != op; i++)
+	{
+		if (operator_choice[i] == op)
+			break ;
+	}
+	switch(i)
+	{
+		case 0:
+			result = first + second;
+			break;
+		case 1:
+			result = first - second;
+			break;
+		case 2:
+			result = first * second;
+			break;
+		default:
+			result = first / second;
+	}
+
+
+	
+	return (result);
+}
+
+void RPN::RPN_operation(std::string const & operation)
+{
+	
 	//division par 0
 
 	//calculate function : "+ - / *"
 
 	//output function
+	float result;
 	for (size_t i = 0; i < operation.length(); i++)
 	{
 		while (isspace(operation[i]))
@@ -69,27 +99,28 @@ void RPN::parsing_operation(std::string const & operation)
 		if (isdigit(operation[i]))
 		{
 			_stack.push(operation[i] - '0');
-			std::cout << _stack.top() << std::endl;
-			i++;
 		}
 		if ((operation[i] == '+' || operation[i] == '-'
 			|| operation[i] == '*' || operation[i] == '/')
 			&& _stack.size() >= 2)
 		{
-			std::cout << "stack_size = " << _stack.size() << std::endl;
-			std::cout << "calculate : ";
-			int tmp = _stack.top();
+			float tmp = _stack.top();
 			_stack.pop();
-			std::cout << tmp << operation[i] << _stack.top() << std::endl;
-			i++;
+			if (operation[i] == '/' && tmp == 0)
+			{
+				std::cout << "ERROR" << std::endl;
+				return ;
+			}
+			result = calculate(_stack.top(), operation[i], tmp);
+			_stack.pop();
+			_stack.push(result);
+			// "    9 8 9 * +  " fait Error 
+			// "1 2 * 2 / 2 * 2 4 - +" idem
 		}
-		// if ((isspace(operation[i]) == 0) || (isdigit(operation[i]) == 0)
-		// 	|| operation[i] != '+' || operation[i] != '-'
-		// 	|| operation[i] != '*' || operation[i] != '/')
-		// {
-		// 	std::cout << "<ERROR>" << std::endl;
-		// 	return ;
-		// }
+	}
+	if (_stack.size() == 1)
+	{
+		std::cout << result << std::endl;
 	}
 
 }

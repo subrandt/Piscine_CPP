@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:41:16 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/18 14:17:01 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/19 14:25:11 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,14 @@ int main (int argc, char **argv)
 		std::cerr << "Usage example: ./RPN \"1 1 +\"" << std::endl;
 		return (1);
 	}
+
+	
+
 	const std::string operation(argv[1]);
+
+	if (parsing(operation) == false)
+		return (1);
+
 	RPN rpn(operation);
 	
 	return (0);

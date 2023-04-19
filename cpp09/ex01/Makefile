@@ -6,13 +6,14 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 12:10:51 by subrandt          #+#    #+#              #
-#    Updated: 2023/04/18 11:49:14 by subrandt         ###   ########.fr        #
+#    Updated: 2023/04/19 14:13:51 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME =		RPN
 
 SRC =		main.cpp	\
+			parsing.cpp	\
 			RPN.cpp
 
 OBJ =		$(SRC:.cpp=.o)
