@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:48:28 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/19 17:53:38 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/20 10:35:05 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@
 RPN::RPN(void)
 {
 	// std::cout << "Default constructor called" << std::endl;
-}
-
-RPN::RPN(std::string const & operation)
-{
-	// std::cout << "Default Inputfile constructor called" << std::endl;
-	RPN_operation(operation);
 }
 
 RPN::RPN(RPN const & src)
@@ -114,8 +108,7 @@ void RPN::RPN_operation(std::string const & operation)
 			result = calculate(_stack.top(), operation[i], tmp);
 			_stack.pop();
 			_stack.push(result);
-			// "    9 8 9 * +  " fait Error 
-			// "1 2 * 2 / 2 * 2 4 - +" idem
+
 		}
 	}
 	if (_stack.size() == 1)

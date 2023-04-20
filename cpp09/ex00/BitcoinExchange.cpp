@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:45:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/18 17:50:10 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/20 10:42:16 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,6 @@
 Btc::Btc(void)
 {
 	// std::cout << "Default constructor called" << std::endl;
-}
-
-Btc::Btc(std::string const & inputfile)
-{
-	// std::cout << "Default Inputfile constructor called" << std::endl;
-	parse_data(inputfile);
 }
 
 Btc::Btc(Btc const & src)

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:46:49 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/18 17:52:28 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/20 10:41:44 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,15 @@
 class Btc
 {
 	public:
-		Btc(std::string const & inputfile);
+		Btc(void);
 		Btc(Btc const & src);
 		~Btc(void);
 
+		void parse_data(std::string const & inputfile);
 
 	private:
-		Btc(void);
 		Btc & operator=(Btc const & rhs);
 	
-		void parse_data(std::string const & inputfile);
 		void check_inputfile(std::string const & inputfile);
 		void calculate_output_value(void);
 		void print_output(void);

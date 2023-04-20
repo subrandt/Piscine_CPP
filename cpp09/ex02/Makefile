@@ -6,13 +6,14 @@
 #    By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/06 12:21:59 by subrandt          #+#    #+#              #
-#    Updated: 2023/04/06 12:23:40 by subrandt         ###   ########.fr        #
+#    Updated: 2023/04/20 10:21:10 by subrandt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =		Pmerge
+NAME =		PmergeMe
 
-SRC =		main.cpp
+SRC =		main.cpp		\
+			PmergeMe.cpp
 
 OBJ =		$(SRC:.cpp=.o)
 
