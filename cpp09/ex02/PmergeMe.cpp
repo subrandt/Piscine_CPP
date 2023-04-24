@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:22:34 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/20 15:37:51 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/24 18:18:06 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,65 @@ static void	print_before(char **argv)
 	std::cout << std::endl;
 }
 
-static void print_after(void);
-{
-	std::cout << "After: " ;
+// static void print_after(void);
+// {
+// 	std::cout << "After: " ;
 	
-	std::cout << std::endl;
-}
+// 	std::cout << std::endl;
+// }
 
 /* ************************************************************************** */
 /*								Sort Functions								  */
 /* ************************************************************************** */
 
-static void	sort_algo(void)
+void PmergeMe::insert_sort(std::vector<int> vector)
 {
 	
+	for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); it++)
+	{
+		size_t i = 0;
+		std::vector<int>::iterator it_next = it++;
+		if (it_next < it && it_next != vector.end())
+		{
+			std::swap(vector[i], vector[i+1]);
+			it_next++;
+		}
+		it_next++;
+	}
+
+	for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); it++)
+	{
+		std::cout << "it: " << *it << std::endl;
+	}
+}
+
+void	PmergeMe::sort_algo(void)
+{
+	std::vector<int>::iterator it;
+	std::vector<int>::iterator it_middle;
+	std::vector<int>::iterator it_end = _vector.end();
+
+
+	size_t i = 0;
+	for (it = _vector.begin(); it != it_end; it++)
+	{
+		if (i < _vector.size() / 2)
+		{
+			_vector_left.push_back(_vector.at(i));
+		}
+		if (i >= _vector.size() / 2)
+		{
+			it_middle = it;
+			_vector_right.push_back(_vector.at(i));
+		}
+		i++;
+
+	}
+	insert_sort(_vector_left);
+	insert_sort(_vector_right);
+	// merge_sort(vector_left, vector_right);
+	
+
 }
 
 /* ************************************************************************** */
@@ -91,6 +136,6 @@ void	PmergeMe::init_container(char **argv)
 		_deque.push_back(number);
 		i++;
 	}
-	sort_algo(void);
-	print_after(void);
+	sort_algo();
+	// print_after(void);
 }

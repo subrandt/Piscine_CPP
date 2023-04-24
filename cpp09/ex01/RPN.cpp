@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 11:48:28 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/20 10:35:05 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/24 11:40:47 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,6 @@ static float calculate(float & first, char  op, float & second)
 void RPN::RPN_operation(std::string const & operation)
 {
 	
-	//division par 0
-
-	//calculate function : "+ - / *"
-
-	//output function
 	float result;
 	for (size_t i = 0; i < operation.length(); i++)
 	{
@@ -102,7 +97,7 @@ void RPN::RPN_operation(std::string const & operation)
 			_stack.pop();
 			if (operation[i] == '/' && tmp == 0)
 			{
-				std::cout << "ERROR" << std::endl;
+				std::cerr << "ERROR" << std::endl;
 				return ;
 			}
 			result = calculate(_stack.top(), operation[i], tmp);

@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 10:12:34 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/20 14:31:58 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/24 11:39:40 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static bool	parsing(std::string const & argv)
 	number = strtol(argv.c_str(), &p_end, 10);
 	if (number < 0 || number > INT_MAX || strlen(p_end) != 0)
 	{
-		std::cout << "ERROR" << std::endl;
+		std::cerr << "ERROR" << std::endl;
 		return (false);
 	}
 
@@ -32,7 +32,7 @@ int main (int argc, char **argv)
 {
 	if (argc <= 1)
 	{
-		std::cout << "<ERROR>\nWrong number of arguments" << std::endl;
+		std::cerr << "<ERROR>\nWrong number of arguments" << std::endl;
 		return (1);
 	}
 	for (int i = 1; i < argc; i++)
