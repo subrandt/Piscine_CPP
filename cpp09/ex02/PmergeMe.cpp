@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:22:34 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/24 18:18:06 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:36:50 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,36 +59,45 @@ static void	print_before(char **argv)
 	std::cout << std::endl;
 }
 
-// static void print_after(void);
-// {
-// 	std::cout << "After: " ;
-	
-// 	std::cout << std::endl;
-// }
-
 /* ************************************************************************** */
 /*								Sort Functions								  */
 /* ************************************************************************** */
 
-void PmergeMe::insert_sort(std::vector<int> vector)
+void PmergeMe::insert_sort(std::vector<int> & vector)
 {
-	
-	for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); it++)
+	for (size_t i = 1; i < vector.size(); i++)
 	{
-		size_t i = 0;
-		std::vector<int>::iterator it_next = it++;
-		if (it_next < it && it_next != vector.end())
+		int comp = i;
+		while (comp > 0)
 		{
-			std::swap(vector[i], vector[i+1]);
-			it_next++;
+			if(vector[comp] < vector[comp - 1])
+			{
+				std::swap(vector[comp], vector[comp - 1]);
+			}
+			comp--;
 		}
-		it_next++;
 	}
 
-	for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); it++)
+	for (size_t i = 0; i < vector.size(); i++)
 	{
-		std::cout << "it: " << *it << std::endl;
+		std::cout << vector[i] << " ";
 	}
+	std::cout << std::endl;
+}
+
+void	PmergeMe::merge_sort(std::vector<int> & vector_left, std::vector<int> & vector_right)
+{
+	std::merge(vector_left.begin(), vector_left.end(), vector_right.begin(),
+	vector_right.end(),_vector.begin());
+
+	//print after sorting:
+	std::cout << "After: " ;
+	for (size_t k = 0; k < _vector.size(); k++)
+	{
+		std::cout << _vector[k] << " ";
+	}
+	std::cout << std::endl;
+
 }
 
 void	PmergeMe::sort_algo(void)
@@ -113,9 +122,11 @@ void	PmergeMe::sort_algo(void)
 		i++;
 
 	}
+	std::cout << "left side insert sort: " << std::endl;
 	insert_sort(_vector_left);
+	std::cout << "right side insert sort: " << std::endl;
 	insert_sort(_vector_right);
-	// merge_sort(vector_left, vector_right);
+	merge_sort(_vector_left, _vector_right);
 	
 
 }

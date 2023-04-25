@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 10:27:29 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/24 17:39:55 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/25 16:41:34 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <climits>
 # include <cstring>
 # include <cstdlib>
+# include <algorithm>
+# include <sys/time.h>
 
 
 class PmergeMe
@@ -29,9 +31,14 @@ class PmergeMe
 		PmergeMe & operator=(PmergeMe const & rhs);
 		~PmergeMe(void);
 
-		void	init_container(char **argv);
-		void	sort_algo(void);
-		void	insert_sort(std::vector<int> vector);
+		void		init_container(char **argv);
+
+		//sort functions
+		void		sort_algo(void);
+		void		insert_sort(std::vector<int> & vector);
+		void		merge_sort(std::vector<int> & vector_left, std::vector<int> & vector_right);
+		
+
 
 	private:
 		std::vector<int> _vector;
@@ -41,5 +48,9 @@ class PmergeMe
 		std::deque<int> _deque;
 
 };
+
+//time functions:
+long long	get_start_time(struct timeval *start_time);
+long long	get_parsing_time(struct timeval *time, long long start_time);
 
 #endif
