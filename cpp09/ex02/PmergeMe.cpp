@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:22:34 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/25 15:36:50 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/26 15:17:16 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,6 @@ void	PmergeMe::sort_algo(void)
 	insert_sort(_vector_right);
 	merge_sort(_vector_left, _vector_right);
 	
-
 }
 
 /* ************************************************************************** */
@@ -148,5 +147,4 @@ void	PmergeMe::init_container(char **argv)
 		i++;
 	}
 	sort_algo();
-	// print_after(void);
 }
