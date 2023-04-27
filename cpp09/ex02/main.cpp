@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 10:12:34 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/27 10:20:58 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/27 16:51:47 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int main (int argc, char **argv)
 	struct timeval	timeval;
 	
 	long long start_time = get_start_time(&timeval);
-	std::cout << "start time = " << start_time << " µs" << std::endl;
 	
 	if (argc <= 1)
 	{
@@ -53,8 +52,8 @@ int main (int argc, char **argv)
 	PmergeMe pmergeme;
 	pmergeme.init_container(argv);
 
-	long long process_time = get_parsing_time(&timeval, start_time);//modifier nom de fonction
-	std::cout << "process time = " << process_time << " µs" << std::endl;
+	long long vector_time = get_vector_time(&timeval, start_time);
+	std::cout << "vector time = " << vector_time << " µs" << std::endl;
 	
 	
 	return (0);
