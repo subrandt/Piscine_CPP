@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:15:03 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/28 14:05:07 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:12:30 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	PmergeMe::get_time(long long start_time, long long parsing_time)
 	_parsing_time = parsing_time;
 }
 
-
 // get timestamp of the two containers in order to compare std::vector and std::deque
+// 1) get the process time of de std::vector
 void	PmergeMe::get_vector_time(void)
 {
 	struct timeval	time;
@@ -50,9 +50,9 @@ void	PmergeMe::get_vector_time(void)
 	_vector_time = vector_time;
 	std::cout << "Time to process a range of " << _vector.size();
 	std::cout << " elements with std ::vector : " << _vector_time << " µs" << std::endl;
-
 }
 
+// 2) get the process time of de std::deque
 void	PmergeMe::get_deque_time(void)
 {
 	struct timeval	time;

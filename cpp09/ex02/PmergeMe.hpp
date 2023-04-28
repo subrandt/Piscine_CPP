@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 10:27:29 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/28 09:57:38 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:13:58 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class PmergeMe
 		PmergeMe & operator=(PmergeMe const & rhs);
 		~PmergeMe(void);
 
+		//initializer function
 		void		init_container(char **argv);
 		//time functions:
 		void		get_time(long long start_time, long long parsing_time);
@@ -51,9 +52,11 @@ class PmergeMe
 
 
 	private:
+		//containers
 		std::vector<int> _vector;
 		std::deque<int> _deque;
 
+		//time
 		long long _start_time;
 		long long _parsing_time;
 		long long _vector_time;

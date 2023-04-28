@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:22:34 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/28 13:40:07 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:14:28 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,4 @@ void	PmergeMe::init_container(char **argv)
 
 	_deque = sort_deque(_deque);
 	get_deque_time();
-
 }

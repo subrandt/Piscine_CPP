@@ -6,12 +6,11 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:24:13 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/27 16:56:12 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:16:22 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-
 
 /* ************************************************************************** */
 /*								Sort Functions - Deque						  */
@@ -32,7 +31,6 @@ std::deque<int>	PmergeMe::insert_sort_deque(std::deque<int> deque)
 			comp--;
 		}
 	}
-
 	return (deque);
 }
 
@@ -43,7 +41,6 @@ std::deque<int>	PmergeMe::merge_sort_deque(std::deque<int> left, std::deque<int>
 	std::merge(left.begin(), left.end(), right.begin(),	right.end(), result.begin());
 
 	return(result);
-
 }
 
 std::deque<int>	PmergeMe::sort_deque(std::deque<int> deque)
@@ -54,7 +51,6 @@ std::deque<int>	PmergeMe::sort_deque(std::deque<int> deque)
 
 	if (deque.size() > 20)
 	{
-		
 		for (std::deque<int>::iterator it = deque.begin(); it != deque.end(); it++)
 		{
 			if (size < deque.size() / 2)
@@ -63,12 +59,10 @@ std::deque<int>	PmergeMe::sort_deque(std::deque<int> deque)
 				right.push_back(*it);
 			size++;
 		}
-		
 		left = sort_deque(left);
 		right = sort_deque(right);
 		
 		return (merge_sort_deque(left, right));
 	}
-	
 	return (insert_sort_deque(deque));
 }

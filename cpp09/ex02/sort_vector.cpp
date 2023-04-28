@@ -6,12 +6,11 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 16:24:13 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/27 16:53:29 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:16:51 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-
 
 /* ************************************************************************** */
 /*								Sort Functions - Vector						  */
@@ -19,7 +18,6 @@
 
 std::vector<int>	PmergeMe::insert_sort_vector(std::vector<int> vector)
 {
-	
 	for (size_t i = 1; i < vector.size(); i++)
 	{
 		int comp = i;
@@ -32,7 +30,6 @@ std::vector<int>	PmergeMe::insert_sort_vector(std::vector<int> vector)
 			comp--;
 		}
 	}
-
 	return (vector);
 }
 
@@ -43,7 +40,6 @@ std::vector<int>	PmergeMe::merge_sort_vector(std::vector<int> left, std::vector<
 	std::merge(left.begin(), left.end(), right.begin(),	right.end(), result.begin());
 
 	return(result);
-
 }
 
 std::vector<int>	PmergeMe::sort_vector(std::vector<int> vector)
@@ -54,7 +50,6 @@ std::vector<int>	PmergeMe::sort_vector(std::vector<int> vector)
 
 	if (vector.size() > 20)
 	{
-		
 		for (std::vector<int>::iterator it = vector.begin(); it != vector.end(); it++)
 		{
 			if (size < vector.size() / 2)
@@ -63,12 +58,10 @@ std::vector<int>	PmergeMe::sort_vector(std::vector<int> vector)
 				right.push_back(*it);
 			size++;
 		}
-		
 		left = sort_vector(left);
 		right = sort_vector(right);
 		
 		return (merge_sort_vector(left, right));
 	}
-	
 	return (insert_sort_vector(vector));
 }
