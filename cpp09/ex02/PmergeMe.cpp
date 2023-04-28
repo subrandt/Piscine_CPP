@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 11:22:34 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/27 17:07:25 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/28 13:40:07 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void PmergeMe::print_after(void)
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
-
 }
 
 /* ************************************************************************** */
@@ -86,9 +85,10 @@ void	PmergeMe::init_container(char **argv)
 		i++;
 	}
 	_vector = sort_vector(_vector);
-
-	//calculer le temps
+	print_after();
+	get_vector_time();
 
 	_deque = sort_deque(_deque);
-	print_after();
+	get_deque_time();
+
 }

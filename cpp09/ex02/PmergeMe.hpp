@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 10:27:29 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/27 16:54:34 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/28 09:57:38 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ class PmergeMe
 		~PmergeMe(void);
 
 		void		init_container(char **argv);
+		//time functions:
+		void		get_time(long long start_time, long long parsing_time);
+		void		get_vector_time(void);
+		void		get_deque_time(void);
 
 		//sort functions
 		std::vector<int>	sort_vector(std::vector<int> vector);
@@ -50,13 +54,15 @@ class PmergeMe
 		std::vector<int> _vector;
 		std::deque<int> _deque;
 
+		long long _start_time;
+		long long _parsing_time;
+		long long _vector_time;
+
 };
 
-//time functions:
 long long	get_start_time(struct timeval *start_time);
 long long	get_parsing_time(struct timeval *time, long long start_time);
-long long	get_vector_time(struct timeval *time, long long start_time);
-// long long	get_deque_time(struct timeval *time, long long parsing_time, long long vector_time);
+
 
 
 #endif

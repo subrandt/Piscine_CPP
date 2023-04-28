@@ -6,12 +6,11 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 15:15:03 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/27 17:08:08 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:05:07 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-
 
 //get the timestamp of the beginning of the programm, in order to get the
 //relative timestamp.
@@ -23,7 +22,7 @@ long long	get_start_time(struct timeval *time)
 }
 
 //get the timestamp after the parsing
-long long get_parsing_time(struct timeval *time, long long start_time)
+long long	get_parsing_time(struct timeval *time, long long start_time)
 {
 	gettimeofday(time, NULL);
 	long long 	parsing_time = (time->tv_sec * 1000000)	+ (time->tv_usec) - start_time;
@@ -32,19 +31,35 @@ long long get_parsing_time(struct timeval *time, long long start_time)
 
 }
 
-// get timestamp of the two containers in order to compare std::vector and std::deque
-long long	get_vector_time(struct timeval *time, long long start_time)
+//put time in the Pmerge-class
+void	PmergeMe::get_time(long long start_time, long long parsing_time)
 {
-	gettimeofday(time, NULL);
-	long long 	process_time = (time->tv_sec * 1000000)	+ (time->tv_usec) - start_time;
-	
-	return (process_time);
+	_start_time = start_time;
+	_parsing_time = parsing_time;
 }
 
-long long	get_deque_time(struct timeval *time, long long start_time)
+
+// get timestamp of the two containers in order to compare std::vector and std::deque
+void	PmergeMe::get_vector_time(void)
 {
-	gettimeofday(time, NULL);
-	long long 	process_time = (time->tv_sec * 1000000)	+ (time->tv_usec) - start_time;
+	struct timeval	time;
+	gettimeofday(&time, NULL);
 	
-	return (process_time);
+	long long 	vector_time;
+	vector_time = (time.tv_sec * 1000000)	+ (time.tv_usec) - _start_time;
+	_vector_time = vector_time;
+	std::cout << "Time to process a range of " << _vector.size();
+	std::cout << " elements with std ::vector : " << _vector_time << " µs" << std::endl;
+
+}
+
+void	PmergeMe::get_deque_time(void)
+{
+	struct timeval	time;
+	gettimeofday(&time, NULL);
+	long long 	deque_time;
+	deque_time = (time.tv_sec * 1000000) + (time.tv_usec) - _start_time - _vector_time + _parsing_time;
+
+	std::cout << "Time to process a range of " << _deque.size();
+	std::cout << " elements with std ::deque : " << deque_time << " µs" << std::endl;
 }
