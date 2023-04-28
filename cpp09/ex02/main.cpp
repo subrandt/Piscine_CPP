@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 10:12:34 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/28 14:15:17 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:37:30 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 static bool	parsing(std::string const & argv)
 {
+	//check empty args
+	if (argv == "")
+	{
+		std::cerr << "ERROR" << std::endl;
+		return (false);
+	}
+
 	//check positif integer
 	long number;
 	char *p_end;
