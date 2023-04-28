@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:45:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/20 10:42:16 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:32:48 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,6 +224,11 @@ void Btc::check_inputfile(std::string const & inputfile)
 			return ;
 		}
 		unsigned int line_inputfile = 1;
+		if (!getline(fs, line))
+		{
+			std::cerr << "Error inputfile: no data to compare" << std::endl;
+			return ;
+		}
 		while (getline(fs, line))
 		{
 			line_inputfile++;
@@ -310,6 +315,11 @@ void	Btc::parse_data(std::string const & inputfile)
 		}
 
 		unsigned int line_database = 1;
+		if (!getline(fs, line))
+		{
+			std::cerr << "Error database: no data" << std::endl;
+			return ;
+		}
 		//fill map<>: _database[key] = value
 		while (getline(fs, line))
 		{
