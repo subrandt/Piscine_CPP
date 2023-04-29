@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:46:49 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/20 10:41:44 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/29 19:36:41 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Btc
 		Btc & operator=(Btc const & rhs);
 	
 		void check_inputfile(std::string const & inputfile);
-		void calculate_output_value(void);
+		bool calculate_output_value(void);
 		void print_output(void);
 
 

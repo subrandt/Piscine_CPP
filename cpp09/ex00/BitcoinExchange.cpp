@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:45:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/28 14:32:48 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/29 20:44:56 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,29 +176,32 @@ static bool check_empty_line(std::string const & line)
 }
 
 //compare to database
-void Btc::calculate_output_value(void)
+bool Btc::calculate_output_value(void)
 {
 	std::map<std::string, float>::iterator it;
 
 	//if database has the exact date
 	it = _database.find(_output_date);
 	if (it != _database.end())
+	{
 		_btc_value = it->second;
+		return (true);
+	}
 	//else take the older date
 	else
 	{
 		it = _database.upper_bound(_output_date);
-		// if (it == _database.begin())
-		// {
-		// 	_btc_value = it->second;
-		// 	return ;
-		// }
+		if (it == _database.begin())
+		{
+			return (false);
+		}
 		if (it != _database.end())
 			it--;
 		else
 			it--;
 		_btc_value = it->second;
 	}
+	return (true);
 }
 
 //output like given example: 2011-01-03 => 3 = 0.9
@@ -224,11 +227,6 @@ void Btc::check_inputfile(std::string const & inputfile)
 			return ;
 		}
 		unsigned int line_inputfile = 1;
-		if (!getline(fs, line))
-		{
-			std::cerr << "Error inputfile: no data to compare" << std::endl;
-			return ;
-		}
 		while (getline(fs, line))
 		{
 			line_inputfile++;
@@ -279,9 +277,18 @@ void Btc::check_inputfile(std::string const & inputfile)
 				continue ;
 			}
 			//compare to database:
-			calculate_output_value();
+			if (calculate_output_value() == false)
+			{
+				std::cerr << "Error : No older value in database" << std::endl;
+				break ;
+			}
 			//output like given example: 2011-01-03 => 3 = 0.9:
 			print_output();
+		}
+		if (line_inputfile == 1)
+		{
+			std::cerr << "Error inputfile: no data" << std::endl;
+			return ;
 		}
 	}
 	else
@@ -315,11 +322,7 @@ void	Btc::parse_data(std::string const & inputfile)
 		}
 
 		unsigned int line_database = 1;
-		if (!getline(fs, line))
-		{
-			std::cerr << "Error database: no data" << std::endl;
-			return ;
-		}
+	
 		//fill map<>: _database[key] = value
 		while (getline(fs, line))
 		{
@@ -370,6 +373,11 @@ void	Btc::parse_data(std::string const & inputfile)
 				std::cerr << " - Error in database: wrong date" << std::endl;
 				continue ;
 			}
+		}
+		if (line_database == 1)
+		{
+			std::cerr << "Error database: no data" << std::endl;
+			return ;
 		}
 	}
 	else
