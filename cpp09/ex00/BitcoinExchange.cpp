@@ -6,7 +6,7 @@
 /*   By: subrandt <subrandt@student.42angouleme.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 12:45:53 by subrandt          #+#    #+#             */
-/*   Updated: 2023/04/29 20:44:56 by subrandt         ###   ########.fr       */
+/*   Updated: 2023/04/29 21:12:33 by subrandt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -279,11 +279,13 @@ void Btc::check_inputfile(std::string const & inputfile)
 			//compare to database:
 			if (calculate_output_value() == false)
 			{
-				std::cerr << "Error : No older value in database" << std::endl;
-				break ;
+				std::cerr << "line " << line_inputfile;
+				std::cerr << " - Error : No older value in database" << std::endl;
+				// break ;
 			}
 			//output like given example: 2011-01-03 => 3 = 0.9:
-			print_output();
+			else
+				print_output();
 		}
 		if (line_inputfile == 1)
 		{
